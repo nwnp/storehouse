@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let array = ["baram", "lee", "jin"];
+      let [firstName, , myName] = array;
+      console.log(`firstName: ${firstName}, myName: ${myName}`);
+
+      const options = {
+        title: "home",
+        width: 300,
+        height: 500,
+      };
+
+      const { title, width, height } = options;
+      console.log(title, width, height);
+
+      const family = {
+        grandmother: "harrison",
+        sister: "ethan",
+        brother: "austin",
+      };
+
+      const { grandmother, sister: baby, grandfather = "aa" } = family;
+      // grandfather라는 새로운 프로퍼티 추가
+      console.log(grandfather);
+    </script>
+  </body>
+</html>

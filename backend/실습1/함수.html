@@ -1,0 +1,28 @@
+<html>
+  <body>
+    함수
+  </body>
+</html>
+<script>
+  function func1() {
+    console.log("함수 func1 입니다.");
+  }
+  func1();
+  const func2 = function () {
+    return "함수 func2 입니다.";
+  };
+  console.log(func2());
+
+  const func3 = () => {
+    return 20;
+  };
+  const func4 = () => {
+    return 10;
+  };
+
+  console.log(func3() + func4());
+  const func5 = () => {
+    return func3() - func4();
+  };
+  console.log(func5());
+</script>
