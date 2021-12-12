@@ -1,17 +1,35 @@
-const condition = !true;
+// const condition = !true;
+// const promise = new Promise((resolve, reject) => {
+//   if (condition) {
+//     resolve("성공");
+//   } else {
+//     reject("실패");
+//   }
+// })
+//   .then((message) => {
+//     console.log(message);
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   })
+//   .finally(() => {
+//     console.log("무조건");
+//   });
+
+const condition = true;
 const promise = new Promise((resolve, reject) => {
   if (condition) {
-    resolve("성공");
+    resolve("success😁");
   } else {
-    reject("실패");
+    reject("failed🤬");
   }
 })
   .then((message) => {
     console.log(message);
   })
   .catch((error) => {
-    console.error(error);
+    console.log(error);
   })
   .finally(() => {
-    console.log("무조건");
+    console.log("always🤨");
   });
