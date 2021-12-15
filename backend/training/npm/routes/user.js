@@ -1,0 +1,13 @@
+const express = require("express");
+
+const router = express.Router();
+router.get("/", (req, res) => {
+  res.send("hello, express!!");
+});
+
+router.get("/:id", (req, res) => {
+  console.log(req.params.id);
+  res.send(req.params);
+});
+
+module.exports = router;
