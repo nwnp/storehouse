@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>연습문제2</title>
+  </head>
+  <body>
+    <div>
+      <div>이름: <input type="text" name="username" /></div>
+      <div>아이디: <input type="text" name="userid" /></div>
+      <div>비밀번호: <input type="password" name="password" /></div>
+    </div>
+    <p>Habit</p>
+    <div>
+      <input type="checkbox" name="habit" value="reading" />독서
+      <input type="checkbox" name="habit" value="hiking" />등반
+      <input type="checkbox" name="habit" value="fishing" />낚시
+    </div>
+
+    <p>phone</p>
+    <div>
+      <input type="radio" name="phone" value="good" />아이폰
+      <input type="radio" name="phone" value="bad" />안드로이드
+    </div>
+
+    <p>Location</p>
+    <select name="location">
+      <option value="incheon" selected>Incheon</option>
+      <option value="seoul">Seoul</option>
+      <option value="pusan">Pusan</option>
+      <option value="gwangju">Gwangju</option>
+      <option value="ulengdo">Ulengdo</option>
+      <option value="uijeongbu">Uijeongbu</option>
+      <option value="paju">Paju</option>
+      <option value="gangwondo">Gwangwondo</option>
+      <option value="yongin">Yongin</option>
+      <option value="gimpo">Gimpo</option>
+      <option value="gunpo">Gunpo</option>
+      <option value="suwon">Suwon</option>
+      <option value="siheung">Siheung</option>
+      <option value="yangju">Yangju</option>
+      <option value="gwangmyung">Gwangmyung</option>
+      <option value="daegu">Daegu</option>
+      <option value="yeosu">Yeosu</option>
+    </select>
+    <p>비고</p>
+    <textarea name="review" cols="50" rows="8">To write!</textarea>
+    <div>
+      <div>
+        <input type="button" onclick="alert('등록')" value="등록" />
+        <input type="button" onclick="alert('취소')" value="취소" />
+      </div>
+    </div>
+  </body>
+</html>
