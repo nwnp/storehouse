@@ -1,46 +1,70 @@
 ﻿<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docker설치</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Docker설치</title>
-  <link rel="stylesheet" href="https://stackedit.io/style.css" />
-</head>
-
-<body class="stackedit">
-  <div class="stackedit__left">
-    <div class="stackedit__toc">
-      
-<ul>
-<li><a href="#docker-설치">Docker 설치</a>
-<ul>
-<li><a href="#참고자료">참고자료</a></li>
-<li><a href="#docker설치">Docker설치</a></li>
-<li><a href="#docker-기본-명령어">Docker 기본 명령어</a></li>
-<li><a href="#docker-디렉토리-구조참고-사항">Docker 디렉토리 구조(참고 사항)</a></li>
-<li><a href="#on-premise에서의-도커-사용">On-premise에서의 도커 사용</a></li>
-</ul>
-</li>
-</ul>
-
+  <body class="stackedit">
+    <div class="stackedit__left">
+      <div class="stackedit__toc">
+        <ul>
+          <li>
+            <a href="#docker-설치">Docker 설치</a>
+            <ul>
+              <li><a href="#참고자료">참고자료</a></li>
+              <li><a href="#docker설치">Docker설치</a></li>
+              <li><a href="#docker-기본-명령어">Docker 기본 명령어</a></li>
+              <li>
+                <a href="#docker-디렉토리-구조참고-사항"
+                  >Docker 디렉토리 구조(참고 사항)</a
+                >
+              </li>
+              <li>
+                <a href="#on-premise에서의-도커-사용"
+                  >On-premise에서의 도커 사용</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="stackedit__right">
-    <div class="stackedit__html">
-      <h1 id="docker-설치">Docker 설치</h1>
-<h2 id="참고자료">참고자료</h2>
-<p>초보를 위한 도커 안내서<br>
-<a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html">https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html</a></p>
-<p>가장빨리 만나는 도커<br>
-<a href="http://pyrasis.com/docker.html">http://pyrasis.com/docker.html</a></p>
-<h2 id="docker설치">Docker설치</h2>
-<p><strong>HostOS</strong>: CentOS7<br>
-<strong>설치안내</strong>: <a href="https://docs.docker.com/install/linux/docker-ce/centos/">https://docs.docker.com/install/linux/docker-ce/centos/</a></p>
-<h3 id="이전-버전-삭제">1. 이전 버전 삭제</h3>
-<p>이미 CentOS7에 내장 설치된 도커를 삭제하도록 한다.<br>
-(Minimal버전인 경우 해당 없음)</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# yum remove docker \
+    <div class="stackedit__right">
+      <div class="stackedit__html">
+        <h1 id="docker-설치">Docker 설치</h1>
+        <h2 id="참고자료">참고자료</h2>
+        <p>
+          초보를 위한 도커 안내서<br />
+          <a
+            href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html"
+            >https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html</a
+          >
+        </p>
+        <p>
+          가장빨리 만나는 도커<br />
+          <a href="http://pyrasis.com/docker.html"
+            >http://pyrasis.com/docker.html</a
+          >
+        </p>
+        <h2 id="docker설치">Docker설치</h2>
+        <p>
+          <strong>HostOS</strong>: CentOS7<br />
+          <strong>설치안내</strong>:
+          <a href="https://docs.docker.com/install/linux/docker-ce/centos/"
+            >https://docs.docker.com/install/linux/docker-ce/centos/</a
+          >
+        </p>
+        <h3 id="이전-버전-삭제">1. 이전 버전 삭제</h3>
+        <p>
+          이미 CentOS7에 내장 설치된 도커를 삭제하도록 한다.<br />
+          (Minimal버전인 경우 해당 없음)
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# yum remove docker \
 docker-client \
 docker-client-latest \
 docker-common \
@@ -49,35 +73,51 @@ docker-latest-logrotate \
 docker-logrotate \
 docker-engine
 </code></pre>
-<h3 id="저장소-설정">2. 저장소 설정</h3>
-<p>필수 패키지 설치</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# yum install -y yum-utils device-mapper-persistent-data lvm2
+        <h3 id="저장소-설정">2. 저장소 설정</h3>
+        <p>필수 패키지 설치</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# yum install -y yum-utils device-mapper-persistent-data lvm2
 </code></pre>
-<p>저장소 설정</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# yum-config-manager \
+        <p>저장소 설정</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# yum-config-manager \
 --add-repo \
 https://download.docker.com/linux/centos/docker-ce.repo
 </code></pre>
-<p>Docker CE설치</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# yum list docker-ce --showduplicates | sort -r
+        <p>Docker CE설치</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# yum list docker-ce --showduplicates | sort -r
 docker-ce.x86_64  3:18.09.1-3.el7                     docker-ce-stable
 docker-ce.x86_64  3:18.09.0-3.el7                     docker-ce-stable
 docker-ce.x86_64  18.06.1.ce-3.el7                    docker-ce-stable
 docker-ce.x86_64  18.06.0.ce-3.el7                    docker-ce-stable
 </code></pre>
-<p>위 리스트 중 가장 안정적인 최신버전을 선택한다.<br>
-(docker-ce.x86_64  3:<strong>18.09.1</strong>-3.el7    docker-ce-stable)</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# yum install docker-ce-18.09.1
+        <p>
+          위 리스트 중 가장 안정적인 최신버전을 선택한다.<br />
+          (docker-ce.x86_64 3:<strong>18.09.1</strong>-3.el7 docker-ce-stable)
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# yum install docker-ce-18.09.1
 </code></pre>
-<p>(버전을 꼭 명시해서 설치할 것 <code>18.09.1</code>)</p>
-<p>Docker 데몬 실행</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# systemctl start docker
+        <p>(버전을 꼭 명시해서 설치할 것 <code>18.09.1</code>)</p>
+        <p>Docker 데몬 실행</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# systemctl start docker
 </code></pre>
-<p>Docker 데몬 부팅시 자동실행</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# systemctl enable docker.service
+        <p>Docker 데몬 부팅시 자동실행</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# systemctl enable docker.service
 </code></pre>
-<p>Docker버전 확인</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# docker version
+        <p>Docker버전 확인</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# docker version
 Client:
  Version:           18.09.3
  API version:       1.39
@@ -97,79 +137,104 @@ Server: Docker Engine - Community
   OS/Arch:          linux/amd64
   Experimental:     false
 </code></pre>
-<p>(Client와 Server의 버전이 같아야 함)</p>
-<h2 id="docker-기본-명령어">Docker 기본 명령어</h2>
-<h3 id="docker-시작종료">docker 시작/종료</h3>
-<p>docker데몬의 시작/종료는 다음과 같다.</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# systemctl start docker
+        <p>(Client와 Server의 버전이 같아야 함)</p>
+        <h2 id="docker-기본-명령어">Docker 기본 명령어</h2>
+        <h3 id="docker-시작종료">docker 시작/종료</h3>
+        <p>docker데몬의 시작/종료는 다음과 같다.</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# systemctl start docker
 [root@localhost]# systemctl stop docker
 </code></pre>
-<h3 id="docker-이미지">docker 이미지</h3>
-<p>이미지 리스트</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# docker images
+        <h3 id="docker-이미지">docker 이미지</h3>
+        <p>이미지 리스트</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# docker images
 </code></pre>
-<p>이미지 삭제</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# docker rmi &lt;REPOSITORY&gt;
+        <p>이미지 삭제</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# docker rmi &lt;REPOSITORY&gt;
 </code></pre>
-<h3 id="docker-컨테이너">docker 컨테이너</h3>
-<p>컨테이너 생성</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# docker run -it ubuntu /bin/bash
+        <h3 id="docker-컨테이너">docker 컨테이너</h3>
+        <p>컨테이너 생성</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# docker run -it ubuntu /bin/bash
 </code></pre>
-<p>docker run 옵션</p>
+        <p>docker run 옵션</p>
 
-<table>
-<thead>
-<tr>
-<th>옵션</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-d</code></td>
-<td>detached mode: 흔히 말하는 백그라운드 모드</td>
-</tr>
-<tr>
-<td><code>-p</code></td>
-<td>호스트와 컨테이너의 포트를 연결(포워딩)(호스트:컨테이너)</td>
-</tr>
-<tr>
-<td><code>-v</code></td>
-<td>호스트와 컨테이너의 디렉토리를 연결(마운트)(호스트:컨테이너)</td>
-</tr>
-<tr>
-<td><code>-e</code></td>
-<td>컨테이너 내에서 사용할 환경변수 설정</td>
-</tr>
-<tr>
-<td><code>--name</code></td>
-<td>컨네이너 이름 설정</td>
-</tr>
-<tr>
-<td><code>-it</code></td>
-<td>-i와 -t를 동시에 사용: 터미널 입력을 위한 옵션</td>
-</tr>
-</tbody>
-</table><p>컨테이너 시작/중지</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# docker start &lt;NAMES&gt;
+        <table>
+          <thead>
+            <tr>
+              <th>옵션</th>
+              <th>설명</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>-d</code></td>
+              <td>detached mode: 흔히 말하는 백그라운드 모드</td>
+            </tr>
+            <tr>
+              <td><code>-p</code></td>
+              <td>호스트와 컨테이너의 포트를 연결(포워딩)(호스트:컨테이너)</td>
+            </tr>
+            <tr>
+              <td><code>-v</code></td>
+              <td>
+                호스트와 컨테이너의 디렉토리를 연결(마운트)(호스트:컨테이너)
+              </td>
+            </tr>
+            <tr>
+              <td><code>-e</code></td>
+              <td>컨테이너 내에서 사용할 환경변수 설정</td>
+            </tr>
+            <tr>
+              <td><code>--name</code></td>
+              <td>컨네이너 이름 설정</td>
+            </tr>
+            <tr>
+              <td><code>-it</code></td>
+              <td>-i와 -t를 동시에 사용: 터미널 입력을 위한 옵션</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>컨테이너 시작/중지</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# docker start &lt;NAMES&gt;
 [root@localhost]# docker stop &lt;NAMES&gt;
 </code></pre>
-<p>컨테이너 프로세스 확인</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# docker ps
+        <p>컨테이너 프로세스 확인</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# docker ps
 [root@localhost]# docker ps -a
 </code></pre>
-<p>컨테이너 접속</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# docker exec -it &lt;NAMES&gt; /bin/bash
+        <p>컨테이너 접속</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# docker exec -it &lt;NAMES&gt; /bin/bash
 </code></pre>
-<p>컨테이너 삭제</p>
-<pre class=" language-console"><code class="prism  language-console">[root@localhost]# docker rm &lt;NAMES&gt;
+        <p>컨테이너 삭제</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">[root@localhost]# docker rm &lt;NAMES&gt;
 </code></pre>
-<h2 id="docker-디렉토리-구조참고-사항">Docker 디렉토리 구조(참고 사항)</h2>
-<p>도커의 디렉토리 구조는 다음과 같이 관리하면 편리하다.<br>
-<code>/home/docker/images</code> 이미지를 생성하기 위한 파일 모음<br>
-<code>/home/docker/containers</code> 컨네이너를 구동/관리하기 위한 파일 모음<br>
-<code>/home/docker/voluems</code> 컨네이너 생성시 호스트 디렉토리와 매핑한 볼륨 디렉토리</p>
-<pre><code>/home
+        <h2 id="docker-디렉토리-구조참고-사항">
+          Docker 디렉토리 구조(참고 사항)
+        </h2>
+        <p>
+          도커의 디렉토리 구조는 다음과 같이 관리하면 편리하다.<br />
+          <code>/home/docker/images</code> 이미지를 생성하기 위한 파일 모음<br />
+          <code>/home/docker/containers</code> 컨네이너를 구동/관리하기 위한
+          파일 모음<br />
+          <code>/home/docker/voluems</code> 컨네이너 생성시 호스트 디렉토리와
+          매핑한 볼륨 디렉토리
+        </p>
+        <pre><code>/home
 ...
 ├── docker
 │   ├── images               # 도커 이미지생성 파일 모음
@@ -200,13 +265,18 @@ Server: Docker Engine - Community
 │               └── ...
 ...
 </code></pre>
-<p>(위 구조는 예시로써 하나의 MaraiDB이미지로 부터 다수의 컨테이너를 생성한 모습을 나타낸다.)</p>
-<h2 id="on-premise에서의-도커-사용">On-premise에서의 도커 사용</h2>
-<p>도커 이미지 받기 및 로드(오프라인서버에서 도커 이미지 사용시)<br>
-<a href="https://docs.docker.com/engine/reference/commandline/save/">https://docs.docker.com/engine/reference/commandline/save/</a></p>
-
+        <p>
+          (위 구조는 예시로써 하나의 MaraiDB이미지로 부터 다수의 컨테이너를
+          생성한 모습을 나타낸다.)
+        </p>
+        <h2 id="on-premise에서의-도커-사용">On-premise에서의 도커 사용</h2>
+        <p>
+          도커 이미지 받기 및 로드(오프라인서버에서 도커 이미지 사용시)<br />
+          <a href="https://docs.docker.com/engine/reference/commandline/save/"
+            >https://docs.docker.com/engine/reference/commandline/save/</a
+          >
+        </p>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

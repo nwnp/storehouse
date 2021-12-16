@@ -1,49 +1,62 @@
 ﻿<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mosquitto.md</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mosquitto.md</title>
-  <link rel="stylesheet" href="https://stackedit.io/style.css" />
-</head>
-
-<body class="stackedit">
-  <div class="stackedit__left">
-    <div class="stackedit__toc">
-      
-<ul>
-<li><a href="#mqtt">MQTT</a>
-<ul>
-<li><a href="#mqtt-서버-구축mosquitto">MQTT 서버 구축(mosquitto)</a></li>
-<li><a href="#mqtt-사용in-nodejs">MQTT 사용(in nodejs)</a></li>
-</ul>
-</li>
-</ul>
-
+  <body class="stackedit">
+    <div class="stackedit__left">
+      <div class="stackedit__toc">
+        <ul>
+          <li>
+            <a href="#mqtt">MQTT</a>
+            <ul>
+              <li>
+                <a href="#mqtt-서버-구축mosquitto">MQTT 서버 구축(mosquitto)</a>
+              </li>
+              <li><a href="#mqtt-사용in-nodejs">MQTT 사용(in nodejs)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="stackedit__right">
-    <div class="stackedit__html">
-      <h1 id="mqtt">MQTT</h1>
-<p>타 시스템과의 메세지 통신은 <code>mosquitto</code>를 이용하여 <code>mqtt</code> or <code>websocket</code>을 통해 메세지를 주고 받는다.</p>
-<h2 id="mqtt-서버-구축mosquitto">MQTT 서버 구축(mosquitto)</h2>
-<h3 id="환경설정-파일-및-도커-실행-파일-준비">환경설정 파일 및 도커 실행 파일 준비</h3>
-<ul>
-<li>환경설정 파일: <code>mosquitto.conf</code></li>
-<li>도커 컨네이터 파일: <code>dockerRun.sh</code></li>
-</ul>
-<p>환결설정 파일과 도커 컨테이너 파일을 아래와 같이 도커 컨테이너 홈 디렉토리(<code>/home/docker/containers/mosquitto</code>)에 카피 한다.</p>
-<pre class=" language-console"><code class="prism  language-console"># mkdir -p /home/docker/containers/mosquitto/mosquitto.conf
+    <div class="stackedit__right">
+      <div class="stackedit__html">
+        <h1 id="mqtt">MQTT</h1>
+        <p>
+          타 시스템과의 메세지 통신은 <code>mosquitto</code>를 이용하여
+          <code>mqtt</code> or <code>websocket</code>을 통해 메세지를 주고
+          받는다.
+        </p>
+        <h2 id="mqtt-서버-구축mosquitto">MQTT 서버 구축(mosquitto)</h2>
+        <h3 id="환경설정-파일-및-도커-실행-파일-준비">
+          환경설정 파일 및 도커 실행 파일 준비
+        </h3>
+        <ul>
+          <li>환경설정 파일: <code>mosquitto.conf</code></li>
+          <li>도커 컨네이터 파일: <code>dockerRun.sh</code></li>
+        </ul>
+        <p>
+          환결설정 파일과 도커 컨테이너 파일을 아래와 같이 도커 컨테이너 홈
+          디렉토리(<code>/home/docker/containers/mosquitto</code>)에 카피 한다.
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console"># mkdir -p /home/docker/containers/mosquitto/mosquitto.conf
 # cp mosquitto.conf /home/docker/containers/mosquitto/.
 # cp dockerRun.sh /home/docker/containers/mosquitto/.
 </code></pre>
-<h3 id="mosquitto-환경-설정">mosquitto 환경 설정</h3>
-<p><code>mosquitto</code>의 환경설정은 다음의 값만 설정하여 사용 한다.</p>
-<blockquote>
-<p>mosquitto.conf</p>
-</blockquote>
-<pre class=" language-conf"><code class="prism  language-conf">...
+        <h3 id="mosquitto-환경-설정">mosquitto 환경 설정</h3>
+        <p>
+          <code>mosquitto</code>의 환경설정은 다음의 값만 설정하여 사용 한다.
+        </p>
+        <blockquote>
+          <p>mosquitto.conf</p>
+        </blockquote>
+        <pre class="language-conf"><code class="prism  language-conf">...
 # =================================================================
 # Listeners
 # =================================================================
@@ -61,13 +74,15 @@ protocol websockets
 allow_anonymous true
 ...
 </code></pre>
-<p>대부분은 기본값(설정 안함)으로 사용한다.</p>
-<h3 id="도커-컨테이너-실행">도커 컨테이너 실행</h3>
-<p><code>mosquitto</code>도커는 다음과 같은 방법으로 실행 시킨다.</p>
-<blockquote>
-<p>dockerRun.sh</p>
-</blockquote>
-<pre class=" language-shell"><code class="prism  language-shell">#!/bin/bash
+        <p>대부분은 기본값(설정 안함)으로 사용한다.</p>
+        <h3 id="도커-컨테이너-실행">도커 컨테이너 실행</h3>
+        <p><code>mosquitto</code>도커는 다음과 같은 방법으로 실행 시킨다.</p>
+        <blockquote>
+          <p>dockerRun.sh</p>
+        </blockquote>
+        <pre
+          class="language-shell"
+        ><code class="prism  language-shell">#!/bin/bash
 
 # setting - docker info
 DOCKER_IMAGE_NAME=eclipse-mosquitto
@@ -91,29 +106,41 @@ docker run --name $DOCKER_CONTAINER_NAME \
 -d \
 $DOCKER_IMAGE
 </code></pre>
-<p><code>DOCKER_CONTAINER_NAME</code>을 정의할때는 각 프로세스별로 구분하도록 한다.<br>
-(예: dev용 mosquitto: <code>eclipse-mosquitto-dev</code>)</p>
-<ul>
-<li>사용하는 포트는 다음과 같다.
-<ul>
-<li>DOCKER_PORT_MQTT=1883</li>
-<li>DOCKER_PORT_WEBSOCKET=9001</li>
-</ul>
-</li>
-</ul>
-<h2 id="mqtt-사용in-nodejs">MQTT 사용(in nodejs)</h2>
-<h3 id="mqtt-install">mqtt install</h3>
-<ul>
-<li>mqtt를 사용할 nodejs에서는 다음과 같이 mqtt 라이브러리를 설치 한다.</li>
-</ul>
-<pre class=" language-console"><code class="prism  language-console"># npm install mqtt @types/mqtt
+        <p>
+          <code>DOCKER_CONTAINER_NAME</code>을 정의할때는 각 프로세스별로
+          구분하도록 한다.<br />
+          (예: dev용 mosquitto: <code>eclipse-mosquitto-dev</code>)
+        </p>
+        <ul>
+          <li>
+            사용하는 포트는 다음과 같다.
+            <ul>
+              <li>DOCKER_PORT_MQTT=1883</li>
+              <li>DOCKER_PORT_WEBSOCKET=9001</li>
+            </ul>
+          </li>
+        </ul>
+        <h2 id="mqtt-사용in-nodejs">MQTT 사용(in nodejs)</h2>
+        <h3 id="mqtt-install">mqtt install</h3>
+        <ul>
+          <li>
+            mqtt를 사용할 nodejs에서는 다음과 같이 mqtt 라이브러리를 설치 한다.
+          </li>
+        </ul>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console"># npm install mqtt @types/mqtt
 </code></pre>
-<h3 id="mqttutil">mqttUtil</h3>
-<p>mqtt를 사용할 <code>typescript</code> 코드는 다음음 참고하도록 한다.</p>
-<blockquote>
-<p>/src/lib/mqttUtil.ts</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token comment">/* eslint-disable @typescript-eslint/no-unsafe-assignment */</span>
+        <h3 id="mqttutil">mqttUtil</h3>
+        <p>
+          mqtt를 사용할 <code>typescript</code> 코드는 다음음 참고하도록 한다.
+        </p>
+        <blockquote>
+          <p>/src/lib/mqttUtil.ts</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token comment">/* eslint-disable @typescript-eslint/no-unsafe-assignment */</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> logging <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../lib/logging'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> mqtt<span class="token punctuation">,</span> <span class="token punctuation">{</span> IClientOptions <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'mqtt'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> dotenv <span class="token keyword">from</span> <span class="token string">'dotenv'</span><span class="token punctuation">;</span>
@@ -216,30 +243,42 @@ type MqttConfig <span class="token operator">=</span> <span class="token punctua
   client<span class="token punctuation">.</span><span class="token function">publish</span><span class="token punctuation">(</span>pubTopic<span class="token punctuation">,</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<p>아래와 같이 node를 실행 시킬때 <code>receiveMqtt()</code>를 호출 하면 설정된 <code>topic</code>에 대해 구독 상태가 된다.</p>
-<blockquote>
-<p>/src/index.ts</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token operator">...</span>
+        <p>
+          아래와 같이 node를 실행 시킬때 <code>receiveMqtt()</code>를 호출 하면
+          설정된 <code>topic</code>에 대해 구독 상태가 된다.
+        </p>
+        <blockquote>
+          <p>/src/index.ts</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token operator">...</span>
 app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// mqtt subscribe</span>
 <span class="token function">receiveMqtt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">...</span>
 </code></pre>
-<h3 id="mqtt-테스트">MQTT 테스트</h3>
-<p>(개발 PC에)<code>mqtt</code>를 <code>nodejs</code>를 통해 <code>global</code>옵션으로 설치 하면 손쉽게 테스트할 수 있다.</p>
-<pre class=" language-console"><code class="prism  language-console">&gt; npm install -g mqtt
+        <h3 id="mqtt-테스트">MQTT 테스트</h3>
+        <p>
+          (개발 PC에)<code>mqtt</code>를 <code>nodejs</code>를 통해
+          <code>global</code>옵션으로 설치 하면 손쉽게 테스트할 수 있다.
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; npm install -g mqtt
 </code></pre>
-<h4 id="mqtt-구독">MQTT 구독</h4>
-<pre class=" language-console"><code class="prism  language-console">&gt; mqtt subscribe -h 192.168.0.123 -p 1883 -t test/dev
+        <h4 id="mqtt-구독">MQTT 구독</h4>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; mqtt subscribe -h 192.168.0.123 -p 1883 -t test/dev
 </code></pre>
-<h4 id="mqtt-발행">MQTT 발행</h4>
-<pre class=" language-console"><code class="prism  language-console">&gt; mqtt publish -h 192.168.0.123 -p 1883 -t test/dev -m "test_message"
+        <h4 id="mqtt-발행">MQTT 발행</h4>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; mqtt publish -h 192.168.0.123 -p 1883 -t test/dev -m "test_message"
 </code></pre>
-
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

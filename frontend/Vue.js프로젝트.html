@@ -1,65 +1,76 @@
 ﻿<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js프로젝트.md</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vue.js프로젝트.md</title>
-  <link rel="stylesheet" href="https://stackedit.io/style.css" />
-</head>
-
-<body class="stackedit">
-  <div class="stackedit__left">
-    <div class="stackedit__toc">
-      
-<ul>
-<li><a href="#vueproj">vueproj</a>
-<ul>
-<li><a href="#디렉토리-및-파일-구조">디렉토리 및 파일 구조</a></li>
-<li><a href="#개발-환경">개발 환경</a></li>
-<li><a href="#vue프로젝트-생성">vue프로젝트 생성</a></li>
-<li><a href="#vue-cli-설치-옵션">vue-cli 설치 옵션</a></li>
-<li><a href="#eslint--prettier-설정">eslint + prettier 설정</a></li>
-<li><a href="#vs-code의-setting.json-설정">VS Code의 setting.json 설정</a></li>
-<li><a href="#bootstrap-vue-설치">bootstrap-vue 설치</a></li>
-<li><a href="#main.css-스타일-시트">main.css 스타일 시트</a></li>
-<li><a href="#페이지-분할">페이지 분할</a>
-<ul>
-<li>
-<ul>
-<li></li>
-</ul>
-</li>
-<li><a href="#router-설정">Router 설정</a></li>
-</ul>
-</li>
-<li><a href="#페이지-파일-생성">페이지 파일 생성</a></li>
-<li><a href="#proxy-설정">Proxy 설정</a></li>
-<li><a href="#crud-기능을-작성-한다.">CRUD 기능을 작성 한다.</a></li>
-<li><a href="#로그인">로그인</a></li>
-<li><a href="#mqtt">MQTT</a></li>
-<li><a href="#차트-그리기">차트 그리기</a>
-<ul>
-<li></li>
-</ul>
-</li>
-<li><a href="#대시보드-작업">대시보드 작업</a>
-<ul>
-<li></li>
-</ul>
-</li>
-<li><a href="#docker">Docker</a></li>
-</ul>
-</li>
-</ul>
-
+  <body class="stackedit">
+    <div class="stackedit__left">
+      <div class="stackedit__toc">
+        <ul>
+          <li>
+            <a href="#vueproj">vueproj</a>
+            <ul>
+              <li>
+                <a href="#디렉토리-및-파일-구조">디렉토리 및 파일 구조</a>
+              </li>
+              <li><a href="#개발-환경">개발 환경</a></li>
+              <li><a href="#vue프로젝트-생성">vue프로젝트 생성</a></li>
+              <li><a href="#vue-cli-설치-옵션">vue-cli 설치 옵션</a></li>
+              <li>
+                <a href="#eslint--prettier-설정">eslint + prettier 설정</a>
+              </li>
+              <li>
+                <a href="#vs-code의-setting.json-설정"
+                  >VS Code의 setting.json 설정</a
+                >
+              </li>
+              <li><a href="#bootstrap-vue-설치">bootstrap-vue 설치</a></li>
+              <li><a href="#main.css-스타일-시트">main.css 스타일 시트</a></li>
+              <li>
+                <a href="#페이지-분할">페이지 분할</a>
+                <ul>
+                  <li>
+                    <ul>
+                      <li></li>
+                    </ul>
+                  </li>
+                  <li><a href="#router-설정">Router 설정</a></li>
+                </ul>
+              </li>
+              <li><a href="#페이지-파일-생성">페이지 파일 생성</a></li>
+              <li><a href="#proxy-설정">Proxy 설정</a></li>
+              <li>
+                <a href="#crud-기능을-작성-한다.">CRUD 기능을 작성 한다.</a>
+              </li>
+              <li><a href="#로그인">로그인</a></li>
+              <li><a href="#mqtt">MQTT</a></li>
+              <li>
+                <a href="#차트-그리기">차트 그리기</a>
+                <ul>
+                  <li></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#대시보드-작업">대시보드 작업</a>
+                <ul>
+                  <li></li>
+                </ul>
+              </li>
+              <li><a href="#docker">Docker</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="stackedit__right">
-    <div class="stackedit__html">
-      <h1 id="vueproj">vueproj</h1>
-<h2 id="디렉토리-및-파일-구조">디렉토리 및 파일 구조</h2>
-<pre><code>├── .vscode                         # VSCode 관련 환경 세팅 디렉토리
+    <div class="stackedit__right">
+      <div class="stackedit__html">
+        <h1 id="vueproj">vueproj</h1>
+        <h2 id="디렉토리-및-파일-구조">디렉토리 및 파일 구조</h2>
+        <pre><code>├── .vscode                         # VSCode 관련 환경 세팅 디렉토리
 │   └── settings.json
 ├── dist                            # 'npm run build'시 js로 변환된 파일 디렉토리
 │   └── ...                         # 실제 nginx를 통해 서비스 되는 파일들(js, css, html)
@@ -107,19 +118,27 @@
 ├── README.md
 └── vue.config.js                   # vue설정 파일(proxy 설정)
 </code></pre>
-<h2 id="개발-환경">개발 환경</h2>
-<p>개발용 PC의 OS는 <code>windows 10</code>을 사용 한다.</p>
-<p>개발용 디렉토리는 다음과 같다. (없으면 만들 것)<br>
-<code>C:\Workspace</code></p>
-<pre class=" language-console"><code class="prism  language-console">&gt; cd C:\Workspace
+        <h2 id="개발-환경">개발 환경</h2>
+        <p>개발용 PC의 OS는 <code>windows 10</code>을 사용 한다.</p>
+        <p>
+          개발용 디렉토리는 다음과 같다. (없으면 만들 것)<br />
+          <code>C:\Workspace</code>
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; cd C:\Workspace
 </code></pre>
-<p>위 디렉토리로 이동 한다.</p>
-<h2 id="vue프로젝트-생성">vue프로젝트 생성</h2>
-<p>프로젝트 이름: <code>vueproj</code></p>
-<pre class=" language-console"><code class="prism  language-console">&gt; vue create vueproj
+        <p>위 디렉토리로 이동 한다.</p>
+        <h2 id="vue프로젝트-생성">vue프로젝트 생성</h2>
+        <p>프로젝트 이름: <code>vueproj</code></p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; vue create vueproj
 </code></pre>
-<h2 id="vue-cli-설치-옵션">vue-cli 설치 옵션</h2>
-<pre class=" language-console"><code class="prism  language-console">Vue CLI v4.5.15
+        <h2 id="vue-cli-설치-옵션">vue-cli 설치 옵션</h2>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">Vue CLI v4.5.15
 ? Please pick a preset: Manually select features
 ? Check the features needed for your project: Choose Vue version, Babel, Router, Vuex, Linter
 ? Choose a version of Vue.js that you want to start the project with 2.x
@@ -129,11 +148,13 @@
 ? Where do you prefer placing config for Babel, ESLint, etc.? In dedicated config files
 ? Save this as a preset for future projects? (y/N) N
 </code></pre>
-<h2 id="eslint--prettier-설정">eslint + prettier 설정</h2>
-<blockquote>
-<p>/.eslintrc.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <h2 id="eslint--prettier-설정">eslint + prettier 설정</h2>
+        <blockquote>
+          <p>/.eslintrc.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   root<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
   env<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     node<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
@@ -163,12 +184,20 @@
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="vs-code의-setting.json-설정">VS Code의 setting.json 설정</h2>
-<p><code>VS Code</code>의 <code>File &gt; Preferences &gt; Setting -&gt; Workspace -&gt; Text Editor &gt; Code Actions On Save --&gt; Edit in settings.json</code></p>
-<blockquote>
-<p>/.vscode/settings.json</p>
-</blockquote>
-<pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+        <h2 id="vs-code의-setting.json-설정">VS Code의 setting.json 설정</h2>
+        <p>
+          <code>VS Code</code>의
+          <code
+            >File &gt; Preferences &gt; Setting -&gt; Workspace -&gt; Text
+            Editor &gt; Code Actions On Save --&gt; Edit in settings.json</code
+          >
+        </p>
+        <blockquote>
+          <p>/.vscode/settings.json</p>
+        </blockquote>
+        <pre
+          class="language-json"
+        ><code class="prism  language-json"><span class="token punctuation">{</span>
   <span class="token string">"eslint.validate"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token string">"vue"</span><span class="token punctuation">,</span> <span class="token string">"javascript"</span><span class="token punctuation">,</span> <span class="token string">"html"</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -178,13 +207,17 @@
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h2 id="bootstrap-vue-설치">bootstrap-vue 설치</h2>
-<pre class=" language-console"><code class="prism  language-console">&gt; npm install bootstrap@4.5.3 bootstrap-vue@2.21.2 --save
+        <h2 id="bootstrap-vue-설치">bootstrap-vue 설치</h2>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; npm install bootstrap@4.5.3 bootstrap-vue@2.21.2 --save
 </code></pre>
-<blockquote>
-<p>/src/main.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+        <blockquote>
+          <p>/src/main.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
 <span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span>
 <span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">'./router'</span>
 <span class="token keyword">import</span> store <span class="token keyword">from</span> <span class="token string">'./store'</span>
@@ -203,12 +236,14 @@ Vue<span class="token punctuation">.</span>config<span class="token punctuation"
   render<span class="token punctuation">:</span> h <span class="token operator">=&gt;</span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span>
 </code></pre>
-<h2 id="main.css-스타일-시트">main.css 스타일 시트</h2>
-<h3 id="스타일-시트-생성">스타일 시트 생성</h3>
-<blockquote>
-<p>/src/assets/style/main.css</p>
-</blockquote>
-<pre class=" language-css"><code class="prism  language-css"><span class="token selector"><span class="token class">.content-body</span> </span><span class="token punctuation">{</span>
+        <h2 id="main.css-스타일-시트">main.css 스타일 시트</h2>
+        <h3 id="스타일-시트-생성">스타일 시트 생성</h3>
+        <blockquote>
+          <p>/src/assets/style/main.css</p>
+        </blockquote>
+        <pre
+          class="language-css"
+        ><code class="prism  language-css"><span class="token selector"><span class="token class">.content-body</span> </span><span class="token punctuation">{</span>
   <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span>px <span class="token number">20</span>px <span class="token number">20</span>px <span class="token number">20</span>px<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
@@ -217,20 +252,36 @@ Vue<span class="token punctuation">.</span>config<span class="token punctuation"
   <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#87CEEB</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h2 id="페이지-분할">페이지 분할</h2>
-<h5 id="다음과-같이-header-sidebar-content로-세부분으로-나눈다.">다음과 같이 <code>Header</code>, <code>Sidebar</code>, <code>Content</code>로 세부분으로 나눈다.</h5>
-<p>다음의 위치에 각각의 파일을 생성 한다. (파일 내용은 타이틀만 써주자)</p>
-<p>Header 파일: <code>/src/components/layout/Header.vue</code><br>
-Sidebar 파일: <code>/src/components/layout/Sidebar.vue</code><br>
-Content 파일: <code>/src/views/Home.vue</code></p>
-<h5 id="notfound처리-파일도-생성-한다."><code>NotFound</code>처리 파일도 생성 한다.</h5>
-<p>NotFound 파일: <code>/src/components/NotFound.vue</code></p>
-<h5 id="app.vue-파일-구조헤더와-하단-부분">App.vue 파일 구조(헤더와 하단 부분)</h5>
-<p><code>App.vue</code>파일에서 <code>Header</code>와 하단 부분으로 나눈다.</p>
-<blockquote>
-<p>/src/App.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <h2 id="페이지-분할">페이지 분할</h2>
+        <h5 id="다음과-같이-header-sidebar-content로-세부분으로-나눈다.">
+          다음과 같이 <code>Header</code>, <code>Sidebar</code>,
+          <code>Content</code>로 세부분으로 나눈다.
+        </h5>
+        <p>
+          다음의 위치에 각각의 파일을 생성 한다. (파일 내용은 타이틀만 써주자)
+        </p>
+        <p>
+          Header 파일: <code>/src/components/layout/Header.vue</code><br />
+          Sidebar 파일: <code>/src/components/layout/Sidebar.vue</code><br />
+          Content 파일: <code>/src/views/Home.vue</code>
+        </p>
+        <h5 id="notfound처리-파일도-생성-한다.">
+          <code>NotFound</code>처리 파일도 생성 한다.
+        </h5>
+        <p>NotFound 파일: <code>/src/components/NotFound.vue</code></p>
+        <h5 id="app.vue-파일-구조헤더와-하단-부분">
+          App.vue 파일 구조(헤더와 하단 부분)
+        </h5>
+        <p>
+          <code>App.vue</code>파일에서 <code>Header</code>와 하단 부분으로
+          나눈다.
+        </p>
+        <blockquote>
+          <p>/src/App.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-header</span> <span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span> <span class="token punctuation">/&gt;</span></span>
@@ -249,12 +300,19 @@ Content 파일: <code>/src/views/Home.vue</code></p>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./assets/style/main.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token style language-css"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<h5 id="index.js-파일-생성좌측-메뉴와-컨텐츠-부분">index.js 파일 생성(좌측 메뉴와 컨텐츠 부분)</h5>
-<p><code>/src/views/index.vue</code>파일을 통해 <code>Sidebar</code>와 <code>Content</code> 두 부분으로 나눈다.</p>
-<blockquote>
-<p>/src/views/index.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <h5 id="index.js-파일-생성좌측-메뉴와-컨텐츠-부분">
+          index.js 파일 생성(좌측 메뉴와 컨텐츠 부분)
+        </h5>
+        <p>
+          <code>/src/views/index.vue</code>파일을 통해 <code>Sidebar</code>와
+          <code>Content</code> 두 부분으로 나눈다.
+        </p>
+        <blockquote>
+          <p>/src/views/index.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>separate-body<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-container</span> <span class="token attr-name">fluid</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">padding-left</span><span class="token punctuation">:</span> <span class="token number">0</span>px</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -284,17 +342,30 @@ Content 파일: <code>/src/views/Home.vue</code></p>
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p><code>&lt;router-view /&gt;</code>부분의 코드를 통해 <code>Router</code>설정 에서 <code>component</code>로 <code>import</code>한 파일이 사용된다.</p>
-<h3 id="router-설정">Router 설정</h3>
-<ol>
-<li><code>/</code>로 방문 시 <code>/home</code>으로 리다이렉트 시킨다.</li>
-<li><code>/</code>의 하위구조를 모두 <code>children</code>으로 잡는다.</li>
-<li><code>*</code>의 설정을 통해 <code>File not found</code>를 처리하도록 한다.</li>
-</ol>
-<blockquote>
-<p>/src/router/index.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+        <p>
+          <code>&lt;router-view /&gt;</code>부분의 코드를 통해
+          <code>Router</code>설정 에서 <code>component</code>로
+          <code>import</code>한 파일이 사용된다.
+        </p>
+        <h3 id="router-설정">Router 설정</h3>
+        <ol>
+          <li>
+            <code>/</code>로 방문 시 <code>/home</code>으로 리다이렉트 시킨다.
+          </li>
+          <li>
+            <code>/</code>의 하위구조를 모두 <code>children</code>으로 잡는다.
+          </li>
+          <li>
+            <code>*</code>의 설정을 통해 <code>File not found</code>를
+            처리하도록 한다.
+          </li>
+        </ol>
+        <blockquote>
+          <p>/src/router/index.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
 <span class="token keyword">import</span> VueRouter <span class="token keyword">from</span> <span class="token string">'vue-router'</span>
 
 Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueRouter<span class="token punctuation">)</span>
@@ -325,13 +396,17 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> router
 </code></pre>
-<h2 id="페이지-파일-생성">페이지 파일 생성</h2>
-<p>우선 대시보드의 빈 화면을 구성해 보자.</p>
-<h3 id="화면을-구성하는-빈-페이지를-작성-한다.">1) 화면을 구성하는 빈 페이지를 작성 한다.</h3>
-<blockquote>
-<p>/src/views/dashboard/index.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <h2 id="페이지-파일-생성">페이지 파일 생성</h2>
+        <p>우선 대시보드의 빈 화면을 구성해 보자.</p>
+        <h3 id="화면을-구성하는-빈-페이지를-작성-한다.">
+          1) 화면을 구성하는 빈 페이지를 작성 한다.
+        </h3>
+        <blockquote>
+          <p>/src/views/dashboard/index.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>대시보드<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
@@ -341,11 +416,13 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<h3 id="라우터에-화면을-연결-한다.">2) 라우터에 화면을 연결 한다.</h3>
-<blockquote>
-<p>/src/router/index.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token operator">...</span>
+        <h3 id="라우터에-화면을-연결-한다.">2) 라우터에 화면을 연결 한다.</h3>
+        <blockquote>
+          <p>/src/router/index.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token operator">...</span>
   <span class="token punctuation">{</span>
     path<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
     component<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'../views'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -360,30 +437,56 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token operator">...</span>
 </code></pre>
-<p>위와 같이 <code>path: '/'</code>의 <code>children</code>에 등록 한다.</p>
-<h3 id="sidebar-메뉴에-링크를-연결-한다.">3) Sidebar 메뉴에 링크를 연결 한다.</h3>
-<blockquote>
-<p>/src/components/layout/Sidebar.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-list-group</span><span class="token punctuation">&gt;</span></span>
+        <p>
+          위와 같이 <code>path: '/'</code>의 <code>children</code>에 등록 한다.
+        </p>
+        <h3 id="sidebar-메뉴에-링크를-연결-한다.">
+          3) Sidebar 메뉴에 링크를 연결 한다.
+        </h3>
+        <blockquote>
+          <p>/src/components/layout/Sidebar.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-list-group</span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-list-group-item</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>$router.push(<span class="token punctuation">'</span>/dashboard<span class="token punctuation">'</span>)<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>대시보드<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b-list-group-item</span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-list-group-item</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>부서 관리<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b-list-group-item</span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-list-group-item</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>사용자 관리<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b-list-group-item</span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-list-group-item</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>장비 관리<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b-list-group-item</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b-list-group</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p><strong>주의</strong> 링크는 반드시 위와 같이 <code>router.push</code> 방식으로 해야 페이지가 재로딩 되지 않는다. (<code>SPA</code>구조에 의한 특성)</p>
-<p><strong>참고</strong> 현재 페이지에서 같은 메뉴 링크를 클릭할 경우 <code>NavigationDuplicated: Avoided redundant navigation to current location</code>라는 에러가 발생 한다. 이는 현재 위치에서 동일한 위치로의 이동에 대한 경고를 <code>Vue</code>가 하는 것으로 사용에 이상은 없다. (에러 메세지를 없앨 수 있다.)</p>
-<h3 id="나머지-화면에-대한-파일-및-링크-생성">나머지 화면에 대한 파일 및 링크 생성</h3>
-<p><strong>파일생성:</strong> 다음과 같은 파일을 생성 한다.<br>
-부서 관리: <code>/src/views/department/index.vue</code><br>
-사용자 관리: <code>/src/views/user/index.vue</code><br>
-장비 관리: <code>/src/views/device/index.vue</code></p>
-<p><strong>라우터 설정:</strong> 생성한 파일에 대해 라우터에 등록 한다.</p>
-<blockquote>
-<p>/src/router/index.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token operator">...</span>
+        <p>
+          <strong>주의</strong> 링크는 반드시 위와 같이
+          <code>router.push</code> 방식으로 해야 페이지가 재로딩 되지 않는다.
+          (<code>SPA</code>구조에 의한 특성)
+        </p>
+        <p>
+          <strong>참고</strong> 현재 페이지에서 같은 메뉴 링크를 클릭할 경우
+          <code
+            >NavigationDuplicated: Avoided redundant navigation to current
+            location</code
+          >라는 에러가 발생 한다. 이는 현재 위치에서 동일한 위치로의 이동에 대한
+          경고를 <code>Vue</code>가 하는 것으로 사용에 이상은 없다. (에러
+          메세지를 없앨 수 있다.)
+        </p>
+        <h3 id="나머지-화면에-대한-파일-및-링크-생성">
+          나머지 화면에 대한 파일 및 링크 생성
+        </h3>
+        <p>
+          <strong>파일생성:</strong> 다음과 같은 파일을 생성 한다.<br />
+          부서 관리: <code>/src/views/department/index.vue</code><br />
+          사용자 관리: <code>/src/views/user/index.vue</code><br />
+          장비 관리: <code>/src/views/device/index.vue</code>
+        </p>
+        <p>
+          <strong>라우터 설정:</strong> 생성한 파일에 대해 라우터에 등록 한다.
+        </p>
+        <blockquote>
+          <p>/src/router/index.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token operator">...</span>
 <span class="token punctuation">{</span>
   path<span class="token punctuation">:</span> <span class="token string">'/dashboard'</span><span class="token punctuation">,</span>
   component<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'../views/dashboard'</span><span class="token punctuation">)</span>
@@ -402,30 +505,48 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token punctuation">}</span>
 <span class="token operator">...</span>
 </code></pre>
-<h3 id="메뉴에-현재-화면-표시">메뉴에 현재 화면 표시</h3>
-<p><code>Sidebar</code>에 현재 접속한 화면 표시를 표시할 수 있다.<br>
-현재 접속한 경로와 라우터의 경로가 일치하면 색상을 변경하는 <code>class</code>를 <code>active</code>하게 주는 방법이 있다.<br>
-(각자 별도로 적용해 볼 것)</p>
-<h2 id="proxy-설정">Proxy 설정</h2>
-<p>백엔드의 CORS를 피하기 위해 <code>proxy</code>를 설정해서 사용 한다.<br>
-<strong>참고:</strong> <a href="https://velog.io/@skyepodium/vue-proxy-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0">https://velog.io/@skyepodium/vue-proxy-사용하기</a></p>
-<h3 id="env-파일-생성">.env 파일 생성</h3>
-<p>환경설정을 담당하는 <code>.env</code>파일을 생성 한다.</p>
-<blockquote>
-<p>/.env</p>
-</blockquote>
-<pre><code>NODE_ENV=production
+        <h3 id="메뉴에-현재-화면-표시">메뉴에 현재 화면 표시</h3>
+        <p>
+          <code>Sidebar</code>에 현재 접속한 화면 표시를 표시할 수 있다.<br />
+          현재 접속한 경로와 라우터의 경로가 일치하면 색상을 변경하는
+          <code>class</code>를 <code>active</code>하게 주는 방법이 있다.<br />
+          (각자 별도로 적용해 볼 것)
+        </p>
+        <h2 id="proxy-설정">Proxy 설정</h2>
+        <p>
+          백엔드의 CORS를 피하기 위해 <code>proxy</code>를 설정해서 사용
+          한다.<br />
+          <strong>참고:</strong>
+          <a
+            href="https://velog.io/@skyepodium/vue-proxy-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"
+            >https://velog.io/@skyepodium/vue-proxy-사용하기</a
+          >
+        </p>
+        <h3 id="env-파일-생성">.env 파일 생성</h3>
+        <p>환경설정을 담당하는 <code>.env</code>파일을 생성 한다.</p>
+        <blockquote>
+          <p>/.env</p>
+        </blockquote>
+        <pre><code>NODE_ENV=production
 VUE_APP_SERVER=http://localhost:3000
 </code></pre>
-<p><code>vue</code>에서 <code>.env</code>파일의 환경설정을 읽기 위해서는 반드시 <code>VUE_APP_</code>라는 접두사를 사용해야 한다.<br>
-이는 <code>process.env.VUE_APP_</code>를 통해 추출할 수 있다.</p>
-<p><strong>주의</strong> <code>VUE_APP_SERVER</code>에는 백엔드 서버의 값을 설정해야 한다.</p>
-<h3 id="vue.config.js-파일-생성">vue.config.js 파일 생성</h3>
-<p>다음과 같이 <code>vue.config.js</code>파일을 생성 한다.</p>
-<blockquote>
-<p>/vue.config.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> VUE_APP_SERVER <span class="token punctuation">}</span> <span class="token operator">=</span> process<span class="token punctuation">.</span>env
+        <p>
+          <code>vue</code>에서 <code>.env</code>파일의 환경설정을 읽기 위해서는
+          반드시 <code>VUE_APP_</code>라는 접두사를 사용해야 한다.<br />
+          이는 <code>process.env.VUE_APP_</code>를 통해 추출할 수 있다.
+        </p>
+        <p>
+          <strong>주의</strong> <code>VUE_APP_SERVER</code>에는 백엔드 서버의
+          값을 설정해야 한다.
+        </p>
+        <h3 id="vue.config.js-파일-생성">vue.config.js 파일 생성</h3>
+        <p>다음과 같이 <code>vue.config.js</code>파일을 생성 한다.</p>
+        <blockquote>
+          <p>/vue.config.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> VUE_APP_SERVER <span class="token punctuation">}</span> <span class="token operator">=</span> process<span class="token punctuation">.</span>env
 
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
@@ -441,16 +562,31 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p><code>/serverApi</code>라는 URL이 입력되면 <code>pathRewrite</code>에 의해 <code>''</code>로 변경된다.<br>
-예) 입력 정보: <code>/serverApi/users</code> ⇒ 프록시 처리: <code>&lt;VUE_APP_SERVER&gt;/users</code>  ⇒ 최종 호출: <code>http://localhost:3000/users</code></p>
-<p><strong>주의!!</strong> <code>vue.config.js</code>파일의 프록시 처리는 <em><strong>개발PC에서만</strong></em> 동작한다.<br>
-실제 도커를 통한 <code>nginx</code>에서는 <code>/etc/nginx/conf.d/default.conf</code>파일에서  프록시 처리를 해 주어야 한다.</p>
-<h3 id="axios-에서-호출-방법">axios 에서 호출 방법</h3>
-<p>Store파일의 action에서 axios를 활용해 백엔드 서버를 호출할때 <code>/serverApi</code>를 작성하면 proxy를 통해 호출이 된다.</p>
-<blockquote>
-<p>(예) /src/store/models/department.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token operator">...</span>
+        <p>
+          <code>/serverApi</code>라는 URL이 입력되면 <code>pathRewrite</code>에
+          의해 <code>''</code>로 변경된다.<br />
+          예) 입력 정보: <code>/serverApi/users</code> ⇒ 프록시 처리:
+          <code>&lt;VUE_APP_SERVER&gt;/users</code> ⇒ 최종 호출:
+          <code>http://localhost:3000/users</code>
+        </p>
+        <p>
+          <strong>주의!!</strong> <code>vue.config.js</code>파일의 프록시 처리는
+          <em><strong>개발PC에서만</strong></em> 동작한다.<br />
+          실제 도커를 통한 <code>nginx</code>에서는
+          <code>/etc/nginx/conf.d/default.conf</code>파일에서 프록시 처리를 해
+          주어야 한다.
+        </p>
+        <h3 id="axios-에서-호출-방법">axios 에서 호출 방법</h3>
+        <p>
+          Store파일의 action에서 axios를 활용해 백엔드 서버를 호출할때
+          <code>/serverApi</code>를 작성하면 proxy를 통해 호출이 된다.
+        </p>
+        <blockquote>
+          <p>(예) /src/store/models/department.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token operator">...</span>
   actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     <span class="token comment">// 부서 리스트 조회</span>
     <span class="token function">actDepartmentList</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> payload<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -463,19 +599,27 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <span class="token punctuation">}</span>
 <span class="token operator">...</span>
 </code></pre>
-<p>호출 URL은 <code>proxy</code>에 의해 다음과 같이 변경 된다.<br>
-<code>/serverApi/departments</code> ⇒ <code>http://localhost:3000/departments</code></p>
-<h2 id="crud-기능을-작성-한다.">CRUD 기능을 작성 한다.</h2>
-<h3 id="리스트-화면-제작">리스트 화면 제작</h3>
-<p>우선 부서관리 리스트 화면을 제작 해보자.</p>
-<h5 id="리스트-화면-작성">1) 리스트 화면 작성</h5>
-<p>다음과 같이 부서관리 페이지에 테이블(<code>&lt;b-table&gt;</code>)을 만든다.<br>
-<code>fields</code>는 실제 연동할 필드로 작성 한다.<br>
-<code>items</code>는 테스트용 데이터를 작성 한다. (추후 삭제 예정)</p>
-<blockquote>
-<p>/src/views/department/index.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <p>
+          호출 URL은 <code>proxy</code>에 의해 다음과 같이 변경 된다.<br />
+          <code>/serverApi/departments</code> ⇒
+          <code>http://localhost:3000/departments</code>
+        </p>
+        <h2 id="crud-기능을-작성-한다.">CRUD 기능을 작성 한다.</h2>
+        <h3 id="리스트-화면-제작">리스트 화면 제작</h3>
+        <p>우선 부서관리 리스트 화면을 제작 해보자.</p>
+        <h5 id="리스트-화면-작성">1) 리스트 화면 작성</h5>
+        <p>
+          다음과 같이 부서관리 페이지에 테이블(<code>&lt;b-table&gt;</code>)을
+          만든다.<br />
+          <code>fields</code>는 실제 연동할 필드로 작성 한다.<br />
+          <code>items</code>는 테스트용 데이터를 작성 한다. (추후 삭제 예정)
+        </p>
+        <blockquote>
+          <p>/src/views/department/index.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>부서 관리<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">5</span>px</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -513,30 +657,42 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>화면을 확인해 보자.</p>
-<h5 id="store-작성">2) Store 작성</h5>
-<p><code>Store</code>를 통해 부서 데이터를 처리하도록 하자.</p>
-<p><strong>axios 설치</strong><br>
-RestAPI를 호출하기 위한 axios를 설치 한다.</p>
-<pre class=" language-console"><code class="prism  language-console">&gt; npm install axios vue-axios
+        <p>화면을 확인해 보자.</p>
+        <h5 id="store-작성">2) Store 작성</h5>
+        <p><code>Store</code>를 통해 부서 데이터를 처리하도록 하자.</p>
+        <p>
+          <strong>axios 설치</strong><br />
+          RestAPI를 호출하기 위한 axios를 설치 한다.
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; npm install axios vue-axios
 </code></pre>
-<p><strong>apiUtil.js 생성</strong><br>
-axios를 사용하기위한 함수파일을 생성 한다.</p>
-<blockquote>
-<p>/src/store/apiUtil.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+        <p>
+          <strong>apiUtil.js 생성</strong><br />
+          axios를 사용하기위한 함수파일을 생성 한다.
+        </p>
+        <blockquote>
+          <p>/src/store/apiUtil.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
 
 <span class="token keyword">const</span> api <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> api
 </code></pre>
-<p><strong>부서 Store 파일 생성</strong><br>
-부서 Store에서 <strong>부서 리스트</strong> 부분만 작성해 본다.</p>
-<blockquote>
-<p>/src/store/models/department.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">import</span> api <span class="token keyword">from</span> <span class="token string">'../apiUtil'</span>
+        <p>
+          <strong>부서 Store 파일 생성</strong><br />
+          부서 Store에서 <strong>부서 리스트</strong> 부분만 작성해 본다.
+        </p>
+        <blockquote>
+          <p>/src/store/models/department.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">import</span> api <span class="token keyword">from</span> <span class="token string">'../apiUtil'</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
   state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
@@ -571,12 +727,17 @@ axios를 사용하기위한 함수파일을 생성 한다.</p>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p><strong>Store의 index파일 수정</strong><br>
-생성한 부서 Store파일을 사용하기 위해 다음과 같이 Store index파일에 등록 한다.</p>
-<blockquote>
-<p>/src/store/index.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+        <p>
+          <strong>Store의 index파일 수정</strong><br />
+          생성한 부서 Store파일을 사용하기 위해 다음과 같이 Store index파일에
+          등록 한다.
+        </p>
+        <blockquote>
+          <p>/src/store/index.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
 <span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span>
 <span class="token keyword">import</span> Department <span class="token keyword">from</span> <span class="token string">'./models/department'</span>
 
@@ -588,12 +749,17 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
-<h5 id="리스트-파일에서-store-연동">3) 리스트 파일에서 Store 연동</h5>
-<p>리스트 파일(<code>/src/views/department/index.vue</code>)로 돌아가서  <code>Store</code>의 조회 기능을 이용할 수 있도록 연동 한다.</p>
-<blockquote>
-<p>/src/views/department/index.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <h5 id="리스트-파일에서-store-연동">3) 리스트 파일에서 Store 연동</h5>
+        <p>
+          리스트 파일(<code>/src/views/department/index.vue</code>)로 돌아가서
+          <code>Store</code>의 조회 기능을 이용할 수 있도록 연동 한다.
+        </p>
+        <blockquote>
+          <p>/src/views/department/index.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>부서 관리<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">5</span>px</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -638,22 +804,48 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<ul>
-<li><code>this.$store.getters.DepartmentList</code>를 <code>computed</code>에 등록 한다. (<code>departmentList()</code>)</li>
-<li><code>&lt;b-table ~~</code>의  <code>:items="items"</code> 부분을  <code>:items="departmentList"</code>로 변경 한다.</li>
-<li><code>method</code>에 <code>this.$store.dispatch('actDepartmentList')</code>를 등록 한다. (<code>searchDepartmentList()</code>)</li>
-<li><code>created</code>에 <code>searchDepartmentList()</code>를 호출하여 페이지가 새로 생성될 때 자동으로 검색되도록 한다.</li>
-<li><code>[검색]</code>버튼에 <code>@click="searchDepartmentList"</code>를 등록하여 <code>[검색]</code>버튼 클릭 시 검색 되도록 한다.</li>
-</ul>
-<p><code>[검색]</code>버튼 클릭할때 마다 <code>store</code>의 <code>actDepartmentList</code>가 호출되는지 <code>console.log</code>를 통해 확인 해보자.</p>
-<h3 id="입력-화면-제작">입력 화면 제작</h3>
-<p><code>[신규등록]</code>버튼을 클릭 하면 부서 입력 화면이 모달로 나타나도록 한다.</p>
-<h5 id="입력-화면-빈-파일-생성">0) 입력 화면 빈 파일 생성</h5>
-<p>입력 화면으로 사용할 빈 모달 파일을 우선 생성 한다.</p>
-<blockquote>
-<p>/src/views/department/inform.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <ul>
+          <li>
+            <code>this.$store.getters.DepartmentList</code>를
+            <code>computed</code>에 등록 한다. (<code>departmentList()</code>)
+          </li>
+          <li>
+            <code>&lt;b-table ~~</code>의 <code>:items="items"</code> 부분을
+            <code>:items="departmentList"</code>로 변경 한다.
+          </li>
+          <li>
+            <code>method</code>에
+            <code>this.$store.dispatch('actDepartmentList')</code>를 등록 한다.
+            (<code>searchDepartmentList()</code>)
+          </li>
+          <li>
+            <code>created</code>에 <code>searchDepartmentList()</code>를
+            호출하여 페이지가 새로 생성될 때 자동으로 검색되도록 한다.
+          </li>
+          <li>
+            <code>[검색]</code>버튼에
+            <code>@click="searchDepartmentList"</code>를 등록하여
+            <code>[검색]</code>버튼 클릭 시 검색 되도록 한다.
+          </li>
+        </ul>
+        <p>
+          <code>[검색]</code>버튼 클릭할때 마다 <code>store</code>의
+          <code>actDepartmentList</code>가 호출되는지 <code>console.log</code>를
+          통해 확인 해보자.
+        </p>
+        <h3 id="입력-화면-제작">입력 화면 제작</h3>
+        <p>
+          <code>[신규등록]</code>버튼을 클릭 하면 부서 입력 화면이 모달로
+          나타나도록 한다.
+        </p>
+        <h5 id="입력-화면-빈-파일-생성">0) 입력 화면 빈 파일 생성</h5>
+        <p>입력 화면으로 사용할 빈 모달 파일을 우선 생성 한다.</p>
+        <blockquote>
+          <p>/src/views/department/inform.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-modal</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>modal-department-inform<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>부서정보 입력<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>입력 폼 넣기<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
@@ -665,15 +857,20 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>모달의 <code>id</code>값을 유니크하게 생성해야 다른 컴포넌트에서 해당 모달을 쉽게 열거나 닫을 수 있다.<br>
-모달 열기: <code>this.$bvModal.show(모달id)</code><br>
-모달 닫기: <code>this.$bvModal.hide(모달id)</code></p>
-<h5 id="입력-화면-띄우기-모달">1) 입력 화면 띄우기 (모달)</h5>
-<p>위에서 만든 빈 파일을 모달로 띄운다.</p>
-<blockquote>
-<p>/src/views/departments/index.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <p>
+          모달의 <code>id</code>값을 유니크하게 생성해야 다른 컴포넌트에서 해당
+          모달을 쉽게 열거나 닫을 수 있다.<br />
+          모달 열기: <code>this.$bvModal.show(모달id)</code><br />
+          모달 닫기: <code>this.$bvModal.hide(모달id)</code>
+        </p>
+        <h5 id="입력-화면-띄우기-모달">1) 입력 화면 띄우기 (모달)</h5>
+        <p>위에서 만든 빈 파일을 모달로 띄운다.</p>
+        <blockquote>
+          <p>/src/views/departments/index.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>부서 관리<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">5</span>px</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -732,69 +929,87 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p><code>onClickAddNew</code> 메소드를 통해 모달을 띄운다.<br>
-<code>[신규등록]</code>버튼을 클릭 하여 해당 모달이 뜨는지 확인해 보자.</p>
-<h5 id="부서정보-입력-화면-완성하기">2) 부서정보 입력 화면 완성하기</h5>
-<p>모달 페이지에 부서정보 입력 화면을 완성해 보자.<br>
-입력 폼은 테이블정의서를 참조하여(혹은 API문서를 참조하여) 해당 데이터 타입에 맞는 입력 폼을 작성 하면 된다.</p>
-<p><strong>department</strong></p>
+        <p>
+          <code>onClickAddNew</code> 메소드를 통해 모달을 띄운다.<br />
+          <code>[신규등록]</code>버튼을 클릭 하여 해당 모달이 뜨는지 확인해
+          보자.
+        </p>
+        <h5 id="부서정보-입력-화면-완성하기">2) 부서정보 입력 화면 완성하기</h5>
+        <p>
+          모달 페이지에 부서정보 입력 화면을 완성해 보자.<br />
+          입력 폼은 테이블정의서를 참조하여(혹은 API문서를 참조하여) 해당 데이터
+          타입에 맞는 입력 폼을 작성 하면 된다.
+        </p>
+        <p><strong>department</strong></p>
 
-<table>
-<thead>
-<tr>
-<th>속성명</th>
-<th>필드명</th>
-<th>타입</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pk</td>
-<td>id</td>
-<td>int</td>
-</tr>
-<tr>
-<td>부서이름</td>
-<td>name</td>
-<td>varchar(50)</td>
-</tr>
-<tr>
-<td>부서코드</td>
-<td>code</td>
-<td>varchar(50)</td>
-</tr>
-<tr>
-<td>상세설명</td>
-<td>description</td>
-<td>text</td>
-</tr>
-<tr>
-<td>등록일시</td>
-<td>created_at</td>
-<td>datetime</td>
-</tr>
-<tr>
-<td>수정일시</td>
-<td>updated_at</td>
-<td>datetime</td>
-</tr>
-<tr>
-<td>삭제일시</td>
-<td>deleted_at</td>
-<td>datetime</td>
-</tr>
-</tbody>
-</table><p>자동으로 생성되는 필드를 제외한 항목에 대해서 입력 폼을 만들도록 한다.<br>
-(제외 필드: id, created_at, updated_at, deleted_at)</p>
-<p>입력폼의 항목의 타입은 다음과 같다.<br>
-부서이름: varchar(50) --&gt; input text (한줄 입력)<br>
-부서코드: varchar(50) --&gt; input text (한줄 입력)<br>
-상세설명: text --&gt; textarea(다중 입력)</p>
-<p><strong>참고</strong> 입력에 대한 validation체크는 본 과정에서는 하지 않았다. 별도의 서드파티(<code>vuelidate</code>)를 이용해서 각자 해보도록 한다.</p>
-<blockquote>
-<p>/src/views/department/inform.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <table>
+          <thead>
+            <tr>
+              <th>속성명</th>
+              <th>필드명</th>
+              <th>타입</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>pk</td>
+              <td>id</td>
+              <td>int</td>
+            </tr>
+            <tr>
+              <td>부서이름</td>
+              <td>name</td>
+              <td>varchar(50)</td>
+            </tr>
+            <tr>
+              <td>부서코드</td>
+              <td>code</td>
+              <td>varchar(50)</td>
+            </tr>
+            <tr>
+              <td>상세설명</td>
+              <td>description</td>
+              <td>text</td>
+            </tr>
+            <tr>
+              <td>등록일시</td>
+              <td>created_at</td>
+              <td>datetime</td>
+            </tr>
+            <tr>
+              <td>수정일시</td>
+              <td>updated_at</td>
+              <td>datetime</td>
+            </tr>
+            <tr>
+              <td>삭제일시</td>
+              <td>deleted_at</td>
+              <td>datetime</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          자동으로 생성되는 필드를 제외한 항목에 대해서 입력 폼을 만들도록
+          한다.<br />
+          (제외 필드: id, created_at, updated_at, deleted_at)
+        </p>
+        <p>
+          입력폼의 항목의 타입은 다음과 같다.<br />
+          부서이름: varchar(50) --&gt; input text (한줄 입력)<br />
+          부서코드: varchar(50) --&gt; input text (한줄 입력)<br />
+          상세설명: text --&gt; textarea(다중 입력)
+        </p>
+        <p>
+          <strong>참고</strong> 입력에 대한 validation체크는 본 과정에서는 하지
+          않았다. 별도의 서드파티(<code>vuelidate</code>)를 이용해서 각자
+          해보도록 한다.
+        </p>
+        <blockquote>
+          <p>/src/views/department/inform.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-modal</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>modal-department-inform<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>부서정보 입력<span class="token punctuation">"</span></span> <span class="token attr-name">@ok</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>onSubmit<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
@@ -831,14 +1046,24 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>모달의 <code>[OK]</code>버튼을 클릭하면 메소드의 <code>onSubmit</code>이 호출 된다. OK버튼을 클릭하고 콘솔을 확인해 보자.</p>
-<p><strong>참고</strong> <code>label-for="name"</code>의 설정을 통해 라벨을 클릭하면 <code>&lt;input id="name"</code>필드에 커서가 자동으로 포커싱 된다.</p>
-<h5 id="store-파일-작성">3) Store 파일 작성</h5>
-<p>department의 Store파일에 입력을 처리하기 위한 로직을 구현 한다.</p>
-<blockquote>
-<p>/src/store/models/department.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">import</span> api <span class="token keyword">from</span> <span class="token string">'../apiUtil'</span>
+        <p>
+          모달의 <code>[OK]</code>버튼을 클릭하면 메소드의
+          <code>onSubmit</code>이 호출 된다. OK버튼을 클릭하고 콘솔을 확인해
+          보자.
+        </p>
+        <p>
+          <strong>참고</strong> <code>label-for="name"</code>의 설정을 통해
+          라벨을 클릭하면 <code>&lt;input id="name"</code>필드에 커서가 자동으로
+          포커싱 된다.
+        </p>
+        <h5 id="store-파일-작성">3) Store 파일 작성</h5>
+        <p>department의 Store파일에 입력을 처리하기 위한 로직을 구현 한다.</p>
+        <blockquote>
+          <p>/src/store/models/department.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">import</span> api <span class="token keyword">from</span> <span class="token string">'../apiUtil'</span>
 
 <span class="token comment">// 초기값 선언</span>
 <span class="token keyword">const</span> stateInit <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -914,33 +1139,66 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<ul>
-<li><code>const stateInit</code>를 통해 초기값을 선언 하였다. (Store에서 모델을 초기화 하기 편리하도록)</li>
-<li><code>InsertedResult</code>를 통해 백엔드에서 입력 처리가 정상인지 여부를 판별할 수 있다.
-<ul>
-<li>백엔드 API를 통해 리턴값이 맞는지 확인 할 것.</li>
-</ul>
-</li>
-<li><code>getters</code>에서 <code>InsertedResult</code>의 이름을 변경 하였다. <code>DepartmentInsertedResult: state =&gt; state.InsertedResult,</code>
-<ul>
-<li><code>getters</code>를 호출할때 다른 모델과 이름이 중복 되는 것을 피하기 위해서이다.</li>
-<li>이름 중복을 피하기 위해서 <code>namespaced</code>를 사용하는 방법도 있다.</li>
-</ul>
-</li>
-<li>부서입력 <code>actDepartmentInsert</code>를 통해 백엔드 API를 호출하게 되는데 여기서는 테스트용으로 데이터를 세팅하였다.
-<ul>
-<li><code>const insertedResult = 1</code>은 부서입력이 정상적으로 이루어졌다는 뜻이다.</li>
-<li><strong>참고</strong> 상태값 초기화이후 곧바로 결과값 세팅이 이루어지면 state값의 변화가 감지되지 않기 때문에  <code>setTimeout</code>을 통해 일정 시간을 지연 시켰다. 실제 백엔드 API를 호출하는 경우에는 이런 일은 발생하지 않는다.<br>
-<code>context.commit('setInsertedResult', null)</code> --&gt;곧바로–&gt; <code>context.commit('setInsertedResult', insertedResult)</code> (state변화가 감지 안됨)</li>
-</ul>
-</li>
-</ul>
-<h5 id="입력-폼에서-submit-호출-하기">4) 입력 폼에서 submit 호출 하기</h5>
-<p>모달 입력폼을 수정해 보자.</p>
-<blockquote>
-<p>/src/views/department/inform.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <ul>
+          <li>
+            <code>const stateInit</code>를 통해 초기값을 선언 하였다. (Store에서
+            모델을 초기화 하기 편리하도록)
+          </li>
+          <li>
+            <code>InsertedResult</code>를 통해 백엔드에서 입력 처리가 정상인지
+            여부를 판별할 수 있다.
+            <ul>
+              <li>백엔드 API를 통해 리턴값이 맞는지 확인 할 것.</li>
+            </ul>
+          </li>
+          <li>
+            <code>getters</code>에서 <code>InsertedResult</code>의 이름을 변경
+            하였다.
+            <code
+              >DepartmentInsertedResult: state =&gt; state.InsertedResult,</code
+            >
+            <ul>
+              <li>
+                <code>getters</code>를 호출할때 다른 모델과 이름이 중복 되는
+                것을 피하기 위해서이다.
+              </li>
+              <li>
+                이름 중복을 피하기 위해서 <code>namespaced</code>를 사용하는
+                방법도 있다.
+              </li>
+            </ul>
+          </li>
+          <li>
+            부서입력 <code>actDepartmentInsert</code>를 통해 백엔드 API를
+            호출하게 되는데 여기서는 테스트용으로 데이터를 세팅하였다.
+            <ul>
+              <li>
+                <code>const insertedResult = 1</code>은 부서입력이 정상적으로
+                이루어졌다는 뜻이다.
+              </li>
+              <li>
+                <strong>참고</strong> 상태값 초기화이후 곧바로 결과값 세팅이
+                이루어지면 state값의 변화가 감지되지 않기 때문에
+                <code>setTimeout</code>을 통해 일정 시간을 지연 시켰다. 실제
+                백엔드 API를 호출하는 경우에는 이런 일은 발생하지 않는다.<br />
+                <code>context.commit('setInsertedResult', null)</code>
+                --&gt;곧바로–&gt;
+                <code>context.commit('setInsertedResult', insertedResult)</code>
+                (state변화가 감지 안됨)
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h5 id="입력-폼에서-submit-호출-하기">
+          4) 입력 폼에서 submit 호출 하기
+        </h5>
+        <p>모달 입력폼을 수정해 보자.</p>
+        <blockquote>
+          <p>/src/views/department/inform.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-modal</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>modal-department-inform<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>부서정보 입력<span class="token punctuation">"</span></span> <span class="token attr-name">@ok</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>onSubmit<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
@@ -992,24 +1250,43 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<ul>
-<li><code>computed</code>의  <code>infoData</code>를 통해 <code>Department</code>의 Store의 state값을 실시간으로 가져온다.</li>
-<li><code>watch</code>의 <code>infoData</code>는 <code>computed</code>의 <code>infoData</code>의 값이 변경되는 것을 실시간으로 감지 한다.
-<ul>
-<li><code>Department</code>의 변화가 감지되면 특정 액션을 취한다.</li>
-<li>이 경우 <code>department</code>의 초기화를 하게 됨</li>
-<li><code>department</code>를 초기화 하지 않으면 모달에 입력한 값이 그대로 남아 있는 것을 볼 수 있다.(해당 코드를 제거해 보고 확인 할 것)</li>
-</ul>
-</li>
-</ul>
-<h5 id="리스트-화면에서-토스트-메세지-출력-하기">5) 리스트 화면에서 토스트 메세지 출력 하기</h5>
-<p>리스트 화면 페이지에서 등록 후 메세지를 출력할 수 있다.<br>
-부모페이지에서 <em><strong>등록 후 액션(메세지 출력 등)</strong></em> 을 관리하는 것이 편리하다.<br>
-(리스트 화면인 <code>index.vue</code>파일이 부모 페이지이다.)</p>
-<blockquote>
-<p>/src/views/department/index.vue</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token operator">...</span>
+        <ul>
+          <li>
+            <code>computed</code>의 <code>infoData</code>를 통해
+            <code>Department</code>의 Store의 state값을 실시간으로 가져온다.
+          </li>
+          <li>
+            <code>watch</code>의 <code>infoData</code>는 <code>computed</code>의
+            <code>infoData</code>의 값이 변경되는 것을 실시간으로 감지 한다.
+            <ul>
+              <li>
+                <code>Department</code>의 변화가 감지되면 특정 액션을 취한다.
+              </li>
+              <li>이 경우 <code>department</code>의 초기화를 하게 됨</li>
+              <li>
+                <code>department</code>를 초기화 하지 않으면 모달에 입력한 값이
+                그대로 남아 있는 것을 볼 수 있다.(해당 코드를 제거해 보고 확인
+                할 것)
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h5 id="리스트-화면에서-토스트-메세지-출력-하기">
+          5) 리스트 화면에서 토스트 메세지 출력 하기
+        </h5>
+        <p>
+          리스트 화면 페이지에서 등록 후 메세지를 출력할 수 있다.<br />
+          부모페이지에서
+          <em><strong>등록 후 액션(메세지 출력 등)</strong></em> 을 관리하는
+          것이 편리하다.<br />
+          (리스트 화면인 <code>index.vue</code>파일이 부모 페이지이다.)
+        </p>
+        <blockquote>
+          <p>/src/views/department/index.vue</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token operator">...</span>
   computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     <span class="token function">departmentList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>DepartmentList
@@ -1047,18 +1324,32 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token operator">...</span>
 </code></pre>
-<ul>
-<li><code>computed</code>에 <code>insertedResult</code>를 추가하여서 등록후 결과값(<code>InsertedResult</code>)를 실시간 리턴 한다.</li>
-<li><code>watch</code>의 <code>insertedResult(value)</code>를 통해 등록이 성공/실패한 경우에 대한 메세지(<code>toast</code>)를 처리한다.
-<ul>
-<li>등록이 성공한 경우 리스트를 재검색 한다. (<code>this.serachDepartmentList()</code>)</li>
-</ul>
-</li>
-</ul>
-<h3 id="에러-메세지의-구조화">에러 메세지의 구조화</h3>
-<p>위와 같은 상황에서 에러가 난 경우 어떤 에러인지 메세지를 구조화 하여 처리하는 것이 바람직 하다.<br>
-프론트 화면에서의 에러 메세지 구조화 예시</p>
-<pre class=" language-json"><code class="prism  language-json"><span class="token string">"Error"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <ul>
+          <li>
+            <code>computed</code>에 <code>insertedResult</code>를 추가하여서
+            등록후 결과값(<code>InsertedResult</code>)를 실시간 리턴 한다.
+          </li>
+          <li>
+            <code>watch</code>의 <code>insertedResult(value)</code>를 통해
+            등록이 성공/실패한 경우에 대한 메세지(<code>toast</code>)를
+            처리한다.
+            <ul>
+              <li>
+                등록이 성공한 경우 리스트를 재검색 한다.
+                (<code>this.serachDepartmentList()</code>)
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h3 id="에러-메세지의-구조화">에러 메세지의 구조화</h3>
+        <p>
+          위와 같은 상황에서 에러가 난 경우 어떤 에러인지 메세지를 구조화 하여
+          처리하는 것이 바람직 하다.<br />
+          프론트 화면에서의 에러 메세지 구조화 예시
+        </p>
+        <pre
+          class="language-json"
+        ><code class="prism  language-json"><span class="token string">"Error"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
   <span class="token string">"400"</span><span class="token punctuation">:</span> <span class="token string">"입력 정보를 확인해 주세요"</span><span class="token punctuation">,</span>
   <span class="token string">"401"</span><span class="token punctuation">:</span> <span class="token string">"로그인 시간이 만료되었습니다."</span><span class="token punctuation">,</span>
   <span class="token string">"403"</span><span class="token punctuation">:</span> <span class="token string">"실행 권한이 없습니다."</span><span class="token punctuation">,</span>
@@ -1067,8 +1358,13 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
   <span class="token string">"requestFail"</span><span class="token punctuation">:</span> <span class="token string">"서버와의 연결이 끊어졌습니다."</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </code></pre>
-<p>다음과 같은 메세지 처리 함수를 구현하여 구조화된 메세지를 처리할 수 있다. (함수 예시)</p>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token function">makeToastError</span> <span class="token punctuation">(</span>resData<span class="token punctuation">,</span> message<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 실패 메세지</span>
+        <p>
+          다음과 같은 메세지 처리 함수를 구현하여 구조화된 메세지를 처리할 수
+          있다. (함수 예시)
+        </p>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token function">makeToastError</span> <span class="token punctuation">(</span>resData<span class="token punctuation">,</span> message<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 실패 메세지</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>resData<span class="token punctuation">.</span>status <span class="token operator">&amp;&amp;</span> resData<span class="token punctuation">.</span>status <span class="token operator">&gt;=</span> <span class="token number">400</span> <span class="token operator">&amp;&amp;</span> resData<span class="token punctuation">.</span>status <span class="token operator">&lt;=</span> <span class="token number">499</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// 400에러</span>
     <span class="token keyword">const</span> title <span class="token operator">=</span> <span class="token template-string"><span class="token string">`[</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>resData<span class="token punctuation">.</span>status<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">] WARNING`</span></span>
@@ -1100,9 +1396,14 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </code></pre>
-<p>위와 같은 에러 처리를 위해서는 백엔드에서 에러 발생시 어떻게 처리하는지 확인 후 맞춰주는 것이 좋다.</p>
-<p>백엔드에서의 에러처리 구조화의 예</p>
-<pre class=" language-javascript"><code class="prism  language-javascript">PAGE_NOT_FOUND<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <p>
+          위와 같은 에러 처리를 위해서는 백엔드에서 에러 발생시 어떻게
+          처리하는지 확인 후 맞춰주는 것이 좋다.
+        </p>
+        <p>백엔드에서의 에러처리 구조화의 예</p>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript">PAGE_NOT_FOUND<span class="token punctuation">:</span> <span class="token punctuation">{</span>
   status<span class="token punctuation">:</span> <span class="token number">404</span><span class="token punctuation">,</span>
   code<span class="token punctuation">:</span> <span class="token string">'PAGE_NOT_FOUND'</span><span class="token punctuation">,</span>
   message<span class="token punctuation">:</span> <span class="token string">'Page not found'</span><span class="token punctuation">,</span>
@@ -1173,30 +1474,51 @@ ERROR<span class="token punctuation">:</span> <span class="token punctuation">{<
   remark<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </code></pre>
-<h3 id="console.log의-제거">console.log의 제거</h3>
-<p><code>console.log</code>는 운영 상태의 시스템에서는 사용되어서는 안된다.<br>
-개발이 끝난 컴포넌트는  반드시 <code>console.log</code>는 주석처리 or 삭제처리 하도록 한다.</p>
-<p>console정보를 삭제해야 하는 이유</p>
-<ul>
-<li>보안상 노출하지 말아야 할 정보가 노출되는 경우가 생긴다</li>
-<li>너무 많은 console정보로 인해 디버깅이 힘들어 진다.</li>
-<li>console에 많은 데이터를 쌓게되면 클라이언트 PC에 부담이 생긴다.(사이트가 느려지는 효과 발생)</li>
-</ul>
-<h3 id="수정-화면-제작">수정 화면 제작</h3>
-<p>수정화면의 동작은 다음과 같다.</p>
-<ul>
-<li>리스트 화면에서 <code>[수정]</code>버튼을 클릭하면 해당 부서의 상세 정보 모달이 출력 된다.</li>
-<li>상세정보 모달에서 항목 수정 후 <code>[OK]</code>버튼을 클릭하면 업데이트 API를 호출한다.</li>
-<li>모달은 닫히고 업데이트 후 결과에 따라 안내 메세지 출력 및 리스트 재검색이 이루어 진다.</li>
-</ul>
-<h5 id="store파일-작성">1) Store파일 작성</h5>
-<p>추가되는 state는 다음과 같다.<br>
-- <code>InputMode</code>: 동일한 모달페이지에서 입력과 수정 두가지를 처리하기 위해 현재 어떤 모드인지 확인하는 용도<br>
-- <code>UpdatedResult</code>: 수정처리 후 결과 정보</p>
-<blockquote>
-<p>/src/store/models/department.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">import</span> api <span class="token keyword">from</span> <span class="token string">'../apiUtil'</span>
+        <h3 id="console.log의-제거">console.log의 제거</h3>
+        <p>
+          <code>console.log</code>는 운영 상태의 시스템에서는 사용되어서는
+          안된다.<br />
+          개발이 끝난 컴포넌트는 반드시 <code>console.log</code>는 주석처리 or
+          삭제처리 하도록 한다.
+        </p>
+        <p>console정보를 삭제해야 하는 이유</p>
+        <ul>
+          <li>보안상 노출하지 말아야 할 정보가 노출되는 경우가 생긴다</li>
+          <li>너무 많은 console정보로 인해 디버깅이 힘들어 진다.</li>
+          <li>
+            console에 많은 데이터를 쌓게되면 클라이언트 PC에 부담이
+            생긴다.(사이트가 느려지는 효과 발생)
+          </li>
+        </ul>
+        <h3 id="수정-화면-제작">수정 화면 제작</h3>
+        <p>수정화면의 동작은 다음과 같다.</p>
+        <ul>
+          <li>
+            리스트 화면에서 <code>[수정]</code>버튼을 클릭하면 해당 부서의 상세
+            정보 모달이 출력 된다.
+          </li>
+          <li>
+            상세정보 모달에서 항목 수정 후 <code>[OK]</code>버튼을 클릭하면
+            업데이트 API를 호출한다.
+          </li>
+          <li>
+            모달은 닫히고 업데이트 후 결과에 따라 안내 메세지 출력 및 리스트
+            재검색이 이루어 진다.
+          </li>
+        </ul>
+        <h5 id="store파일-작성">1) Store파일 작성</h5>
+        <p>
+          추가되는 state는 다음과 같다.<br />
+          - <code>InputMode</code>: 동일한 모달페이지에서 입력과 수정 두가지를
+          처리하기 위해 현재 어떤 모드인지 확인하는 용도<br />
+          - <code>UpdatedResult</code>: 수정처리 후 결과 정보
+        </p>
+        <blockquote>
+          <p>/src/store/models/department.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">import</span> api <span class="token keyword">from</span> <span class="token string">'../apiUtil'</span>
 
 <span class="token comment">// 초기값 선언</span>
 <span class="token keyword">const</span> stateInit <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -1338,13 +1660,22 @@ ERROR<span class="token punctuation">:</span> <span class="token punctuation">{<
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>부서상태를 초기화 하는 <code>actDepartmentInit</code>이 추가 되었다.</p>
-<h5 id="리스트-화면에서-수정-클릭기능">2) 리스트 화면에서 [수정] 클릭기능</h5>
-<p>리스트 화면에서 <code>[수정]</code>버튼을 만들고 이를 클릭할 경우 상세정보를 출력하게 해보자.</p>
-<blockquote>
-<p>/src/views/department/index.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <p>
+          부서상태를 초기화 하는 <code>actDepartmentInit</code>이 추가 되었다.
+        </p>
+        <h5 id="리스트-화면에서-수정-클릭기능">
+          2) 리스트 화면에서 [수정] 클릭기능
+        </h5>
+        <p>
+          리스트 화면에서 <code>[수정]</code>버튼을 만들고 이를 클릭할 경우
+          상세정보를 출력하게 해보자.
+        </p>
+        <blockquote>
+          <p>/src/views/department/index.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>부서 관리<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">5</span>px</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -1490,17 +1821,31 @@ ERROR<span class="token punctuation">:</span> <span class="token punctuation">{<
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<ul>
-<li><code>&lt;b-table&gt;</code>에서 <code>&lt;template</code>을 통해 <code>updateBtn</code>이라는 임의로 추가한 필드를 입력할 수 있다.</li>
-<li>신규등록과 수정화면을 구분하기 위해 <code>actDepartmentInputMode</code>를 통해 입력모드 값을 세팅 한다.</li>
-<li><code>onClickAddNew</code>에서 상세정보 초기화(<code>actDepartmentInit</code>)를 하지 않으면 입력 모달에서 기존에 조회한 부서정보가 초기화 되지 않는다.</li>
-</ul>
-<h5 id="입력폼-화면에서-수정-정보-추가">3) 입력폼 화면에서 수정 정보 추가</h5>
-<p>동일한 입력폼 하나로 등록과 수정을 처리할 수 있다.</p>
-<blockquote>
-<p>/src/views/department/inform.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <ul>
+          <li>
+            <code>&lt;b-table&gt;</code>에서 <code>&lt;template</code>을 통해
+            <code>updateBtn</code>이라는 임의로 추가한 필드를 입력할 수 있다.
+          </li>
+          <li>
+            신규등록과 수정화면을 구분하기 위해
+            <code>actDepartmentInputMode</code>를 통해 입력모드 값을 세팅 한다.
+          </li>
+          <li>
+            <code>onClickAddNew</code>에서 상세정보
+            초기화(<code>actDepartmentInit</code>)를 하지 않으면 입력 모달에서
+            기존에 조회한 부서정보가 초기화 되지 않는다.
+          </li>
+        </ul>
+        <h5 id="입력폼-화면에서-수정-정보-추가">
+          3) 입력폼 화면에서 수정 정보 추가
+        </h5>
+        <p>동일한 입력폼 하나로 등록과 수정을 처리할 수 있다.</p>
+        <blockquote>
+          <p>/src/views/department/inform.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-modal</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>modal-department-inform<span class="token punctuation">"</span></span> <span class="token attr-name">:title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>getTitle<span class="token punctuation">"</span></span> <span class="token attr-name">@ok</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>onSubmit<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
@@ -1584,23 +1929,49 @@ ERROR<span class="token punctuation">:</span> <span class="token punctuation">{<
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<ul>
-<li>몇가지 항목(<code>id</code>, <code>createdAt</code>)은  <code>v-if</code>를 이용해서 수정화면에서만 볼 수 있도록 한다.
-<ul>
-<li><code>id</code>와 <code>createdAt</code>은 수정할 수 없으므로 <code>disabled</code> 속성을 넣어 준다.</li>
-</ul>
-</li>
-<li><code>getCreatedAt</code>에서 createdAt정보중 년월일만 잘라내서(<code>substring</code>) 출력하도록 하였는데 페이지가 마운트 될때는 <code>this.department.createdAt</code>정보가 들어오지 않은 상태이므로 <code>return this.department.createdAt &amp;&amp; this.department.createdAt.substring(0, 10)</code> 이렇게 해당 값이 있는지 체크를 한번 해주도록 한다.</li>
-<li>수정된 정보값이 <code>actDepartmentUpdate</code>의 <code>payload</code>로 잘 전달 되는지 확인 한다.</li>
-</ul>
-<h3 id="삭제-기능-제작">삭제 기능 제작</h3>
-<p>리스트 화면에서 <code>[삭제]</code>버튼 클릭 시 <code>confirm</code>에 의해 삭제 처리를 한다.</p>
-<h5 id="store-작성-1">1) Store 작성</h5>
-<p><code>UpdatedResult</code>밑에 <code>DeletedResult</code>를 만들어 준다.</p>
-<blockquote>
-<p>/src/store/models/department.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">import</span> api <span class="token keyword">from</span> <span class="token string">'../apiUtil'</span>
+        <ul>
+          <li>
+            몇가지 항목(<code>id</code>, <code>createdAt</code>)은
+            <code>v-if</code>를 이용해서 수정화면에서만 볼 수 있도록 한다.
+            <ul>
+              <li>
+                <code>id</code>와 <code>createdAt</code>은 수정할 수 없으므로
+                <code>disabled</code> 속성을 넣어 준다.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <code>getCreatedAt</code>에서 createdAt정보중 년월일만
+            잘라내서(<code>substring</code>) 출력하도록 하였는데 페이지가 마운트
+            될때는 <code>this.department.createdAt</code>정보가 들어오지 않은
+            상태이므로
+            <code
+              >return this.department.createdAt &amp;&amp;
+              this.department.createdAt.substring(0, 10)</code
+            >
+            이렇게 해당 값이 있는지 체크를 한번 해주도록 한다.
+          </li>
+          <li>
+            수정된 정보값이 <code>actDepartmentUpdate</code>의
+            <code>payload</code>로 잘 전달 되는지 확인 한다.
+          </li>
+        </ul>
+        <h3 id="삭제-기능-제작">삭제 기능 제작</h3>
+        <p>
+          리스트 화면에서 <code>[삭제]</code>버튼 클릭 시 <code>confirm</code>에
+          의해 삭제 처리를 한다.
+        </p>
+        <h5 id="store-작성-1">1) Store 작성</h5>
+        <p>
+          <code>UpdatedResult</code>밑에 <code>DeletedResult</code>를 만들어
+          준다.
+        </p>
+        <blockquote>
+          <p>/src/store/models/department.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">import</span> api <span class="token keyword">from</span> <span class="token string">'../apiUtil'</span>
 
 <span class="token comment">// 초기값 선언</span>
 <span class="token keyword">const</span> stateInit <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -1766,11 +2137,15 @@ ERROR<span class="token punctuation">:</span> <span class="token punctuation">{<
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h5 id="리스트-페이지에-삭제버튼-만들기">2) 리스트 페이지에 [삭제]버튼 만들기</h5>
-<blockquote>
-<p>/src/views/department/index.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <h5 id="리스트-페이지에-삭제버튼-만들기">
+          2) 리스트 페이지에 [삭제]버튼 만들기
+        </h5>
+        <blockquote>
+          <p>/src/views/department/index.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>부서 관리<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">5</span>px</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -1956,91 +2331,114 @@ ERROR<span class="token punctuation">:</span> <span class="token punctuation">{<
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p><code>[삭제]</code>버튼 클릭 시 <code>this.$bvModal.msgBoxConfirm</code>모달을 띄운다.(confirm역할을 하는 모달)<br>
-<code>Api</code>를 연결하면 실제 삭제 처리를 확인할 수 있다.</p>
-<p><strong>참고</strong> <code>loading</code>중인 상황을 표시하기 위해서는 각 상황별(리스트 조회, 등록, 상세정보 조회, 수정, 삭제)로 <code>loading</code>변수를 Store에 준비해야 한다. 또한 각 화면에 로딩중임을 표시하는 영역을 만들어야 한다. 본 과정에서는 <code>loading</code>으로 인한 코드의 복잡성을 피하기 위해 생략했다. 각자 만들어 보는 것을 추천 한다.</p>
-<h3 id="사용자-관리-화면-제작">사용자 관리 화면 제작</h3>
-<p>위와 같은 방법으로 <strong>사용자 관리</strong> 화면을 작성해 보자.</p>
-<p>사용자 테이블은 다음과 같다. (<code>department_id</code>는 <code>FK</code>로써 부서테이블의 <code>PK</code>(<code>department.id</code>)와 Join된다.)<br>
-<strong>user</strong></p>
+        <p>
+          <code>[삭제]</code>버튼 클릭 시
+          <code>this.$bvModal.msgBoxConfirm</code>모달을 띄운다.(confirm역할을
+          하는 모달)<br />
+          <code>Api</code>를 연결하면 실제 삭제 처리를 확인할 수 있다.
+        </p>
+        <p>
+          <strong>참고</strong> <code>loading</code>중인 상황을 표시하기
+          위해서는 각 상황별(리스트 조회, 등록, 상세정보 조회, 수정, 삭제)로
+          <code>loading</code>변수를 Store에 준비해야 한다. 또한 각 화면에
+          로딩중임을 표시하는 영역을 만들어야 한다. 본 과정에서는
+          <code>loading</code>으로 인한 코드의 복잡성을 피하기 위해 생략했다.
+          각자 만들어 보는 것을 추천 한다.
+        </p>
+        <h3 id="사용자-관리-화면-제작">사용자 관리 화면 제작</h3>
+        <p>
+          위와 같은 방법으로 <strong>사용자 관리</strong> 화면을 작성해 보자.
+        </p>
+        <p>
+          사용자 테이블은 다음과 같다. (<code>department_id</code>는
+          <code>FK</code>로써 부서테이블의
+          <code>PK</code>(<code>department.id</code>)와 Join된다.)<br />
+          <strong>user</strong>
+        </p>
 
-<table>
-<thead>
-<tr>
-<th>속성명</th>
-<th>필드명</th>
-<th>타입</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pk</td>
-<td>id</td>
-<td>int</td>
-</tr>
-<tr>
-<td>부서PK</td>
-<td>department_id</td>
-<td>int</td>
-</tr>
-<tr>
-<td>이름</td>
-<td>name</td>
-<td>varchar(100)</td>
-</tr>
-<tr>
-<td>아이디</td>
-<td>userid</td>
-<td>varchar(255)</td>
-</tr>
-<tr>
-<td>비밀번호</td>
-<td>password</td>
-<td>varchar(500)</td>
-</tr>
-<tr>
-<td>사용자권한</td>
-<td>role</td>
-<td>varchar(20)</td>
-</tr>
-<tr>
-<td>이메일</td>
-<td>email</td>
-<td>varchar(255)</td>
-</tr>
-<tr>
-<td>전화번호</td>
-<td>phone</td>
-<td>varchar(255)</td>
-</tr>
-<tr>
-<td>비밀번호 변경일</td>
-<td>updated_pw_date</td>
-<td>datetime</td>
-</tr>
-<tr>
-<td>등록일시</td>
-<td>created_at</td>
-<td>datetime</td>
-</tr>
-<tr>
-<td>수정일시</td>
-<td>updated_at</td>
-<td>datetime</td>
-</tr>
-<tr>
-<td>삭제일시</td>
-<td>deleted_at</td>
-<td>datetime</td>
-</tr>
-</tbody>
-</table><h5 id="store-파일-생성">1) Store 파일 생성</h5>
-<p><code>department</code>파일을 참고하여 <code>user</code>의 <code>store</code>파일을 다음의 위치에 생성 해 볼 것.</p>
-<blockquote>
-<p>/src/store/models/user.js</p>
-</blockquote>
-<p><strong>참고</strong> 테스트용 데이터는 아래와 같이 사용 한다.</p>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token comment">/* 테스트 데이터 세팅 */</span>
+        <table>
+          <thead>
+            <tr>
+              <th>속성명</th>
+              <th>필드명</th>
+              <th>타입</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>pk</td>
+              <td>id</td>
+              <td>int</td>
+            </tr>
+            <tr>
+              <td>부서PK</td>
+              <td>department_id</td>
+              <td>int</td>
+            </tr>
+            <tr>
+              <td>이름</td>
+              <td>name</td>
+              <td>varchar(100)</td>
+            </tr>
+            <tr>
+              <td>아이디</td>
+              <td>userid</td>
+              <td>varchar(255)</td>
+            </tr>
+            <tr>
+              <td>비밀번호</td>
+              <td>password</td>
+              <td>varchar(500)</td>
+            </tr>
+            <tr>
+              <td>사용자권한</td>
+              <td>role</td>
+              <td>varchar(20)</td>
+            </tr>
+            <tr>
+              <td>이메일</td>
+              <td>email</td>
+              <td>varchar(255)</td>
+            </tr>
+            <tr>
+              <td>전화번호</td>
+              <td>phone</td>
+              <td>varchar(255)</td>
+            </tr>
+            <tr>
+              <td>비밀번호 변경일</td>
+              <td>updated_pw_date</td>
+              <td>datetime</td>
+            </tr>
+            <tr>
+              <td>등록일시</td>
+              <td>created_at</td>
+              <td>datetime</td>
+            </tr>
+            <tr>
+              <td>수정일시</td>
+              <td>updated_at</td>
+              <td>datetime</td>
+            </tr>
+            <tr>
+              <td>삭제일시</td>
+              <td>deleted_at</td>
+              <td>datetime</td>
+            </tr>
+          </tbody>
+        </table>
+        <h5 id="store-파일-생성">1) Store 파일 생성</h5>
+        <p>
+          <code>department</code>파일을 참고하여 <code>user</code>의
+          <code>store</code>파일을 다음의 위치에 생성 해 볼 것.
+        </p>
+        <blockquote>
+          <p>/src/store/models/user.js</p>
+        </blockquote>
+        <p><strong>참고</strong> 테스트용 데이터는 아래와 같이 사용 한다.</p>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token comment">/* 테스트 데이터 세팅 */</span>
 <span class="token keyword">const</span> UserList <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">{</span>
     id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
@@ -2066,13 +2464,18 @@ ERROR<span class="token punctuation">:</span> <span class="token punctuation">{<
   <span class="token punctuation">}</span>
 <span class="token punctuation">]</span>
 </code></pre>
-<h5 id="inform파일-생성">2) inform파일 생성</h5>
-<p><code>department</code>파일을 참고하여 <code>user</code>의 <code>inform.vue</code>파일을 다음의 위치에 생성 해 볼 것.</p>
-<blockquote>
-<p>/src/views/user/inform.vue</p>
-</blockquote>
-<p>User항목은 다음과 같다.</p>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token operator">...</span>
+        <h5 id="inform파일-생성">2) inform파일 생성</h5>
+        <p>
+          <code>department</code>파일을 참고하여 <code>user</code>의
+          <code>inform.vue</code>파일을 다음의 위치에 생성 해 볼 것.
+        </p>
+        <blockquote>
+          <p>/src/views/user/inform.vue</p>
+        </blockquote>
+        <p>User항목은 다음과 같다.</p>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token operator">...</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
   <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">{</span>
@@ -2090,14 +2493,21 @@ ERROR<span class="token punctuation">:</span> <span class="token punctuation">{<
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token operator">...</span>
 </code></pre>
-<p>모든 필드는 그냥 <code>input text</code>로 구현 하도록 한다.</p>
-<h5 id="리스트-화면index.vue-파일-생성">3) 리스트 화면(index.vue) 파일 생성</h5>
-<p><code>department</code>파일을 참고하여 <code>user</code>의 <code>index.vue</code>파일을 다음의 위치에 생성 해 볼 것.</p>
-<blockquote>
-<p>/src/views/user/index.vue</p>
-</blockquote>
-<p>출력할 필드는 다음과 같다.</p>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+        <p>모든 필드는 그냥 <code>input text</code>로 구현 하도록 한다.</p>
+        <h5 id="리스트-화면index.vue-파일-생성">
+          3) 리스트 화면(index.vue) 파일 생성
+        </h5>
+        <p>
+          <code>department</code>파일을 참고하여 <code>user</code>의
+          <code>index.vue</code>파일을 다음의 위치에 생성 해 볼 것.
+        </p>
+        <blockquote>
+          <p>/src/views/user/index.vue</p>
+        </blockquote>
+        <p>출력할 필드는 다음과 같다.</p>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
   <span class="token operator">...</span>
   <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">{</span>
@@ -2116,18 +2526,24 @@ ERROR<span class="token punctuation">:</span> <span class="token punctuation">{<
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token operator">...</span>
 </code></pre>
-<h4 id="사용자의-권한role-기능">사용자의 권한(role) 기능</h4>
-<p>사용자의 권한은 다음과 같다.<br>
-- 팀장: <code>leader</code><br>
-- 팀원: <code>member</code> (기본값)</p>
-<p>사용자의 권한을 선택할 수 있도록 입력 폼을 바꿔보자.<br>
-권한 입력 폼은<code>radio</code>로 구현하며 권한 값은 하드코딩 한다.</p>
-<p>입력 폼 파일에서 다음과 같이 구현 한다.</p>
-<blockquote>
-<p>/src/views/user/inform.vue</p>
-</blockquote>
-<h5 id="권한-값-정의">1) 권한 값 정의</h5>
-<pre class=" language-javascript"><code class="prism  language-javascript">userRole<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <h4 id="사용자의-권한role-기능">사용자의 권한(role) 기능</h4>
+        <p>
+          사용자의 권한은 다음과 같다.<br />
+          - 팀장: <code>leader</code><br />
+          - 팀원: <code>member</code> (기본값)
+        </p>
+        <p>
+          사용자의 권한을 선택할 수 있도록 입력 폼을 바꿔보자.<br />
+          권한 입력 폼은<code>radio</code>로 구현하며 권한 값은 하드코딩 한다.
+        </p>
+        <p>입력 폼 파일에서 다음과 같이 구현 한다.</p>
+        <blockquote>
+          <p>/src/views/user/inform.vue</p>
+        </blockquote>
+        <h5 id="권한-값-정의">1) 권한 값 정의</h5>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript">userRole<span class="token punctuation">:</span> <span class="token punctuation">{</span>
   <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">'member'</span><span class="token punctuation">,</span> <span class="token comment">// 기본값</span>
   options<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">'leader'</span><span class="token punctuation">,</span> text<span class="token punctuation">:</span> <span class="token string">'팀장'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -2135,8 +2551,12 @@ ERROR<span class="token punctuation">:</span> <span class="token punctuation">{<
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>신규등록인 경우 기본값을 세팅해주기 위해 아래와 같은 로직이 추가 된다.</p>
-<pre class=" language-javascript"><code class="prism  language-javascript">watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <p>
+          신규등록인 경우 기본값을 세팅해주기 위해 아래와 같은 로직이 추가 된다.
+        </p>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript">watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>
   <span class="token comment">// 모달이 열린 이후에 감지됨</span>
   <span class="token function">infoData</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>user <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>value <span class="token punctuation">}</span>
@@ -2161,24 +2581,40 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
 	<span class="token operator">...</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p><strong>참고</strong> 기본값을 세팅하는 방법은 Store에서 세팅할 수도 있고 vue파일에서 세팅할 수도 있다. 하나의 방법을 선택해서 통일성 있게 사용해야 한다.</p>
-<h5 id="radio-버튼-구현">2) radio 버튼 구현</h5>
-<p>이제 권한 필드를 radio로 변경해 본다.</p>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-form-group</span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>권한<span class="token punctuation">"</span></span> <span class="token attr-name">label-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>auth<span class="token punctuation">"</span></span> <span class="token attr-name">label-cols</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <p>
+          <strong>참고</strong> 기본값을 세팅하는 방법은 Store에서 세팅할 수도
+          있고 vue파일에서 세팅할 수도 있다. 하나의 방법을 선택해서 통일성 있게
+          사용해야 한다.
+        </p>
+        <h5 id="radio-버튼-구현">2) radio 버튼 구현</h5>
+        <p>이제 권한 필드를 radio로 변경해 본다.</p>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-form-group</span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>권한<span class="token punctuation">"</span></span> <span class="token attr-name">label-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>auth<span class="token punctuation">"</span></span> <span class="token attr-name">label-cols</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-form-radio-group</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>auth<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>user.role<span class="token punctuation">"</span></span> <span class="token attr-name">:options</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>userRole.options<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b-form-group</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<h4 id="사용자의-소속-부서-연동">사용자의 소속 부서 연동</h4>
-<p>사용자 입력 폼에서 소속부서 선택은 <code>&lt;select&gt;</code>로 구현 해야 한다.</p>
-<p>이를 위해서는 다음의 두가지 조건을 만족 해야 한다.<br>
-<strong>사용자 등록 시</strong> 부서 정보는 실제 부서리스트를 조회하여 나타내야 한다.<br>
-<strong>사용자 수정 시</strong> 부서 정보는 해당 사용자가 소속한 부서가 자동으로 선택된 상태이어야 하며 다른 부서로 변동할 수 있어야 한다.</p>
-<h5 id="부서정보-조회-하기">1) 부서정보 조회 하기</h5>
-<p><code>created</code>에서  부서리스트를 조회 한다.</p>
-<blockquote>
-<p>/src/views/user/inform.vue</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token operator">...</span>
+        <h4 id="사용자의-소속-부서-연동">사용자의 소속 부서 연동</h4>
+        <p>
+          사용자 입력 폼에서 소속부서 선택은 <code>&lt;select&gt;</code>로 구현
+          해야 한다.
+        </p>
+        <p>
+          이를 위해서는 다음의 두가지 조건을 만족 해야 한다.<br />
+          <strong>사용자 등록 시</strong> 부서 정보는 실제 부서리스트를 조회하여
+          나타내야 한다.<br />
+          <strong>사용자 수정 시</strong> 부서 정보는 해당 사용자가 소속한
+          부서가 자동으로 선택된 상태이어야 하며 다른 부서로 변동할 수 있어야
+          한다.
+        </p>
+        <h5 id="부서정보-조회-하기">1) 부서정보 조회 하기</h5>
+        <p><code>created</code>에서 부서리스트를 조회 한다.</p>
+        <blockquote>
+          <p>/src/views/user/inform.vue</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token operator">...</span>
   computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     <span class="token operator">...</span>
     <span class="token function">departmentList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -2197,12 +2633,12 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token operator">...</span>
 </code></pre>
-<h5 id="select-구현하기">2) select 구현하기</h5>
-<p>부서 입력폼을 selectBox로 다음과 같이 변경 한다.</p>
-<blockquote>
-<p>/src/vuews/user/inform.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html">...
+        <h5 id="select-구현하기">2) select 구현하기</h5>
+        <p>부서 입력폼을 selectBox로 다음과 같이 변경 한다.</p>
+        <blockquote>
+          <p>/src/vuews/user/inform.vue</p>
+        </blockquote>
+        <pre class="language-html"><code class="prism  language-html">...
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-form-group</span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>부서<span class="token punctuation">"</span></span> <span class="token attr-name">label-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>department<span class="token punctuation">"</span></span> <span class="token attr-name">label-cols</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-form-select</span>
     <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>department<span class="token punctuation">"</span></span>
@@ -2218,52 +2654,104 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b-form-group</span><span class="token punctuation">&gt;</span></span>
 ...
 </code></pre>
-<ul>
-<li><code>id</code>값을 <code>value</code>로 매핑하기 위해 <code>value-field="id"</code>로 처리하였다.</li>
-<li><code>name</code>값을 <code>option</code>으로 매핑하기 <code>text-field="name"</code>로 처리하였다.</li>
-<li><code>departmentId: null</code>인 경우의 처리를 위해 <code>&lt;template #first&gt;</code>부분에 <code>null</code>처리를 하였다.</li>
-<li><code>v-model</code>을 통해 <code>selected</code>가 처리 된다. (수정 모드인 경우 자동으로 선택 되는지 확인 할 것)</li>
-</ul>
-<h4 id="사용자의-비밀번호-기능">사용자의 비밀번호 기능</h4>
-<ul>
-<li>비밀번호는 <code>inputMode === 'insert'</code>인 경우에만 출력 한다.</li>
-<li>비밀번호 입력 타입은 <code>password</code>로 변경 한다.</li>
-<li><code>inputMode === 'update'</code>인 경우는 <code>[비밀번호 변경]</code>버튼만 출력 한다. (기능 구현은 안함)</li>
-</ul>
-<h5 id="비밀번호를-입력받는-항목은-다음과-같은-기능이-필요하다">비밀번호를 입력받는 항목은 다음과 같은 기능이 필요하다</h5>
-<ul>
-<li>"비밀번호"와 "비밀번호 확인"을 입력 받고 두 값이 같을 때에만 submit을 허용 한다.(<code>vuelidate</code>를 통해 구현 가능)</li>
-<li>"비밀번호"에 입력되는 값은 특정한 비밀번호 규칙(예: 대문자+소문자+특수문자+숫자 조합)을 만족해야만 한다.(<code>password-validator</code>를 통해 구현 가능)</li>
-<li>여기에서는 구현하지 않고 추후 각자 구현해 보도록 한다.</li>
-</ul>
-<h3 id="장비-관리-화면-제작">장비 관리 화면 제작</h3>
-<p>마지막으로 <strong>장비 관리</strong>화면을 제작해 보자.<br>
-(샘플 소스에는 <code>name</code>과 <code>model</code>필드만 작성되어 있으니 나머지 필드를 추가해서 완성해 볼 것)</p>
-<p>파일 작성 순서: device.js(Store) --&gt; inform.vue(입력 폼) --&gt; index.vue(리스트 화면)<br>
-(파일의 기본 틀을 잡아 놓고 각 기능별로 구현 하는 방법을 사용 하도록 한다.)</p>
-<h2 id="로그인">로그인</h2>
-<p>로그인/아웃 처리는 <code>jwt</code>를 발행/폐기 하는 방식으로 처리 한다.<br>
-발급된 토큰정보는 웹브라우저의 <code>localStorage</code>에 저장한다.<br>
-백엔드 서버에 전송할때 토큰은 <code>request.headers.token</code>에 전송 한다. (백엔드의 API를 확인할 것)<br>
-응답 받을때 토큰은 <code>response.headers.token</code>에 전송 받는다. (백엔드의 API를 확인할 것)</p>
-<p><strong>참고</strong> 우리는 별도의 헤더 정보를 사용하며 <code>Bearer</code>를 사용하지 않는다.</p>
-<h3 id="로그인-화면">로그인 화면</h3>
-<p>로그인 화면은 상단의 <code>app-header</code>부분 없이 독립된 디자인의 페이지로 생성하도록 한다.</p>
-<h5 id="로그인용-index.vue-파일-생성">1) 로그인용 index.vue 파일 생성</h5>
-<p>라우터를 처리할 <code>index.vue</code>파일을 생성 한다.</p>
-<blockquote>
-<p>/src/views/auth/index.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <ul>
+          <li>
+            <code>id</code>값을 <code>value</code>로 매핑하기 위해
+            <code>value-field="id"</code>로 처리하였다.
+          </li>
+          <li>
+            <code>name</code>값을 <code>option</code>으로 매핑하기
+            <code>text-field="name"</code>로 처리하였다.
+          </li>
+          <li>
+            <code>departmentId: null</code>인 경우의 처리를 위해
+            <code>&lt;template #first&gt;</code>부분에 <code>null</code>처리를
+            하였다.
+          </li>
+          <li>
+            <code>v-model</code>을 통해 <code>selected</code>가 처리 된다. (수정
+            모드인 경우 자동으로 선택 되는지 확인 할 것)
+          </li>
+        </ul>
+        <h4 id="사용자의-비밀번호-기능">사용자의 비밀번호 기능</h4>
+        <ul>
+          <li>
+            비밀번호는 <code>inputMode === 'insert'</code>인 경우에만 출력 한다.
+          </li>
+          <li>비밀번호 입력 타입은 <code>password</code>로 변경 한다.</li>
+          <li>
+            <code>inputMode === 'update'</code>인 경우는
+            <code>[비밀번호 변경]</code>버튼만 출력 한다. (기능 구현은 안함)
+          </li>
+        </ul>
+        <h5 id="비밀번호를-입력받는-항목은-다음과-같은-기능이-필요하다">
+          비밀번호를 입력받는 항목은 다음과 같은 기능이 필요하다
+        </h5>
+        <ul>
+          <li>
+            "비밀번호"와 "비밀번호 확인"을 입력 받고 두 값이 같을 때에만
+            submit을 허용 한다.(<code>vuelidate</code>를 통해 구현 가능)
+          </li>
+          <li>
+            "비밀번호"에 입력되는 값은 특정한 비밀번호 규칙(예:
+            대문자+소문자+특수문자+숫자 조합)을 만족해야만
+            한다.(<code>password-validator</code>를 통해 구현 가능)
+          </li>
+          <li>여기에서는 구현하지 않고 추후 각자 구현해 보도록 한다.</li>
+        </ul>
+        <h3 id="장비-관리-화면-제작">장비 관리 화면 제작</h3>
+        <p>
+          마지막으로 <strong>장비 관리</strong>화면을 제작해 보자.<br />
+          (샘플 소스에는 <code>name</code>과 <code>model</code>필드만 작성되어
+          있으니 나머지 필드를 추가해서 완성해 볼 것)
+        </p>
+        <p>
+          파일 작성 순서: device.js(Store) --&gt; inform.vue(입력 폼) --&gt;
+          index.vue(리스트 화면)<br />
+          (파일의 기본 틀을 잡아 놓고 각 기능별로 구현 하는 방법을 사용 하도록
+          한다.)
+        </p>
+        <h2 id="로그인">로그인</h2>
+        <p>
+          로그인/아웃 처리는 <code>jwt</code>를 발행/폐기 하는 방식으로 처리
+          한다.<br />
+          발급된 토큰정보는 웹브라우저의 <code>localStorage</code>에
+          저장한다.<br />
+          백엔드 서버에 전송할때 토큰은 <code>request.headers.token</code>에
+          전송 한다. (백엔드의 API를 확인할 것)<br />
+          응답 받을때 토큰은 <code>response.headers.token</code>에 전송 받는다.
+          (백엔드의 API를 확인할 것)
+        </p>
+        <p>
+          <strong>참고</strong> 우리는 별도의 헤더 정보를 사용하며
+          <code>Bearer</code>를 사용하지 않는다.
+        </p>
+        <h3 id="로그인-화면">로그인 화면</h3>
+        <p>
+          로그인 화면은 상단의 <code>app-header</code>부분 없이 독립된 디자인의
+          페이지로 생성하도록 한다.
+        </p>
+        <h5 id="로그인용-index.vue-파일-생성">
+          1) 로그인용 index.vue 파일 생성
+        </h5>
+        <p>라우터를 처리할 <code>index.vue</code>파일을 생성 한다.</p>
+        <blockquote>
+          <p>/src/views/auth/index.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span> <span class="token punctuation">/&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<h5 id="로그인-페이지-생성">2) 로그인 페이지 생성</h5>
-<p>로그인용 빈페이지를 하나 생성 한다.</p>
-<blockquote>
-<p>/src/views/auth/login.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <h5 id="로그인-페이지-생성">2) 로그인 페이지 생성</h5>
+        <p>로그인용 빈페이지를 하나 생성 한다.</p>
+        <blockquote>
+          <p>/src/views/auth/login.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>로그인<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
@@ -2273,13 +2761,18 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<h5 id="라우터-등록">3) 라우터 등록</h5>
-<p>로그인 라우터는 <code>path: '/'</code>와 <code>path: '*'</code>사이에 (같은 동급으로)생성하도록 한다.<br>
-(<code>path</code>는 <code>/auth</code>를 사용 하자.)</p>
-<blockquote>
-<p>/src/router/index.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token operator">...</span>
+        <h5 id="라우터-등록">3) 라우터 등록</h5>
+        <p>
+          로그인 라우터는 <code>path: '/'</code>와 <code>path: '*'</code>사이에
+          (같은 동급으로)생성하도록 한다.<br />
+          (<code>path</code>는 <code>/auth</code>를 사용 하자.)
+        </p>
+        <blockquote>
+          <p>/src/router/index.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token operator">...</span>
 <span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">{</span>
     path<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
@@ -2307,13 +2800,18 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
 <span class="token punctuation">]</span>
 <span class="token operator">...</span>
 </code></pre>
-<p>로그인 주소는 <code>/auth/login</code>으로 한다.</p>
-<h5 id="app.vue에서-헤더-제외">4) App.vue에서 헤더 제외</h5>
-<p>위에 등록한 <code>meta: { header: false }</code>를 통해 로그인 페이지에서는 헤더를 제거할 수 있다.</p>
-<blockquote>
-<p>/src/App.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <p>로그인 주소는 <code>/auth/login</code>으로 한다.</p>
+        <h5 id="app.vue에서-헤더-제외">4) App.vue에서 헤더 제외</h5>
+        <p>
+          위에 등록한 <code>meta: { header: false }</code>를 통해 로그인
+          페이지에서는 헤더를 제거할 수 있다.
+        </p>
+        <blockquote>
+          <p>/src/App.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-header</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>this.$route.meta.header !== false<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span> <span class="token punctuation">/&gt;</span></span>
@@ -2332,14 +2830,28 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./assets/style/main.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token style language-css"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p><code>&lt;app-header v-if="this.$route.meta.header !== false" /&gt;</code>구문을 통해 <code>meta.header</code>값이 명백히 <code>false</code>인 경우에만 헤더를 제거할 수 있도록 하였다. (<code>meta.header</code>값이 <code>null</code> or <code>true</code>인 경우에는 헤더가 노출 된다.)</p>
-<p><code>http://localhost:8080/auth/login</code>에 접속해보면 헤더가 제거된 로그인 화면을 확인할 수 있다.</p>
-<h5 id="로그인-화면-생성">5) 로그인 화면 생성</h5>
-<p>위에서 만든 로그인 페이지를 아이디/패스워드를 입력받는 화면으로 만들어 보자. (기능 제외)</p>
-<blockquote>
-<p>/src/views/auth/login.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <p>
+          <code
+            >&lt;app-header v-if="this.$route.meta.header !== false" /&gt;</code
+          >구문을 통해 <code>meta.header</code>값이 명백히 <code>false</code>인
+          경우에만 헤더를 제거할 수 있도록 하였다. (<code>meta.header</code>값이
+          <code>null</code> or <code>true</code>인 경우에는 헤더가 노출 된다.)
+        </p>
+        <p>
+          <code>http://localhost:8080/auth/login</code>에 접속해보면 헤더가
+          제거된 로그인 화면을 확인할 수 있다.
+        </p>
+        <h5 id="로그인-화면-생성">5) 로그인 화면 생성</h5>
+        <p>
+          위에서 만든 로그인 페이지를 아이디/패스워드를 입력받는 화면으로 만들어
+          보자. (기능 제외)
+        </p>
+        <blockquote>
+          <p>/src/views/auth/login.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">80</span>px</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-row</span> <span class="token attr-name">align-h</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -2377,18 +2889,27 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<h3 id="토큰-발행">토큰 발행</h3>
-<p><code>[로그인]</code>버튼 클릭 시 동작시킬 Store파일을 만들어 보자.</p>
-<h5 id="jwt-decode-설치">1) jwt-decode 설치</h5>
-<p>발급된 토큰의 정보를 확인하기 위해 <code>jwt-decode</code>를 설치 한다.</p>
-<pre class=" language-console"><code class="prism  language-console">&gt; npm install jwt-decode
+        <h3 id="토큰-발행">토큰 발행</h3>
+        <p>
+          <code>[로그인]</code>버튼 클릭 시 동작시킬 Store파일을 만들어 보자.
+        </p>
+        <h5 id="jwt-decode-설치">1) jwt-decode 설치</h5>
+        <p>
+          발급된 토큰의 정보를 확인하기 위해 <code>jwt-decode</code>를 설치
+          한다.
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; npm install jwt-decode
 </code></pre>
-<h5 id="auth-스토어-생성">2) auth 스토어 생성</h5>
-<p>토큰 처리를 위한 <code>auth</code>스토어를 생성 한다.</p>
-<blockquote>
-<p>/src/store/models/auth.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">import</span> api <span class="token keyword">from</span> <span class="token string">'../apiUtil'</span>
+        <h5 id="auth-스토어-생성">2) auth 스토어 생성</h5>
+        <p>토큰 처리를 위한 <code>auth</code>스토어를 생성 한다.</p>
+        <blockquote>
+          <p>/src/store/models/auth.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">import</span> api <span class="token keyword">from</span> <span class="token string">'../apiUtil'</span>
 <span class="token keyword">import</span> jwtDecode <span class="token keyword">from</span> <span class="token string">'jwt-decode'</span>
 
 <span class="token comment">/*
@@ -2487,13 +3008,20 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h5 id="axios의-interceptor-활용">3) axios의 interceptor 활용</h5>
-<p><code>axios</code>에서 제공하는 <code>interceptors</code>를 이용하여 <code>request</code>와 <code>response</code>할때 <code>headers</code>에 <code>token</code>값을 전송/수신 할 수 있다.<br>
-<strong>주의</strong> 토큰 정보를 헤더를 통해서 백엔드와 주고 받을 때에는 백엔드의 API와 맞춰야 한다.</p>
-<blockquote>
-<p>/src/store/apiUtil.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+        <h5 id="axios의-interceptor-활용">3) axios의 interceptor 활용</h5>
+        <p>
+          <code>axios</code>에서 제공하는 <code>interceptors</code>를 이용하여
+          <code>request</code>와 <code>response</code>할때
+          <code>headers</code>에 <code>token</code>값을 전송/수신 할 수 있다.<br />
+          <strong>주의</strong> 토큰 정보를 헤더를 통해서 백엔드와 주고 받을
+          때에는 백엔드의 API와 맞춰야 한다.
+        </p>
+        <blockquote>
+          <p>/src/store/apiUtil.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
 
 <span class="token keyword">const</span> api <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -2527,13 +3055,18 @@ api<span class="token punctuation">.</span>interceptors<span class="token punctu
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> api
 </code></pre>
-<p><code>api.interceptors</code>를 잘 눈여겨 보도록 하자.</p>
-<h5 id="store-index.vue-등록">4) store index.vue 등록</h5>
-<p>store의 <code>index.vue</code>에 등록한다. (<code>Auth</code>등록은 맨 위에 하자)</p>
-<blockquote>
-<p>/src/store/index.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+        <p><code>api.interceptors</code>를 잘 눈여겨 보도록 하자.</p>
+        <h5 id="store-index.vue-등록">4) store index.vue 등록</h5>
+        <p>
+          store의 <code>index.vue</code>에 등록한다. (<code>Auth</code>등록은 맨
+          위에 하자)
+        </p>
+        <blockquote>
+          <p>/src/store/index.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
 <span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span>
 <span class="token keyword">import</span> Auth <span class="token keyword">from</span> <span class="token string">'./models/auth'</span>
 <span class="token keyword">import</span> Department <span class="token keyword">from</span> <span class="token string">'./models/department'</span>
@@ -2551,12 +3084,14 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
-<h5 id="로그인-페이지-완성">5) 로그인 페이지 완성</h5>
-<p>로그인 페이지를 완성해 보자.</p>
-<blockquote>
-<p>/src/views/auth/login.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <h5 id="로그인-페이지-완성">5) 로그인 페이지 완성</h5>
+        <p>로그인 페이지를 완성해 보자.</p>
+        <blockquote>
+          <p>/src/views/auth/login.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">80</span>px</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-row</span> <span class="token attr-name">align-h</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -2644,40 +3179,67 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p><code>[로그인]</code>버튼에 loading 기능이 구현 되었다. (로그인 하는 동안 버튼이 spin됨)<br>
-<strong>주의</strong> 로그인이 실패한 경우 아이디나 비밀번호중 어느 것이 잘못되었는지 알려주지 않도록 한다. (보안에 유의)</p>
-<h3 id="로그인-테스트">로그인 테스트</h3>
-<ul>
-<li>로그인 페이지(<code>/auth/login</code>) 접속 확인</li>
-<li>로그인 후 <code>/home</code>페이지로 이동하는지 확인</li>
-<li>로그인 후 <code>localStorage</code>에 <code>token</code>이 저장되는지 확인
-<ul>
-<li>웹브라우저의 개발자도구에서 <code>Application &gt; Storage &gt; Local Storage</code>에서 찾을 수 있다.</li>
-<li>해당 토큰을 삭제하면 로그아웃이 된걸로 간주 된다.</li>
-</ul>
-</li>
-<li>토큰을 보유한 상태에서 로그인 페이지(<code>/auth/login</code>)로 접속 시 메인 페이지(<code>/home</code>)로 리다이렉트 되는지 확인</li>
-<li>만료된 토큰을 보유한 상태에서 로그인 페이지(<code>/auth/login</code>)로 접속 시 로그인 페이지가 유지되는지 확인
-<ul>
-<li>메인 페이지<code>/home</code>로 가면 안됨</li>
-</ul>
-</li>
-<li>로그인 상태에서 페이지 <code>reload</code>를 해보자.
-<ul>
-<li>토큰정보는 <code>localStorage</code>에 남아있는데 Store에 저장된 <code>TokenUser</code>정보는 없어진 것을 확인할 수 있다.</li>
-<li>이 문제는 토큰검사에서 해결하도록 한다.</li>
-</ul>
-</li>
-</ul>
-<h3 id="토큰-폐기">토큰 폐기</h3>
-<p>토큰 폐기를 통해 로그아웃 기능을 구현할 수 있다.</p>
-<p>보통 로그아웃을 함수로만 구현하는데 우리는 실제 페이지를 만들어서 해당 페이지에서 처리하도록 하자.<br>
-(로그아웃 페이지를 만들면 url을 통한 강제 로그아웃 처리가 가능하다.)</p>
-<h5 id="store에서-토큰폐기-로직-생성">1) store에서 토큰폐기 로직 생성</h5>
-<blockquote>
-<p>/src/store/models/auth.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token operator">...</span>
+        <p>
+          <code>[로그인]</code>버튼에 loading 기능이 구현 되었다. (로그인 하는
+          동안 버튼이 spin됨)<br />
+          <strong>주의</strong> 로그인이 실패한 경우 아이디나 비밀번호중 어느
+          것이 잘못되었는지 알려주지 않도록 한다. (보안에 유의)
+        </p>
+        <h3 id="로그인-테스트">로그인 테스트</h3>
+        <ul>
+          <li>로그인 페이지(<code>/auth/login</code>) 접속 확인</li>
+          <li>로그인 후 <code>/home</code>페이지로 이동하는지 확인</li>
+          <li>
+            로그인 후 <code>localStorage</code>에 <code>token</code>이
+            저장되는지 확인
+            <ul>
+              <li>
+                웹브라우저의 개발자도구에서
+                <code>Application &gt; Storage &gt; Local Storage</code>에서
+                찾을 수 있다.
+              </li>
+              <li>해당 토큰을 삭제하면 로그아웃이 된걸로 간주 된다.</li>
+            </ul>
+          </li>
+          <li>
+            토큰을 보유한 상태에서 로그인 페이지(<code>/auth/login</code>)로
+            접속 시 메인 페이지(<code>/home</code>)로 리다이렉트 되는지 확인
+          </li>
+          <li>
+            만료된 토큰을 보유한 상태에서 로그인
+            페이지(<code>/auth/login</code>)로 접속 시 로그인 페이지가
+            유지되는지 확인
+            <ul>
+              <li>메인 페이지<code>/home</code>로 가면 안됨</li>
+            </ul>
+          </li>
+          <li>
+            로그인 상태에서 페이지 <code>reload</code>를 해보자.
+            <ul>
+              <li>
+                토큰정보는 <code>localStorage</code>에 남아있는데 Store에 저장된
+                <code>TokenUser</code>정보는 없어진 것을 확인할 수 있다.
+              </li>
+              <li>이 문제는 토큰검사에서 해결하도록 한다.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3 id="토큰-폐기">토큰 폐기</h3>
+        <p>토큰 폐기를 통해 로그아웃 기능을 구현할 수 있다.</p>
+        <p>
+          보통 로그아웃을 함수로만 구현하는데 우리는 실제 페이지를 만들어서 해당
+          페이지에서 처리하도록 하자.<br />
+          (로그아웃 페이지를 만들면 url을 통한 강제 로그아웃 처리가 가능하다.)
+        </p>
+        <h5 id="store에서-토큰폐기-로직-생성">
+          1) store에서 토큰폐기 로직 생성
+        </h5>
+        <blockquote>
+          <p>/src/store/models/auth.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token operator">...</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
   <span class="token operator">...</span>
   mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
@@ -2721,14 +3283,20 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p><code>mutations</code>에 로그아웃을 한번에 처리하는 <code>setLogout</code>을 추가하였다.<br>
-상용 서비스에서 로그인을 처리하는 백엔드를 호출할때는 반드시 <code>https</code>를 사용해야 한다.</p>
-<h5 id="로그아웃-페이지-생성">2) 로그아웃 페이지 생성</h5>
-<p>로그아웃을 처리하는 빈페이지를 생성해 보자.</p>
-<blockquote>
-<p>/src/views/auth/logout.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <p>
+          <code>mutations</code>에 로그아웃을 한번에 처리하는
+          <code>setLogout</code>을 추가하였다.<br />
+          상용 서비스에서 로그인을 처리하는 백엔드를 호출할때는 반드시
+          <code>https</code>를 사용해야 한다.
+        </p>
+        <h5 id="로그아웃-페이지-생성">2) 로그아웃 페이지 생성</h5>
+        <p>로그아웃을 처리하는 빈페이지를 생성해 보자.</p>
+        <blockquote>
+          <p>/src/views/auth/logout.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text-center<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">200</span>px</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-spinner</span> <span class="token attr-name">variant</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>secondary<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">3</span>rem<span class="token punctuation">;</span> <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">3</span>rem</span><span class="token punctuation">"</span></span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Logout...<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b-spinner</span><span class="token punctuation">&gt;</span></span>
@@ -2740,15 +3308,19 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>라우터 주소는 <code>/auth/logout</code>으로 한다.<br>
-로그아웃 페이지에 접속하면 스핀되는 이미지를 볼 수 있을 것이다.<br>
-로그아웃이 처리되는 동안 보여줄 이미지가 있으면 이곳에 넣으면 된다.</p>
-<h5 id="로그아웃-기능-넣기">3) 로그아웃 기능 넣기</h5>
-<p>로그아웃 기능을 넣어 보자.</p>
-<blockquote>
-<p>/src/views/auth/logout.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <p>
+          라우터 주소는 <code>/auth/logout</code>으로 한다.<br />
+          로그아웃 페이지에 접속하면 스핀되는 이미지를 볼 수 있을 것이다.<br />
+          로그아웃이 처리되는 동안 보여줄 이미지가 있으면 이곳에 넣으면 된다.
+        </p>
+        <h5 id="로그아웃-기능-넣기">3) 로그아웃 기능 넣기</h5>
+        <p>로그아웃 기능을 넣어 보자.</p>
+        <blockquote>
+          <p>/src/views/auth/logout.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text-center<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">200</span>px</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-spinner</span> <span class="token attr-name">variant</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>secondary<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">3</span>rem<span class="token punctuation">;</span> <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">3</span>rem</span><span class="token punctuation">"</span></span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Logout...<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b-spinner</span><span class="token punctuation">&gt;</span></span>
@@ -2777,13 +3349,19 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<h5 id="header에서-로그아웃-링크-걸기">4) header에서 로그아웃 링크 걸기</h5>
-<p>header파일에서 로그인했을 경우 해당 사용자 이름을 출력해주고<br>
-이름을 클릭하면 드롭다운에서 로그아웃 링크를 걸어주도록 하자.</p>
-<blockquote>
-<p>/src/components/layout/Header.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <h5 id="header에서-로그아웃-링크-걸기">
+          4) header에서 로그아웃 링크 걸기
+        </h5>
+        <p>
+          header파일에서 로그인했을 경우 해당 사용자 이름을 출력해주고<br />
+          이름을 클릭하면 드롭다운에서 로그아웃 링크를 걸어주도록 하자.
+        </p>
+        <blockquote>
+          <p>/src/components/layout/Header.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-navbar</span> <span class="token attr-name">toggleable</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lg<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>light<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">border-bottom</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0.1</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b-navbar-brand</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>VUEPROJ<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b-navbar-brand</span><span class="token punctuation">&gt;</span></span>
@@ -2833,18 +3411,33 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<h3 id="토큰-검사">토큰 검사</h3>
-<p><code>SPA</code>의 특징중 하나는 페이지를 새로고침하게되면 모든 Store정보가 날아간다는 것이다.<br>
-따라서 <em><strong>로그인한 사용자 정보</strong></em> 같이 중요한 Store정보는 계속 유지 할 수 있도록 해야 한다.<br>
-(<code>localStorage</code>의 정보는 날아가지 않는다. (컴퓨터를 재부팅 해도 유지됨. 보안에 유의!!))</p>
-<p>토큰 검사는 router의 <code>beforeEach</code>를 이용해서 구현 한다.<br>
-라우팅 시 페이지 이동하기 전에 체크하는 로직을 구현할 수 있다.</p>
-<p><code>router.beforeEach</code>는 반드시 <code>const router = new Router</code>의 하단에 위치해야 한다.<br>
-자세한 router사용법은 공식 문서를 참조할 것 (<a href="https://router.vuejs.org/kr/guide/advanced/navigation-guards.html">https://router.vuejs.org/kr/guide/advanced/navigation-guards.html</a>)</p>
-<blockquote>
-<p>/src/router/index.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token operator">...</span>
+        <h3 id="토큰-검사">토큰 검사</h3>
+        <p>
+          <code>SPA</code>의 특징중 하나는 페이지를 새로고침하게되면 모든
+          Store정보가 날아간다는 것이다.<br />
+          따라서 <em><strong>로그인한 사용자 정보</strong></em> 같이 중요한
+          Store정보는 계속 유지 할 수 있도록 해야 한다.<br />
+          (<code>localStorage</code>의 정보는 날아가지 않는다. (컴퓨터를 재부팅
+          해도 유지됨. 보안에 유의!!))
+        </p>
+        <p>
+          토큰 검사는 router의 <code>beforeEach</code>를 이용해서 구현 한다.<br />
+          라우팅 시 페이지 이동하기 전에 체크하는 로직을 구현할 수 있다.
+        </p>
+        <p>
+          <code>router.beforeEach</code>는 반드시
+          <code>const router = new Router</code>의 하단에 위치해야 한다.<br />
+          자세한 router사용법은 공식 문서를 참조할 것 (<a
+            href="https://router.vuejs.org/kr/guide/advanced/navigation-guards.html"
+            >https://router.vuejs.org/kr/guide/advanced/navigation-guards.html</a
+          >)
+        </p>
+        <blockquote>
+          <p>/src/router/index.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token operator">...</span>
 <span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">{</span>
     path<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
@@ -2924,46 +3517,85 @@ router<span class="token punctuation">.</span><span class="token function">befor
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> router
 </code></pre>
-<p>로그인이 필요없는 페이지에 대해서 라우터에 메타정보(<code>noLogin=true</code>)를 넣어서 관리할 수 있도록 했다.</p>
-<p><strong>참고</strong><br>
-페이지가 강제 리다이렉트 되면 <code>Error: Redirected when going from "/auth/login" to "/home" via a navigation guard.</code>라는 에러가 보인다. 이는 에러가 아니라 페이지가 리다이렉트 되었다고 알려주는 것이다.</p>
-<h3 id="로그인-테스트-1">로그인 테스트</h3>
-<ul>
-<li>로그아웃 상태에서
-<ul>
-<li>로그인이 필요한 페이지(<code>/home</code>)로 이동했을때 로그인 페이지(<code>/auth/login</code>)로 리다이렉트 되는지 확인</li>
-<li>주소창에 로그아웃 페이지(<code>/auth/logout</code>)를 작성해서 이동시키면 로그인 페이지(<code>/auth/login</code>)로 이동하는지 확인</li>
-</ul>
-</li>
-<li>로그인 상태에서
-<ul>
-<li>새로고침(F5)을 해도 로그인이 유지되는지 확인</li>
-<li>페이지 이동에 이상이 없는지 확인</li>
-<li>로그아웃이 정상적으로 이루어 지는지 확인</li>
-<li>주소창에 로그인 페이지(<code>/auth/login</code>)를 작성해서 이동시키면 홈화면(<code>/home</code>)으로 리다이렉트 되는지 확인</li>
-<li>주소창에 로그아웃 페이지(<code>/auth/logout</code>)를 작성해서 이동시키면 로그아웃이 된 후 로그인 페이지(<code>/auth/login</code>)로 이동하는지 확인</li>
-<li><code>localStorage</code>의 토큰을 삭제한 후 페이지 이동 시 로그인 페이지(<code>/auth/login</code>)로 이동하는지 확인</li>
-<li><code>localStorage</code>의 토큰을 삭제한 후 새로고침(F5)을 하면 로그인 페이지(<code>/auth/login</code>)로 이동하는지 확인</li>
-</ul>
-</li>
-<li>기타 버그를 찾아보라.</li>
-</ul>
-<h2 id="mqtt">MQTT</h2>
-<p>실시간 데이터 수집및 전달을 위해 mqtt를 사용해 보도록 한다.<br>
-mqtt를 위해 <code>mosquitto</code>를 사용 한다. (mosquitto는 Docker를 이용해서 구축 한다.)</p>
-<h3 id="mosquitto-홈-디렉토리-설정">mosquitto 홈 디렉토리 설정</h3>
-<p><code>mosquitto</code>의 도커관련 디렉토리 구조는 다음과 같다.</p>
-<ul>
-<li>도커 볼륨 디렉토리: <code>/home/docker/volumes</code></li>
-<li>도커 컨테이너 디렉토리: <code>/home/docker/containers</code></li>
-</ul>
-<h3 id="mosquitto-환경-설정">mosquitto 환경 설정</h3>
-<p>환경 설정은 다음의 값만 설정하여 사용 한다.(나머지는 디폴트 값으로 사용)<br>
-파일 위치: <code>/home/docker/containers/mosquitto/mosquitto.conf</code></p>
-<blockquote>
-<p>mosquitto.conf</p>
-</blockquote>
-<pre><code>...
+        <p>
+          로그인이 필요없는 페이지에 대해서 라우터에
+          메타정보(<code>noLogin=true</code>)를 넣어서 관리할 수 있도록 했다.
+        </p>
+        <p>
+          <strong>참고</strong><br />
+          페이지가 강제 리다이렉트 되면
+          <code
+            >Error: Redirected when going from "/auth/login" to "/home" via a
+            navigation guard.</code
+          >라는 에러가 보인다. 이는 에러가 아니라 페이지가 리다이렉트 되었다고
+          알려주는 것이다.
+        </p>
+        <h3 id="로그인-테스트-1">로그인 테스트</h3>
+        <ul>
+          <li>
+            로그아웃 상태에서
+            <ul>
+              <li>
+                로그인이 필요한 페이지(<code>/home</code>)로 이동했을때 로그인
+                페이지(<code>/auth/login</code>)로 리다이렉트 되는지 확인
+              </li>
+              <li>
+                주소창에 로그아웃 페이지(<code>/auth/logout</code>)를 작성해서
+                이동시키면 로그인 페이지(<code>/auth/login</code>)로 이동하는지
+                확인
+              </li>
+            </ul>
+          </li>
+          <li>
+            로그인 상태에서
+            <ul>
+              <li>새로고침(F5)을 해도 로그인이 유지되는지 확인</li>
+              <li>페이지 이동에 이상이 없는지 확인</li>
+              <li>로그아웃이 정상적으로 이루어 지는지 확인</li>
+              <li>
+                주소창에 로그인 페이지(<code>/auth/login</code>)를 작성해서
+                이동시키면 홈화면(<code>/home</code>)으로 리다이렉트 되는지 확인
+              </li>
+              <li>
+                주소창에 로그아웃 페이지(<code>/auth/logout</code>)를 작성해서
+                이동시키면 로그아웃이 된 후 로그인
+                페이지(<code>/auth/login</code>)로 이동하는지 확인
+              </li>
+              <li>
+                <code>localStorage</code>의 토큰을 삭제한 후 페이지 이동 시
+                로그인 페이지(<code>/auth/login</code>)로 이동하는지 확인
+              </li>
+              <li>
+                <code>localStorage</code>의 토큰을 삭제한 후 새로고침(F5)을 하면
+                로그인 페이지(<code>/auth/login</code>)로 이동하는지 확인
+              </li>
+            </ul>
+          </li>
+          <li>기타 버그를 찾아보라.</li>
+        </ul>
+        <h2 id="mqtt">MQTT</h2>
+        <p>
+          실시간 데이터 수집및 전달을 위해 mqtt를 사용해 보도록 한다.<br />
+          mqtt를 위해 <code>mosquitto</code>를 사용 한다. (mosquitto는 Docker를
+          이용해서 구축 한다.)
+        </p>
+        <h3 id="mosquitto-홈-디렉토리-설정">mosquitto 홈 디렉토리 설정</h3>
+        <p><code>mosquitto</code>의 도커관련 디렉토리 구조는 다음과 같다.</p>
+        <ul>
+          <li>도커 볼륨 디렉토리: <code>/home/docker/volumes</code></li>
+          <li>도커 컨테이너 디렉토리: <code>/home/docker/containers</code></li>
+        </ul>
+        <h3 id="mosquitto-환경-설정">mosquitto 환경 설정</h3>
+        <p>
+          환경 설정은 다음의 값만 설정하여 사용 한다.(나머지는 디폴트 값으로
+          사용)<br />
+          파일 위치:
+          <code>/home/docker/containers/mosquitto/mosquitto.conf</code>
+        </p>
+        <blockquote>
+          <p>mosquitto.conf</p>
+        </blockquote>
+        <pre><code>...
 # =================================================================
 # Listeners
 # =================================================================
@@ -2981,13 +3613,17 @@ protocol websockets
 allow_anonymous true
 ...
 </code></pre>
-<h3 id="mosquitto-도커-컨테이너-실행">mosquitto 도커 컨테이너 실행</h3>
-<p><code>mosquitto</code> 도커의 컨테이너 실행 파일은 다음과 같다.<br>
-파일 위치: <code>/home/docker/containers/mosquitto/dockerRun.sh</code></p>
-<blockquote>
-<p><a href="http://dockerRun.sh">dockerRun.sh</a></p>
-</blockquote>
-<pre class=" language-shell"><code class="prism  language-shell">#!/bin/bash
+        <h3 id="mosquitto-도커-컨테이너-실행">mosquitto 도커 컨테이너 실행</h3>
+        <p>
+          <code>mosquitto</code> 도커의 컨테이너 실행 파일은 다음과 같다.<br />
+          파일 위치: <code>/home/docker/containers/mosquitto/dockerRun.sh</code>
+        </p>
+        <blockquote>
+          <p><a href="http://dockerRun.sh">dockerRun.sh</a></p>
+        </blockquote>
+        <pre
+          class="language-shell"
+        ><code class="prism  language-shell">#!/bin/bash
 
 # setting - docker info
 DOCKER_IMAGE_NAME=eclipse-mosquitto
@@ -3010,61 +3646,117 @@ docker run --name $DOCKER_CONTAINER_NAME \
 -d \
 $DOCKER_IMAGE
 </code></pre>
-<p><strong>참고</strong> 도커 컨테이너를 띄운 후 포트 포워딩을 잊지 말 것!</p>
-<h4 id="개발pc에-mqtt-설치하기">개발PC에 mqtt 설치하기</h4>
-<p>mqtt를 개발PC에서 테스트하기 위해서 다음과 같이 설치 한다.</p>
-<pre class=" language-console"><code class="prism  language-console">&gt; npm install -g mqtt
+        <p>
+          <strong>참고</strong> 도커 컨테이너를 띄운 후 포트 포워딩을 잊지 말
+          것!
+        </p>
+        <h4 id="개발pc에-mqtt-설치하기">개발PC에 mqtt 설치하기</h4>
+        <p>mqtt를 개발PC에서 테스트하기 위해서 다음과 같이 설치 한다.</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; npm install -g mqtt
 </code></pre>
-<p><code>-g</code>옵션을 통해 글로벌로 설치하도록 한다.</p>
-<h4 id="mqtt-구독-테스트">mqtt 구독 테스트</h4>
-<p>다음의 명령어를 개발PC의 명령 프롬프트를 통해 실행 시키면 실시간 구독이 된다. (종료는 Ctrl-c)</p>
-<pre class=" language-console"><code class="prism  language-console">&gt; mqtt subscribe -h 192.168.0.123 -p 1883 -t vueproj/testdata
+        <p><code>-g</code>옵션을 통해 글로벌로 설치하도록 한다.</p>
+        <h4 id="mqtt-구독-테스트">mqtt 구독 테스트</h4>
+        <p>
+          다음의 명령어를 개발PC의 명령 프롬프트를 통해 실행 시키면 실시간
+          구독이 된다. (종료는 Ctrl-c)
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; mqtt subscribe -h 192.168.0.123 -p 1883 -t vueproj/testdata
 </code></pre>
-<p><strong>주의</strong> ip부분에 본인 PC의 아이피를 세팅할 것 (127.0.0.1은 동작하지 않음)</p>
-<p>토픽은 <code>vueproj/testdata</code>로 한다.</p>
-<h4 id="mqtt-발행-테스트">mqtt 발행 테스트</h4>
-<p>다음의 명령어를 통해 mqtt를 발행할 수 있다.(개발PC에서 실행 하도록 하자)</p>
-<pre class=" language-console"><code class="prism  language-console">&gt; mqtt publish -h 192.168.0.123 -p 1883 -t vueproj/testdata -m "test_abc_123"
+        <p>
+          <strong>주의</strong> ip부분에 본인 PC의 아이피를 세팅할 것
+          (127.0.0.1은 동작하지 않음)
+        </p>
+        <p>토픽은 <code>vueproj/testdata</code>로 한다.</p>
+        <h4 id="mqtt-발행-테스트">mqtt 발행 테스트</h4>
+        <p>
+          다음의 명령어를 통해 mqtt를 발행할 수 있다.(개발PC에서 실행 하도록
+          하자)
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; mqtt publish -h 192.168.0.123 -p 1883 -t vueproj/testdata -m "test_abc_123"
 </code></pre>
-<p>mqtt를 발행하고 구독에 정보가 들어오는지 확인 한다.</p>
-<h4 id="객체-데이터-전달-테스트">객체 데이터 전달 테스트</h4>
-<p>json객체를 전달하고자 할때는 json object를 string으로 변환한 후 발송해야 한다.</p>
-<h5 id="json-object">json object</h5>
-<pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token string">"model"</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"data1"</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token string">"data2"</span><span class="token punctuation">:</span> <span class="token string">"abc"</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
+        <p>mqtt를 발행하고 구독에 정보가 들어오는지 확인 한다.</p>
+        <h4 id="객체-데이터-전달-테스트">객체 데이터 전달 테스트</h4>
+        <p>
+          json객체를 전달하고자 할때는 json object를 string으로 변환한 후
+          발송해야 한다.
+        </p>
+        <h5 id="json-object">json object</h5>
+        <pre
+          class="language-json"
+        ><code class="prism  language-json"><span class="token punctuation">{</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token string">"model"</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"data1"</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token string">"data2"</span><span class="token punctuation">:</span> <span class="token string">"abc"</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
 </code></pre>
-<p><strong>팁:</strong> 한 줄로 만들어야 <code>\n</code>값을 없앨 수 있다.</p>
-<h5 id="json-string">json string</h5>
-<p>위와 같은 json object를 다음과 같이 string으로 변환 한다.</p>
-<pre><code>"{ \"data\": { \"model\": 1, \"data1\": 100, \"data2\": \"abc\" } }"
+        <p>
+          <strong>팁:</strong> 한 줄로 만들어야 <code>\n</code>값을 없앨 수
+          있다.
+        </p>
+        <h5 id="json-string">json string</h5>
+        <p>위와 같은 json object를 다음과 같이 string으로 변환 한다.</p>
+        <pre><code>"{ \"data\": { \"model\": 1, \"data1\": 100, \"data2\": \"abc\" } }"
 </code></pre>
-<p><strong>참고:</strong> json to string 변환 온라인 서비스: <a href="https://tools.knowledgewalls.com/json-to-string">https://tools.knowledgewalls.com/json-to-string</a></p>
-<h5 id="mqtt-발행-테스트-1">3) mqtt 발행 테스트</h5>
-<p>다음과 같이 발행을 해보자</p>
-<pre class=" language-console"><code class="prism  language-console">&gt; mqtt publish -h 192.168.0.123 -p 1883 -t vueproj/testdata -m "{ \"data\": { \"model\": 1, \"data1\": 100, \"data2\": \"abc\" } }"
+        <p>
+          <strong>참고:</strong> json to string 변환 온라인 서비스:
+          <a href="https://tools.knowledgewalls.com/json-to-string"
+            >https://tools.knowledgewalls.com/json-to-string</a
+          >
+        </p>
+        <h5 id="mqtt-발행-테스트-1">3) mqtt 발행 테스트</h5>
+        <p>다음과 같이 발행을 해보자</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; mqtt publish -h 192.168.0.123 -p 1883 -t vueproj/testdata -m "{ \"data\": { \"model\": 1, \"data1\": 100, \"data2\": \"abc\" } }"
 </code></pre>
-<p>구독된 데이터가 원데이터와 맞는지 확인해 본다. (<code>{ "data": { "model": 1, "data1": 100, "data2": "abc" } }</code>)</p>
-<h4 id="mqtt-수신in-vue.js">mqtt 수신(in vue.js)</h4>
-<p>vue.js에서 mqtt를 수신해 보자.<br>
-웹브라우저에서는 mqtt를 그대로 수신할 수 없다. 따라서 <code>websocket</code>를 통해 수신하도록 한다.</p>
-<h5 id="mqtt-client-설치">mqtt client 설치</h5>
-<p>vue.js에서 사용할 mqtt 라이브러리를 설치 한다. (아래 내용은 현재 <code>vueproj</code>에서 사용할 npm이다. <code>package.json</code>에 설치 됨)</p>
-<pre class=" language-console"><code class="prism  language-console">&gt; npm i mqtt
+        <p>
+          구독된 데이터가 원데이터와 맞는지 확인해 본다. (<code
+            >{ "data": { "model": 1, "data1": 100, "data2": "abc" } }</code
+          >)
+        </p>
+        <h4 id="mqtt-수신in-vue.js">mqtt 수신(in vue.js)</h4>
+        <p>
+          vue.js에서 mqtt를 수신해 보자.<br />
+          웹브라우저에서는 mqtt를 그대로 수신할 수 없다. 따라서
+          <code>websocket</code>를 통해 수신하도록 한다.
+        </p>
+        <h5 id="mqtt-client-설치">mqtt client 설치</h5>
+        <p>
+          vue.js에서 사용할 mqtt 라이브러리를 설치 한다. (아래 내용은 현재
+          <code>vueproj</code>에서 사용할 npm이다. <code>package.json</code>에
+          설치 됨)
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; npm i mqtt
 </code></pre>
-<p><code>mqtt</code>라이브러리에서 <code>websocket</code>수신이 가능하다. (별도의 <code>websocket</code>라이브러리 필요 없음)</p>
-<h5 id="mqtt-수신-코드-작성">mqtt 수신 코드 작성</h5>
-<p>보통 mqtt서버 연결에 대한 설정은 <code>.env</code>를 통해 이루어 진다.</p>
-<blockquote>
-<p>/.env</p>
-</blockquote>
-<pre><code>NODE_ENV=production
+        <p>
+          <code>mqtt</code>라이브러리에서 <code>websocket</code>수신이 가능하다.
+          (별도의 <code>websocket</code>라이브러리 필요 없음)
+        </p>
+        <h5 id="mqtt-수신-코드-작성">mqtt 수신 코드 작성</h5>
+        <p>
+          보통 mqtt서버 연결에 대한 설정은 <code>.env</code>를 통해 이루어 진다.
+        </p>
+        <blockquote>
+          <p>/.env</p>
+        </blockquote>
+        <pre><code>NODE_ENV=production
 VUE_APP_SERVER=http://localhost:3000
 VUE_APP_MQTT=ws://192.168.0.123:9001
 </code></pre>
-<p>대시보드에서 mqtt를 수신할 예정이므로 대시보드 파일을 열어서 다음과 같이 작성 한다.</p>
-<blockquote>
-<p>/src/views/dashboard/index.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <p>
+          대시보드에서 mqtt를 수신할 예정이므로 대시보드 파일을 열어서 다음과
+          같이 작성 한다.
+        </p>
+        <blockquote>
+          <p>/src/views/dashboard/index.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>대시보드<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
     {{ mqttData }}
@@ -3107,33 +3799,62 @@ VUE_APP_MQTT=ws://192.168.0.123:9001
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>위와 같이 코드를 작성 후 다음과 같이 <code>mqtt</code>발행을 해보자.</p>
-<pre class=" language-console"><code class="prism  language-console">&gt; mqtt publish -h 192.168.0.123 -p 1883 -t vueproj/testdata -m "{ \"data\": { \"model\": 1, \"data1\": 100, \"data2\": \"abc\" } }"
+        <p>
+          위와 같이 코드를 작성 후 다음과 같이 <code>mqtt</code>발행을 해보자.
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; mqtt publish -h 192.168.0.123 -p 1883 -t vueproj/testdata -m "{ \"data\": { \"model\": 1, \"data1\": 100, \"data2\": \"abc\" } }"
 </code></pre>
-<p>대시보드 페이지에서 수신이 잘 되는지 확인해 보자. (json타입의 string으로 발송해야 수신할 수 있다.)</p>
-<p><strong>참고</strong> <code>console.error</code>는 제거하지 말 것!</p>
-<h4 id="env-설정시-주의-사항">.env 설정시 주의 사항</h4>
-<p><code>process.env.VUE_APP_MQTT</code>를 사용할때 <code>npm run build</code>를 해버리면 현재 설정된 값이 <strong>하드코딩</strong> 되어 버린다.<br>
-도커컨테이너에서 아무리 환경변수를 바꾸어 주어도 바뀌지 않는다.<br>
-이를 해결하기 위해서는 <code>.env</code>에 설정하지 말아야 한다.</p>
-<p>백엔드인 <code>nodejs</code>는 <code>.env</code>의 설정값을 도커컨테이너 실행 시 변경이 가능하지만 (서버의 환경변수 적용 가능)<br>
-프론트엔드인 <code>vuejs</code>는 <code>.env</code>의 설정값을 도커컨테이너에서 변경이 불가능 하다. (서버의 환경변수 적용 불가)</p>
-<h2 id="차트-그리기">차트 그리기</h2>
-<p>화면에 차트를 그려보자</p>
-<h4 id="차트-설치">차트 설치</h4>
-<p>vue.js에서 사용할 차트 프로그램을 설치 한다.<br>
-<strong>참고</strong> <a href="https://vue-chartjs.org/guide/">https://vue-chartjs.org/guide/</a></p>
-<pre class=" language-console"><code class="prism  language-console">&gt; npm i vue-chartjs@3.5.1 chart.js@2.9.4
+        <p>
+          대시보드 페이지에서 수신이 잘 되는지 확인해 보자. (json타입의
+          string으로 발송해야 수신할 수 있다.)
+        </p>
+        <p>
+          <strong>참고</strong> <code>console.error</code>는 제거하지 말 것!
+        </p>
+        <h4 id="env-설정시-주의-사항">.env 설정시 주의 사항</h4>
+        <p>
+          <code>process.env.VUE_APP_MQTT</code>를 사용할때
+          <code>npm run build</code>를 해버리면 현재 설정된 값이
+          <strong>하드코딩</strong> 되어 버린다.<br />
+          도커컨테이너에서 아무리 환경변수를 바꾸어 주어도 바뀌지 않는다.<br />
+          이를 해결하기 위해서는 <code>.env</code>에 설정하지 말아야 한다.
+        </p>
+        <p>
+          백엔드인 <code>nodejs</code>는 <code>.env</code>의 설정값을
+          도커컨테이너 실행 시 변경이 가능하지만 (서버의 환경변수 적용 가능)<br />
+          프론트엔드인 <code>vuejs</code>는 <code>.env</code>의 설정값을
+          도커컨테이너에서 변경이 불가능 하다. (서버의 환경변수 적용 불가)
+        </p>
+        <h2 id="차트-그리기">차트 그리기</h2>
+        <p>화면에 차트를 그려보자</p>
+        <h4 id="차트-설치">차트 설치</h4>
+        <p>
+          vue.js에서 사용할 차트 프로그램을 설치 한다.<br />
+          <strong>참고</strong>
+          <a href="https://vue-chartjs.org/guide/"
+            >https://vue-chartjs.org/guide/</a
+          >
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; npm i vue-chartjs@3.5.1 chart.js@2.9.4
 </code></pre>
-<p><code>vue-chartjs</code>와 <code>chart.js</code>의 버전이 맞아야 한다.(<code>chart.js</code>의 최신버전인 3.x버전은 동작하지 않음)</p>
-<h4 id="차트-그리기-1">차트 그리기</h4>
-<p>가장 단순한 Line-Chart를 그려보자.</p>
-<h5 id="차트-컴포넌트-파일-생성">차트 컴포넌트 파일 생성</h5>
-<p>line-chart를 처리할 컴포넌트를 생성 한다.</p>
-<blockquote>
-<p>/src/components/chart/lineChart.js</p>
-</blockquote>
-<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Line<span class="token punctuation">,</span> mixins <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue-chartjs'</span>
+        <p>
+          <code>vue-chartjs</code>와 <code>chart.js</code>의 버전이 맞아야
+          한다.(<code>chart.js</code>의 최신버전인 3.x버전은 동작하지 않음)
+        </p>
+        <h4 id="차트-그리기-1">차트 그리기</h4>
+        <p>가장 단순한 Line-Chart를 그려보자.</p>
+        <h5 id="차트-컴포넌트-파일-생성">차트 컴포넌트 파일 생성</h5>
+        <p>line-chart를 처리할 컴포넌트를 생성 한다.</p>
+        <blockquote>
+          <p>/src/components/chart/lineChart.js</p>
+        </blockquote>
+        <pre
+          class="language-javascript"
+        ><code class="prism  language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Line<span class="token punctuation">,</span> mixins <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue-chartjs'</span>
 <span class="token keyword">const</span> <span class="token punctuation">{</span> reactiveProp <span class="token punctuation">}</span> <span class="token operator">=</span> mixins
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
@@ -3147,13 +3868,17 @@ VUE_APP_MQTT=ws://192.168.0.123:9001
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h5 id="화면에-차트-출력">화면에 차트 출력</h5>
-<p>대시보드 파일에서 차트를 출력해보자.<br>
-(가독성을 위해 mqtt 코드는 제거하고 차트관련 코드만 작성 하도록 한다.)</p>
-<blockquote>
-<p>/src/views/dashboard/index.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <h5 id="화면에-차트-출력">화면에 차트 출력</h5>
+        <p>
+          대시보드 파일에서 차트를 출력해보자.<br />
+          (가독성을 위해 mqtt 코드는 제거하고 차트관련 코드만 작성 하도록 한다.)
+        </p>
+        <blockquote>
+          <p>/src/views/dashboard/index.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>대시보드<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>chartData<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -3193,15 +3918,21 @@ VUE_APP_MQTT=ws://192.168.0.123:9001
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>화면을 확인해 보자.</p>
-<h2 id="대시보드-작업">대시보드 작업</h2>
-<p>실시간 데이터를 수집하여 대시보드에서 그래프를 그려보도록 한다.<br>
-실시간 데이터는 MQTT를 통해 수집하며 data의 흐름은 다음과 같다.<br>
-data --&gt; MQTT --&gt; websocket --&gt; chart</p>
-<h4 id="데이터-정의">1) 데이터 정의</h4>
-<p>가상의 장비(Edge1)가 다음과 같은 데이터를 발생 시킨다고 간주 한다.</p>
-<h5 id="json-object-1">json object</h5>
-<pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+        <p>화면을 확인해 보자.</p>
+        <h2 id="대시보드-작업">대시보드 작업</h2>
+        <p>
+          실시간 데이터를 수집하여 대시보드에서 그래프를 그려보도록 한다.<br />
+          실시간 데이터는 MQTT를 통해 수집하며 data의 흐름은 다음과 같다.<br />
+          data --&gt; MQTT --&gt; websocket --&gt; chart
+        </p>
+        <h4 id="데이터-정의">1) 데이터 정의</h4>
+        <p>
+          가상의 장비(Edge1)가 다음과 같은 데이터를 발생 시킨다고 간주 한다.
+        </p>
+        <h5 id="json-object-1">json object</h5>
+        <pre
+          class="language-json"
+        ><code class="prism  language-json"><span class="token punctuation">{</span>
   <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
   <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Edge1"</span><span class="token punctuation">,</span>
   <span class="token string">"model"</span><span class="token punctuation">:</span> <span class="token string">"E001"</span><span class="token punctuation">,</span>
@@ -3210,25 +3941,38 @@ data --&gt; MQTT --&gt; websocket --&gt; chart</p>
   <span class="token string">"datetime"</span><span class="token punctuation">:</span> <span class="token string">"2021-12-01T00:00:00.000Z"</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h5 id="json-string-1">json string</h5>
-<p>위의 object형태의 데이터를 mqtt로 전송하기 위해서 다음과 같이 string 형태로 변경 한다.</p>
-<pre><code>"{ \"id\": 1, \"name\": \"Edge1\", \"model\": \"E001\", \"tag1\": 100, \"tag2\": 30, \"datetime\": \"2021-12-01T00:00:00.000Z\" }"
+        <h5 id="json-string-1">json string</h5>
+        <p>
+          위의 object형태의 데이터를 mqtt로 전송하기 위해서 다음과 같이 string
+          형태로 변경 한다.
+        </p>
+        <pre><code>"{ \"id\": 1, \"name\": \"Edge1\", \"model\": \"E001\", \"tag1\": 100, \"tag2\": 30, \"datetime\": \"2021-12-01T00:00:00.000Z\" }"
 </code></pre>
-<h5 id="mqtt-publish">mqtt publish</h5>
-<p>cmd를 통해 다음과 같이 publish할 수 있다. (자동발생 프로그램을 만들면 편리하다)</p>
-<pre class=" language-console"><code class="prism  language-console">&gt; mqtt publish -h 192.168.0.123 -p 1883 -t vueproj/testdata -m "{ \"id\": 1, \"name\": \"Edge1\", \"model\": \"E001\", \"tag1\": 100, \"tag2\": 30, \"datetime\": \"2021-12-01T00:00:00.000Z\" }"
+        <h5 id="mqtt-publish">mqtt publish</h5>
+        <p>
+          cmd를 통해 다음과 같이 publish할 수 있다. (자동발생 프로그램을 만들면
+          편리하다)
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console">&gt; mqtt publish -h 192.168.0.123 -p 1883 -t vueproj/testdata -m "{ \"id\": 1, \"name\": \"Edge1\", \"model\": \"E001\", \"tag1\": 100, \"tag2\": 30, \"datetime\": \"2021-12-01T00:00:00.000Z\" }"
 &gt; mqtt publish -h 192.168.0.123 -p 1883 -t vueproj/testdata -m "{ \"id\": 1, \"name\": \"Edge1\", \"model\": \"E001\", \"tag1\": 130, \"tag2\": 35, \"datetime\": \"2021-12-01T00:00:10.000Z\" }"
 &gt; mqtt publish -h 192.168.0.123 -p 1883 -t vueproj/testdata -m "{ \"id\": 1, \"name\": \"Edge1\", \"model\": \"E001\", \"tag1\": 120, \"tag2\": 40, \"datetime\": \"2021-12-01T00:00:20.000Z\" }"
 &gt; mqtt publish -h 192.168.0.123 -p 1883 -t vueproj/testdata -m "{ \"id\": 1, \"name\": \"Edge1\", \"model\": \"E001\", \"tag1\": 110, \"tag2\": 50, \"datetime\": \"2021-12-01T00:00:30.000Z\" }"
 &gt; mqtt publish -h 192.168.0.123 -p 1883 -t vueproj/testdata -m "{ \"id\": 1, \"name\": \"Edge1\", \"model\": \"E001\", \"tag1\": 100, \"tag2\": 20, \"datetime\": \"2021-12-01T00:00:40.000Z\" }"
 </code></pre>
-<h4 id="mqtt-수신하기vue.js">2) mqtt 수신하기(vue.js)</h4>
-<p>mqtt를 통해 발생된 데이터를 수신하고 차트용 데이터에 계속 추가 하도록 한다.<br>
-mqtt데이터 수신코드와 차트출력 코드를 결합해 본다.</p>
-<blockquote>
-<p>/src/views/dashboard/index.vue</p>
-</blockquote>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+        <h4 id="mqtt-수신하기vue.js">2) mqtt 수신하기(vue.js)</h4>
+        <p>
+          mqtt를 통해 발생된 데이터를 수신하고 차트용 데이터에 계속 추가 하도록
+          한다.<br />
+          mqtt데이터 수신코드와 차트출력 코드를 결합해 본다.
+        </p>
+        <blockquote>
+          <p>/src/views/dashboard/index.vue</p>
+        </blockquote>
+        <pre
+          class="language-html"
+        ><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>대시보드<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>장비: {{ selected.deviceName }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
@@ -3369,38 +4113,63 @@ mqtt데이터 수신코드와 차트출력 코드를 결합해 본다.</p>
 <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>테스트 방법은 mqtt publish를 명령어로 호출하여 실시간 그래프가 그려지는지 확인 한다.</p>
-<h4 id="todo처리하기">3) TODO처리하기</h4>
-<ul>
-<li>대시보드에서 장비를 선택해서 해당 장비의 상태를 모니터링 할 수 있도록 해보자.
-<ul>
-<li><code>&lt;select</code>사용, 선택하면 곧바로 변경해줄 것(버튼 사용X)</li>
-<li>장비관리에서 등록한 실제 장비내용으로 선택할 수 있어야 한다.</li>
-</ul>
-</li>
-<li>차트에서 출력할 데이터 수(<code>maxDataLength</code>)를 화면에서 선택할 수 있도록 해보자.
-<ul>
-<li><code>&lt;select</code> 사용, <code>option</code>은 20, 30, 50, 100으로 고정, 기본값은 20</li>
-</ul>
-</li>
-<li>데이터 생성기를 만들어 보자
-<ul>
-<li>가상의 장비를 nodejs로 만들어서 데이터를 주기적으로 생성할 수 있도록 하자.</li>
-<li><code>setInterval</code>함수 사용</li>
-</ul>
-</li>
-</ul>
-<h2 id="docker">Docker</h2>
-<p>지금까지 만든 소스를 Docker환경에서 띄워보자.</p>
-<h3 id="도커-관련-파일-생성">도커 관련 파일 생성</h3>
-<p>도커 이미지를 생성하기 위해서는 <code>Dockerfile</code>파일을 생성해야 한다.<br>
-<code>vueproj</code>프로젝트 내에서 다음의 파일들을 생성한다.</p>
-<h5 id="dockerfile-생성">1) Dockerfile 생성</h5>
-<p><code>nginx</code>를 기반으로 하는 <code>Dockerfile</code>을 다음과 같이 생성 한다.</p>
-<blockquote>
-<p>/Dockerfile</p>
-</blockquote>
-<pre><code>FROM nginx:1.19
+        <p>
+          테스트 방법은 mqtt publish를 명령어로 호출하여 실시간 그래프가
+          그려지는지 확인 한다.
+        </p>
+        <h4 id="todo처리하기">3) TODO처리하기</h4>
+        <ul>
+          <li>
+            대시보드에서 장비를 선택해서 해당 장비의 상태를 모니터링 할 수
+            있도록 해보자.
+            <ul>
+              <li>
+                <code>&lt;select</code>사용, 선택하면 곧바로 변경해줄 것(버튼
+                사용X)
+              </li>
+              <li>
+                장비관리에서 등록한 실제 장비내용으로 선택할 수 있어야 한다.
+              </li>
+            </ul>
+          </li>
+          <li>
+            차트에서 출력할 데이터 수(<code>maxDataLength</code>)를 화면에서
+            선택할 수 있도록 해보자.
+            <ul>
+              <li>
+                <code>&lt;select</code> 사용, <code>option</code>은 20, 30, 50,
+                100으로 고정, 기본값은 20
+              </li>
+            </ul>
+          </li>
+          <li>
+            데이터 생성기를 만들어 보자
+            <ul>
+              <li>
+                가상의 장비를 nodejs로 만들어서 데이터를 주기적으로 생성할 수
+                있도록 하자.
+              </li>
+              <li><code>setInterval</code>함수 사용</li>
+            </ul>
+          </li>
+        </ul>
+        <h2 id="docker">Docker</h2>
+        <p>지금까지 만든 소스를 Docker환경에서 띄워보자.</p>
+        <h3 id="도커-관련-파일-생성">도커 관련 파일 생성</h3>
+        <p>
+          도커 이미지를 생성하기 위해서는 <code>Dockerfile</code>파일을 생성해야
+          한다.<br />
+          <code>vueproj</code>프로젝트 내에서 다음의 파일들을 생성한다.
+        </p>
+        <h5 id="dockerfile-생성">1) Dockerfile 생성</h5>
+        <p>
+          <code>nginx</code>를 기반으로 하는 <code>Dockerfile</code>을 다음과
+          같이 생성 한다.
+        </p>
+        <blockquote>
+          <p>/Dockerfile</p>
+        </blockquote>
+        <pre><code>FROM nginx:1.19
 
 # set locale
 RUN apt-get update \
@@ -3439,39 +4208,69 @@ EXPOSE 443
 
 CMD ["nginx", "-g", "daemon off;"]
 </code></pre>
-<ul>
-<li>도커내에서의 홈 디렉토리는 <code>/home/www</code>로 설정 하였다.</li>
-<li><code>npm run build</code>이후 <code>dist</code>폴더의 파일만 남기고 모두 삭제(<code>rm -rf $(ls | grep -v dist)</code>)하여 공간을 절약하였다.
-<ul>
-<li>빌드가 되면 <code>node_modules</code>는 쓰이지 않는다.(용량이 가장 큼)</li>
-<li>빌드된 파일은 <code>/home/www/dist</code>에 생성 된다.</li>
-</ul>
-</li>
-<li>현재 페이지의 <code>nginx-default.conf</code>파일을 도커내의 <code>/etc/nginx/conf.d/default.conf</code>로 카피하도록 하였다.</li>
-</ul>
-<h5 id="dockerbuild.sh-생성">2) <a href="http://dockerBuild.sh">dockerBuild.sh</a> 생성</h5>
-<p>docker를 build할때 shell을 만들어서 실행 시키면 편리하다.<br>
-(어떻게 docker이미지를 생성했는지 향후에 알기 쉽다.)</p>
-<blockquote>
-<p>/dockerBuild.sh</p>
-</blockquote>
-<pre class=" language-shell"><code class="prism  language-shell">#!/bin/bash
+        <ul>
+          <li>
+            도커내에서의 홈 디렉토리는 <code>/home/www</code>로 설정 하였다.
+          </li>
+          <li>
+            <code>npm run build</code>이후 <code>dist</code>폴더의 파일만 남기고
+            모두 삭제(<code>rm -rf $(ls | grep -v dist)</code>)하여 공간을
+            절약하였다.
+            <ul>
+              <li>
+                빌드가 되면 <code>node_modules</code>는 쓰이지 않는다.(용량이
+                가장 큼)
+              </li>
+              <li>빌드된 파일은 <code>/home/www/dist</code>에 생성 된다.</li>
+            </ul>
+          </li>
+          <li>
+            현재 페이지의 <code>nginx-default.conf</code>파일을 도커내의
+            <code>/etc/nginx/conf.d/default.conf</code>로 카피하도록 하였다.
+          </li>
+        </ul>
+        <h5 id="dockerbuild.sh-생성">
+          2) <a href="http://dockerBuild.sh">dockerBuild.sh</a> 생성
+        </h5>
+        <p>
+          docker를 build할때 shell을 만들어서 실행 시키면 편리하다.<br />
+          (어떻게 docker이미지를 생성했는지 향후에 알기 쉽다.)
+        </p>
+        <blockquote>
+          <p>/dockerBuild.sh</p>
+        </blockquote>
+        <pre
+          class="language-shell"
+        ><code class="prism  language-shell">#!/bin/bash
 DOCKER_USER_NAME=myvue
 DOCKER_IMAGE_NAME=vueproj
 DOCKER_IMAGE_TAG=1.0
 
 docker build -t $DOCKER_USER_NAME/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG .
 </code></pre>
-<ul>
-<li>위와 같이 생성하면 <code>myvue/vueproj:1.0</code>이라는 도커 이미지가 생성된다.</li>
-<li><code>docker push</code>를 하지 않는 이상 이 이미지는 내 서버에서만 존재 한다.</li>
-</ul>
-<h5 id="dockerrun.sh-생성">3) <a href="http://dockerRun.sh">dockerRun.sh</a> 생성</h5>
-<p><code>docker run</code>할때의 옵션이 많아서 이것을 shell파일로 만들어두면 관리하기 편리하다.</p>
-<blockquote>
-<p>/dockerRun.sh</p>
-</blockquote>
-<pre class=" language-shell"><code class="prism  language-shell">#!/bin/bash
+        <ul>
+          <li>
+            위와 같이 생성하면 <code>myvue/vueproj:1.0</code>이라는 도커
+            이미지가 생성된다.
+          </li>
+          <li>
+            <code>docker push</code>를 하지 않는 이상 이 이미지는 내 서버에서만
+            존재 한다.
+          </li>
+        </ul>
+        <h5 id="dockerrun.sh-생성">
+          3) <a href="http://dockerRun.sh">dockerRun.sh</a> 생성
+        </h5>
+        <p>
+          <code>docker run</code>할때의 옵션이 많아서 이것을 shell파일로
+          만들어두면 관리하기 편리하다.
+        </p>
+        <blockquote>
+          <p>/dockerRun.sh</p>
+        </blockquote>
+        <pre
+          class="language-shell"
+        ><code class="prism  language-shell">#!/bin/bash
 
 # setting - docker info
 DOCKER_USER_NAME=myvue
@@ -3494,17 +4293,28 @@ docker run --name $DOCKER_CONTAINER_NAME \
 -d \
 $DOCKER_IMAGE
 </code></pre>
-<ul>
-<li><code>DOCKER_PORT=28080</code>설정을 통해 실제 외부에 오픈되는 포트가 결정 된다.</li>
-<li><code>-v $DOCKER_VOLUME/nginx/conf.d:/etc/nginx/conf.d \</code> 설정을 통해 호스트서버에서 도커내의 <code>nginx</code>설정 관리가 가능하다.</li>
-</ul>
-<h5 id="nginx-환경설정-파일-생성">4) nginx 환경설정 파일 생성</h5>
-<p><code>nginx</code>의 환경설정 파일을 호스트 서버에서 도커로 주입시키면 도커 컨테이너별로 환경 제어가 가능하다.<br>
-다음에 생성하는 파일은 임시 파일이며 이것이 실제 도커 컨테이너 실행 시 nginx환경 설정 파일로 변경되어 주입된다.</p>
-<blockquote>
-<p>/nginx-default.conf</p>
-</blockquote>
-<pre><code>server_tokens off;
+        <ul>
+          <li>
+            <code>DOCKER_PORT=28080</code>설정을 통해 실제 외부에 오픈되는
+            포트가 결정 된다.
+          </li>
+          <li>
+            <code>-v $DOCKER_VOLUME/nginx/conf.d:/etc/nginx/conf.d \</code>
+            설정을 통해 호스트서버에서 도커내의 <code>nginx</code>설정 관리가
+            가능하다.
+          </li>
+        </ul>
+        <h5 id="nginx-환경설정-파일-생성">4) nginx 환경설정 파일 생성</h5>
+        <p>
+          <code>nginx</code>의 환경설정 파일을 호스트 서버에서 도커로 주입시키면
+          도커 컨테이너별로 환경 제어가 가능하다.<br />
+          다음에 생성하는 파일은 임시 파일이며 이것이 실제 도커 컨테이너 실행 시
+          nginx환경 설정 파일로 변경되어 주입된다.
+        </p>
+        <blockquote>
+          <p>/nginx-default.conf</p>
+        </blockquote>
+        <pre><code>server_tokens off;
 
 server {
     listen 80;
@@ -3521,92 +4331,135 @@ server {
     }
 }
 </code></pre>
-<ul>
-<li><code>root /home/www/dist;</code>설정을 통해 도커이미지에서 설정한 홈디렉토리(<code>/home/www</code>)와 맞춰주었다.</li>
-<li>proxy 설정은 <code>location /serverApi/</code>를 통해 가능하다.
-<ul>
-<li><code>proxy_pass http://localhost:3000/;</code> --&gt; 여기가 <code>/serverApi/</code>호출시 응답할 백엔드 서버의 주소이다.</li>
-</ul>
-</li>
-</ul>
-<h3 id="docker를-이용한-서버-띄우기">Docker를 이용한 서버 띄우기</h3>
-<p>도커를 띄우기 위해 리눅스 서버를 준비 한다. (VBox에서 생성한 리눅스로 간주함)<br>
-도커 디렉토리 구조는 다음과 같다. (이 구조는 편의상 잡은 구조로써 각 개발팀의 정책별로 다를 수 있다.)</p>
-<ul>
-<li>도커 이미지 생성 디렉토리: <code>/home/docker/images</code></li>
-<li>도커 볼륨 디렉토리: <code>/home/docker/volumes</code></li>
-<li>도커 컨테이너 디렉토리: <code>/home/docker/containers</code></li>
-</ul>
-<h5 id="git에서-소스-다운로드">1) git에서 소스 다운로드</h5>
-<p>이미지 생성 디렉토리(<code>/home/docker/images</code>)로 이동하여 git소스를 clone 한다.</p>
-<pre class=" language-console"><code class="prism  language-console"># mkdir -p /home/docker/images
+        <ul>
+          <li>
+            <code>root /home/www/dist;</code>설정을 통해 도커이미지에서 설정한
+            홈디렉토리(<code>/home/www</code>)와 맞춰주었다.
+          </li>
+          <li>
+            proxy 설정은 <code>location /serverApi/</code>를 통해 가능하다.
+            <ul>
+              <li>
+                <code>proxy_pass http://localhost:3000/;</code> --&gt; 여기가
+                <code>/serverApi/</code>호출시 응답할 백엔드 서버의 주소이다.
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h3 id="docker를-이용한-서버-띄우기">Docker를 이용한 서버 띄우기</h3>
+        <p>
+          도커를 띄우기 위해 리눅스 서버를 준비 한다. (VBox에서 생성한 리눅스로
+          간주함)<br />
+          도커 디렉토리 구조는 다음과 같다. (이 구조는 편의상 잡은 구조로써 각
+          개발팀의 정책별로 다를 수 있다.)
+        </p>
+        <ul>
+          <li>도커 이미지 생성 디렉토리: <code>/home/docker/images</code></li>
+          <li>도커 볼륨 디렉토리: <code>/home/docker/volumes</code></li>
+          <li>도커 컨테이너 디렉토리: <code>/home/docker/containers</code></li>
+        </ul>
+        <h5 id="git에서-소스-다운로드">1) git에서 소스 다운로드</h5>
+        <p>
+          이미지 생성 디렉토리(<code>/home/docker/images</code>)로 이동하여
+          git소스를 clone 한다.
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console"># mkdir -p /home/docker/images
 # cd /home/docker/images
 # git clone https://github.com/&lt;vueproj.git&gt; vueproj
 </code></pre>
-<p>(git이 없으면 sftp를 이용해서 직접 파일을 올린다.)</p>
-<p><code>vueproj</code> 디렉토리로 이동한 뒤 <code>*.sh</code>파일을 실행 가능 파일로 만든다.</p>
-<pre class=" language-console"><code class="prism  language-console"># cd vueproj
+        <p>(git이 없으면 sftp를 이용해서 직접 파일을 올린다.)</p>
+        <p>
+          <code>vueproj</code> 디렉토리로 이동한 뒤 <code>*.sh</code>파일을 실행
+          가능 파일로 만든다.
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console"># cd vueproj
 # chmod 755 *.sh
 </code></pre>
-<h5 id="docker-build">2) docker build</h5>
-<p>다운받은 소스파일에서 <code>dockerBuild.sh</code>를 실행 시킨다.</p>
-<pre class=" language-console"><code class="prism  language-console"># ./dockerBuild.sh
+        <h5 id="docker-build">2) docker build</h5>
+        <p>다운받은 소스파일에서 <code>dockerBuild.sh</code>를 실행 시킨다.</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console"># ./dockerBuild.sh
 </code></pre>
-<p>생성된 이미지를 확인해 보자.</p>
-<pre class=" language-console"><code class="prism  language-console"># docker images
+        <p>생성된 이미지를 확인해 보자.</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console"># docker images
 REPOSITORY                       TAG           IMAGE ID       CREATED          SIZE
 myvue/vueproj                    1.0           b84c78bdf1dc   35 minutes ago   583MB
 </code></pre>
-<p><code>myvue/vueproj</code>이미지가 보이면 정상적으로 생성된 것이다.</p>
-<h5 id="docker-run">3) docker run</h5>
-<p>도커 컨테이너를 실행시킬 위치로 이동하여 다음의 파일을 복사한다.<br>
-복사할 파일: <code>dockerRun.sh</code>, <code>nginx-default.conf</code></p>
-<pre class=" language-console"><code class="prism  language-console"># mkdir -p /home/docker/containers/vueproj
+        <p>
+          <code>myvue/vueproj</code>이미지가 보이면 정상적으로 생성된 것이다.
+        </p>
+        <h5 id="docker-run">3) docker run</h5>
+        <p>
+          도커 컨테이너를 실행시킬 위치로 이동하여 다음의 파일을 복사한다.<br />
+          복사할 파일: <code>dockerRun.sh</code>,
+          <code>nginx-default.conf</code>
+        </p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console"># mkdir -p /home/docker/containers/vueproj
 # cd /home/docker/containers/vueproj
 # cp /home/docker/images/vueproj/dockerRun.sh .
 # cp /home/docker/images/vueproj/nginx-default.conf .
 </code></pre>
-<p>현재위치(<code>/home/docker/containers/vueproj</code>)에서 카피한 파일이 존재하는지 확인 한다.</p>
-<pre class=" language-console"><code class="prism  language-console"># ls
+        <p>
+          현재위치(<code>/home/docker/containers/vueproj</code>)에서 카피한
+          파일이 존재하는지 확인 한다.
+        </p>
+        <pre class="language-console"><code class="prism  language-console"># ls
 dockerRun.sh  nginx-default.conf
 </code></pre>
-<p>도커 컨테이너를 실행 시킨다.</p>
-<pre class=" language-console"><code class="prism  language-console"># ./dockerRun.sh
+        <p>도커 컨테이너를 실행 시킨다.</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console"># ./dockerRun.sh
 </code></pre>
-<p>다음과 같이 도커가 떠있으면 정상</p>
-<pre class=" language-console"><code class="prism  language-console"># docker ps
+        <p>다음과 같이 도커가 떠있으면 정상</p>
+        <pre
+          class="language-console"
+        ><code class="prism  language-console"># docker ps
 CONTAINER ID   IMAGE                      COMMAND                  CREATED          STATUS          PORTS                                            NAMES
 e41817953b98   myvue/vueproj:1.0          "/docker-entrypoint.…"   32 minutes ago   Up 32 minutes   443/tcp, 0.0.0.0:28080-&gt;80/tcp                   vueproj-dev
 </code></pre>
-<h3 id="docker로-띄운-nginx에-접속해-보기">Docker로 띄운 nginx에 접속해 보기</h3>
-<p>위에서 nginx포트를 <code>28080</code>으로 띄웠다.<br>
-따라서 <code>vBox</code>의 포트포워딩을 연결해주고 해당 주소로 접속해 보자.</p>
+        <h3 id="docker로-띄운-nginx에-접속해-보기">
+          Docker로 띄운 nginx에 접속해 보기
+        </h3>
+        <p>
+          위에서 nginx포트를 <code>28080</code>으로 띄웠다.<br />
+          따라서 <code>vBox</code>의 포트포워딩을 연결해주고 해당 주소로 접속해
+          보자.
+        </p>
 
-<table>
-<thead>
-<tr>
-<th>이름</th>
-<th>프로토콜</th>
-<th>호스트IP</th>
-<th>호스트포트</th>
-<th>게스트IP</th>
-<th>게스트포트</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>vueproj</td>
-<td>TCP</td>
-<td>127.0.0.1</td>
-<td>28080</td>
-<td>10.0.2.11</td>
-<td>28080</td>
-</tr>
-</tbody>
-</table><p><a href="http://127.0.0.1:28080">http://127.0.0.1:28080</a></p>
-
+        <table>
+          <thead>
+            <tr>
+              <th>이름</th>
+              <th>프로토콜</th>
+              <th>호스트IP</th>
+              <th>호스트포트</th>
+              <th>게스트IP</th>
+              <th>게스트포트</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>vueproj</td>
+              <td>TCP</td>
+              <td>127.0.0.1</td>
+              <td>28080</td>
+              <td>10.0.2.11</td>
+              <td>28080</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><a href="http://127.0.0.1:28080">http://127.0.0.1:28080</a></p>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
