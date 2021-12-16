@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CentOS7환경설정</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#centos7-최소-설치-및-환경설정">CentOS7 최소 설치 및 환경설정</a>
+<ul>
+<li><a href="#virtualbox-설정">VirtualBox 설정</a></li>
+<li><a href="#centos-설정">CentOS 설정</a></li>
+<li><a href="#ssh세팅">ssh세팅</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="centos7-최소-설치-및-환경설정">CentOS7 최소 설치 및 환경설정</h1>
+<p>개발PC의 VirtualBox에 CentOS를 설치한다.</p>
+<h2 id="virtualbox-설정">VirtualBox 설정</h2>
+<p><strong>Version: 6.1.0</strong><br>
+<strong>URL</strong>: <a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a><br>
+(최신 버전으로 설치한다.)</p>
+<h3 id="nat네트워크-설정">NAT네트워크 설정</h3>
+<p>: <strong>NAT네트워크</strong>를 설정하면 VirtualBox내의 OS끼리 내부 아이피를 통해 통신할 수 있다.</p>
+<ol>
+<li>파일 &gt; 환경설정 &gt; [네트워크]탭 선택 &gt; "새 NAT 네트워크"추가</li>
+<li>NAT네트워크 속성 편집 &gt; 네트워크 옵션에서 "DHCP 지원"을 체크 해제 해주자.<br>
+–&gt; 수동으로 아이피를 지정할 예정임.</li>
+<li>포트 포워딩: 포트 포워딩을 설정하면 Host PC에서 내부 네트워크로 접속을 할 수 있다.</li>
+</ol>
+<h3 id="가상머신-만들기">가상머신 만들기</h3>
+<p><strong>새로만들기</strong>를 클릭하여 가상머신을 만들도록 한다.<br>
+메모리 크기: 2048 MB (나중에 변경 가능)<br>
+파일 위치 및 크기: 파일 크기는 나중에 변경할 수 없으니 적절히 잡아주도록 한다. (여기에서 잡는 파일 크기는 "동적"으로 증가할때 최대 크기를 뜻함)</p>
+<p>가상머신이 만들어지면 네트워크를 <strong>NAT 네트워크</strong>로 변경하도록 한다.<br>
+('NAT’와 'NAT 네트워크’는 다르다)</p>
+<p>&lt;참고&gt;<br>
+NAT: 각각의 가상 머신이 독립됨<br>
+NAT 네트워크: 각각의 가상 머신이 VirtualBox 안에서 네트워킹 가능함. (외부와는 독립됨)</p>
+<h2 id="centos-설정">CentOS 설정</h2>
+<p><strong>Version: 7.x</strong><br>
+<strong>URL</strong>: <a href="http://mirror.kakao.com/centos/7/isos/x86_64/">http://mirror.kakao.com/centos/7/isos/x86_64/</a><br>
+<strong>File</strong>: <a href="http://mirror.kakao.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1908.iso" title="CentOS-7-x86_64-Minimal-1908.iso">CentOS-7-x86_64-Minimal-1908.iso</a></p>
+<p>CentOS7 minimal버전을 설치하도록 한다.</p>
+<h3 id="centos-설치">CentOS 설치</h3>
+<p>디스크 설정은 용량이 필요한 경우<br>
+네트워크 설정은 자동으로 선택하고 부팅 후 수정하도록 한다.<br>
+root암호는 잘 적어두도록 한다.</p>
+<h3 id="ip-세팅">IP 세팅</h3>
+<h4 id="ip를-설정한다.">1) IP를 설정한다.</h4>
+<blockquote>
+<p>/etc/sysconfig/network-scripts/ifcfg-enp0s3</p>
+</blockquote>
+<h4 id="ip-수동-할당시-설정">IP 수동 할당시 설정</h4>
+<pre><code>...
+BOOTPROTO=static
+...
+ONBOOT=yes
+IPADDR=10.0.2.10
+NETMASK=255.255.255.0
+GATEWAY=10.0.2.1
+</code></pre>
+<h4 id="dhcp-사용시-설정">DHCP 사용시 설정</h4>
+<pre><code>...
+BOOTPROTO=dhcp
+...
+ONBOOT=yes
+</code></pre>
+<h4 id="네트워크를-재시작-한다.">2) 네트워크를 재시작 한다.</h4>
+<pre class=" language-console"><code class="prism  language-console">[root@localhost]# systemctl restart network
+</code></pre>
+<h4 id="nameserver를-등록한다.">3) nameserver를 등록한다.</h4>
+<blockquote>
+<p>/etc/resolv.conf</p>
+</blockquote>
+<pre><code>nameserver 10.0.2.1
+</code></pre>
+<h4 id="ping-테스트">4) ping 테스트</h4>
+<pre class=" language-console"><code class="prism  language-console">[root@localhost]# ping www.yahoo.co.kr
+</code></pre>
+<h2 id="ssh세팅">ssh세팅</h2>
+<h3 id="net-tools-설치">net-tools 설치</h3>
+<pre class=" language-console"><code class="prism  language-console">[root@localhost]# yum install -y net-tools
+</code></pre>
+<h3 id="ssh세팅-1">ssh세팅</h3>
+<p>외부에서 root계정으로 ssh를 접속할 수 있도록 세팅한다.<br>
+(실 서버에서는 막아 둘 것)</p>
+<blockquote>
+<p>/etc/ssh/sshd_config</p>
+</blockquote>
+<pre><code>...
+Port 22
+...
+PermitRootLogin yes
+...
+</code></pre>
+<p>위와 같이 <code>Port</code>와 <code>PermitRootLogin</code>을 세팅해 준다.</p>
+<pre class=" language-console"><code class="prism  language-console">[root@localhost]# systemctl restart sshd.service
+</code></pre>
+<h3 id="ssh접속">ssh접속</h3>
+<p>VirtualBox사용시 포트포워딩을 통해 접속할 수 있다.</p>
+<blockquote>
+<p>VirtualBox &gt; 파일 &gt; 환경설정 &gt; [네트워크]탭 선택<br>
+"NatNetwork"선택 &gt; “포트 포워딩” 클릭</p>
+</blockquote>
+
+<table>
+<thead>
+<tr>
+<th>이름</th>
+<th>프로토콜</th>
+<th>호스트 IP</th>
+<th>호스트 포트</th>
+<th>게스트 IP</th>
+<th>게스트 포트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ssh</td>
+<td>TCP</td>
+<td>192.168.0.166</td>
+<td>22</td>
+<td>10.0.2.10</td>
+<td>22</td>
+</tr>
+</tbody>
+</table><h3 id="update">update</h3>
+<p>업데이트를 하자.</p>
+<pre class=" language-console"><code class="prism  language-console">[root@localhost]# yum update -y
+[root@localhost]# reboot
+</code></pre>
+
+    </div>
+  </div>
+</body>
+
+</html>

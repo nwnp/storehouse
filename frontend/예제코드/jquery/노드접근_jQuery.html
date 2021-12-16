@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>  노드접근_jQuery </title>
+
+<script src="jquery-1.7.2.min.js"></script>
+<!-- $(function(){} 이것은 html의 DOM 요소들이 모두 로딩되면 실행하게 하는 jQuery 준비이벤트 -->
+<script>
+     $(function() {
+		 // mission1 >> 문서의 모든 p 태그를 선택
+		 // jQuery("p");
+		 
+		 
+		 // mission2 >> id 가 "navi" 인 태그를 선
+		 //  jQuery("#navi");
+		 
+		 // mission3 >> div 자손 중 li 태그 class 속성값이 current 인 노드의 배경색을 빨강색으로 변경
+		  jQuery("div li.current").css("background-color","#F00");		 
+	  });   
+</script>
+
+</head>
+
+<body>
+   
+   <h2> Lorem Ipsum </h2>
+   <p> This is paragraph </p>
+   
+   <div id = "main">
+   
+    <p> This is paragraph </p>
+    
+   	<ul id = "navi">
+      <li> item 1 </li>
+      <li  class="current"> item 2 </li>
+      <li> item 3 </li>
+   	</ul>
+    
+   </div>
+  
+
+</body>
+  
+</html>
+
+
+

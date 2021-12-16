@@ -1,0 +1,10 @@
+<!ELEMENT compactdiscs (compactdisc*)>
+	<!ELEMENT compactdisc (artist, title, tracks, price)>
+		<!ENTITY % Type "individual | band">
+		<!ELEMENT artist (#PCDATA)>
+			<!ATTLIST artist type (%Type;) #REQUIRED>
+		<!ELEMENT title (#PCDATA)>
+			<!ATTLIST title numberoftracks CDATA #REQUIRED>
+		<!ELEMENT tracks (track*)>
+		<!ELEMENT price (#PCDATA)>
+		<!ELEMENT track (#PCDATA)>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> 노드접근_javaScript </title>
+
+<script>
+
+function test(){
+	// mission1 >> 문서의 모든 p 태그를 선택
+	// document.getElementsByTagName("p");
+	
+	
+	// mission2 >> id 가 "navi" 인 태그를 선택
+	// document.getElementsByTagName("p");
+	
+	
+	// mission3 >> div 자손 중 li 태그 class 속성값이 current 인 노드의 배경색을 빨강색으로 변경
+	var main = document.getElementsByTagName("div");
+	     // main변수에 HTML 문서의 태그 이름이  "div" 를 저장합니다. 갯수만큼 배열에 담기게 됩니다.		 
+	var ulList = main[0].getElementsByTagName("ul");
+	    // ulList 변수에 main 의 첫번째 요소에서 ul태그를 저장합니다. 갯수만큼 배열에 담기게 됩니다.
+	var liList = ulList[0].getElementsByTagName("li");
+ 		// liList 변수에ulList 의 첫번째 요소에서 li태그를 저장합니다 .갯수만큼 배열에 담기게 됩니다
+    
+	 // for문은 liList 에 담겨있는 li 요소들 전체를 비교하면서 class 속성이름이 "current"인것을 찾으면
+	 //  찾은 li 요소의 배경색을 빨간색으로 설정하라는 뜻입니다.
+	for(var i=0;i<liList.length;i++) {
+       if(liList[i].getAttribute("class") == "current") {
+         liList[1].style.backgroundColor = "#F00";
+ 			break;
+       }
+	}
+
+}
+   
+</script>
+
+</head>
+<!-- body 의 요소들이 모두 로딩된 후 test() 함수를 호출하기 위해 onload 이벤트를 사용함 -->
+<body onload="test()">
+   
+   <h2> Lorem Ipsum </h2>
+   <p> This is paragraph </p>
+   
+   <div id = "main">
+   
+    <p> This is paragraph </p>
+    
+   	<ul id = "navi">
+      <li> item 1 </li>
+      <li  class="current"> item 2 </li>
+      <li> item 3 </li>
+      
+   	</ul>
+    
+   </div>
+  
+
+</body>
+  
+</html>
+
+
+

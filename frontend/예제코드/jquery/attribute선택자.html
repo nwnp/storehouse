@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> attribute선택자</title>
+<!-- jQuery library -->
+<script src="jquery-1.7.2.min.js"></script>
+
+</head>
+<body>
+
+<ul>
+	<li><a href="http://ejungle.co.kr/"    id="main"    title="아카데미정글">아카데미정글</a></li>
+	<li><a href="http://www.jeumedia.com/" class="menu" title="제우미디어">제우미디어</a></li>
+	<li><a href="http://www.yes24.com" title="yes24">yes24</a></li>
+	<li><a href="#page2" title="page2">2 페이지로 이동</a></li>
+</ul>
+
+<div id="gallery">
+	<img src="sample1.png" alt="사진1" />
+   	<img src="sample2.png"  />
+</div>
+<!---------- jQuery code Start ---------->
+
+<script>
+
+//$("li a[href='#page2']").css("text-decoration","none");
+//$("li a[href^='http']").css("color","red");
+//$("li a[href$='com']").css("border","2px #F00 dashed");
+//$("[href*='2']").css("border","2px #F00 dashed");
+//$("img[src !='sample1.png']").css("border","2px #F00 dashed");
+//$("li a[class]").css("font-size","30px");
+$("[src][alt]").css("border","2px #F00 dashed");
+ 
+</script>
+
+</body>
+</html>
