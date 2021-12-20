@@ -53,6 +53,18 @@ const routes = [
     path: "/test-bootstrap",
     component: () => import("../views/TestBootstrap.vue"),
   },
+  {
+    path: "/test-comp",
+    component: () => import("../views/comp/index.vue"),
+  },
+  {
+    path: "*", // NotFound 설정을 위한 path(*)는 반드시 맨 하단에 위치해야 함
+    component: () => import("../components/NotFound.vue"),
+  },
+  {
+    path: "/test-family/props",
+    component: () => import("../views/family/props/Parent.vue"),
+  },
 ];
 
 const router = new VueRouter({

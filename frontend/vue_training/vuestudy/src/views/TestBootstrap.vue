@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Bootstrap teset</h1>
+    <h1>Bootstrap test</h1>
     <b-row>
       <b-col>
         <h3>Left</h3>

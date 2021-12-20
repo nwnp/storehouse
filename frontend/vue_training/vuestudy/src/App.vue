@@ -9,7 +9,9 @@
       <router-link to="/test-condition">Condition</router-link> |
       <router-link to="/test-loop">Loop</router-link> |
       <router-link to="/test-mixin">Mixin</router-link> |
-      <router-link to="/test-bootstrap">Bootstrap</router-link>
+      <router-link to="/test-bootstrap">Bootstrap</router-link> |
+      <router-link to="/test-comp">Component</router-link> |
+      <router-link to="/test-family/props">Props</router-link>
     </div>
     <router-view />
   </div>
