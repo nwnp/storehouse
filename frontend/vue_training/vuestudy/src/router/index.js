@@ -73,6 +73,14 @@ const routes = [
     path: "/test-family/event-bus",
     component: () => import("../views/family/eventBus/Parent.vue"),
   },
+  {
+    path: "/test-user/list",
+    component: () => import("../views/user/UserList.vue"),
+  },
+  {
+    path: "/test-user/info",
+    component: () => import("../views/user/UserInfo.vue"),
+  },
 ];
 
 const router = new VueRouter({
