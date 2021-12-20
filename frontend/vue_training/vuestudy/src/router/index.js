@@ -65,6 +65,14 @@ const routes = [
     path: "/test-family/props",
     component: () => import("../views/family/props/Parent.vue"),
   },
+  {
+    path: "/test-family/emit/",
+    component: () => import("../views/family/emit/Parent.vue"),
+  },
+  {
+    path: "/test-family/event-bus",
+    component: () => import("../views/family/eventBus/Parent.vue"),
+  },
 ];
 
 const router = new VueRouter({
