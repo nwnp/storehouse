@@ -55,8 +55,10 @@ export default {
       // const testUserList = ["user1", "user2", "user3"];
       // context.commit("setUserList", testUserList);
 
-      api.get("https://jsonplaceholder.typicode.com/users").then((res) => {
+      api.get("https://jsonplaceholder.typicode.com/users/").then((res) => {
         console.log("res", res);
+
+        console.log(payload);
 
         const userList = res && res.data;
         context.commit("setUserList", userList);

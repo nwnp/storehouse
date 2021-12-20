@@ -81,6 +81,10 @@ const routes = [
     path: "/test-user/info",
     component: () => import("../views/user/UserInfo.vue"),
   },
+  {
+    path: "/test-socket",
+    component: () => import("../views/TestSocket.vue"),
+  },
 ];
 
 const router = new VueRouter({

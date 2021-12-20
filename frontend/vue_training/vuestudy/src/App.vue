@@ -15,7 +15,8 @@
       <router-link to="/test-family/emit">Emit</router-link> |
       <router-link to="/test-family/event-bus">EventBus</router-link> |
       <router-link to="/test-user/list">UserList</router-link> |
-      <router-link to="/test-user/info">UserInfo</router-link>
+      <router-link to="/test-user/info">UserInfo</router-link> |
+      <router-link to="/test-socket">chat</router-link>
     </div>
     <router-view />
   </div>
