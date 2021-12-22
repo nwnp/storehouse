@@ -16,13 +16,19 @@
       </b-row>
     </div>
     <div>
-      <b-table
-        small
-        hover
-        striped
-        :items="departmentList"
-        :fields="fields"
-      ></b-table>
+      <b-table small hover striped :items="departmentList" :fields="fields">
+        <template #cell(createdAt)="row">
+          {{ row.item.createdAt.substring(0, 10) }}
+        </template>
+        <template #cell(updateBtn)="row">
+          <b-button
+            size="sm"
+            variant="success"
+            @click="onClickEdit(row.item.id)"
+            >수정</b-button
+          >
+        </template>
+      </b-table>
     </div>
     <inform />
   </div>
@@ -42,6 +48,7 @@ export default {
         { key: "name", label: "부서명" },
         { key: "code", label: "부서코드" },
         { key: "createdAt", label: "생성일" },
+        { key: "updateBtn", label: "수정" },
       ],
     };
   },
@@ -81,6 +88,19 @@ export default {
       this.$store.dispatch("actDepartmentList");
     },
     onClickAddNew() {
+      this.$bvModal.show("modal-department-inform");
+    },
+    onClickEdit(id) {
+      // (수정을 위한)상세정보
+      console.log("onClickEdit", id);
+
+      // 1. 입력모드 설정
+      this.$store.dispatch("actDepartmentInputMode", "update");
+
+      // 2. 상세정보 호출
+      this.$store.dispatch("actDepartmentInfo", id);
+
+      // 3. 모달 출력
       this.$bvModal.show("modal-department-inform");
     },
   },
