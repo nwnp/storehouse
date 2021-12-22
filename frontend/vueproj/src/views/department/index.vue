@@ -3,16 +3,16 @@
     <h1>부서 관리</h1>
     <div style="margin-bottom: 5px">
       <b-row>
-        <b-col style="text-align: left"
-          ><b-button variant="primary" size="sm" @click="searchDepartmentList"
+        <b-col style="text-align: left">
+          <b-button variant="primary" size="sm" @click="searchDepartmentList"
             >검색</b-button
-          ></b-col
-        >
-        <b-col style="text-align: right"
-          ><b-button variant="success" size="sm" @click="onClickAddNew"
+          >
+        </b-col>
+        <b-col style="text-align: right">
+          <b-button variant="success" size="sm" @click="onClickAddNew"
             >신규등록</b-button
-          ></b-col
-        >
+          >
+        </b-col>
       </b-row>
     </div>
     <div>
@@ -28,8 +28,18 @@
             >수정</b-button
           >
         </template>
+        <template #cell(deleteBtn)="row">
+          <b-button
+            size="sm"
+            variant="danger"
+            @click="onClickDelete(row.item.id)"
+            >삭제</b-button
+          >
+        </template>
       </b-table>
     </div>
+
+    <!-- inform 영역 -->
     <inform />
   </div>
 </template>
@@ -49,6 +59,7 @@ export default {
         { key: "code", label: "부서코드" },
         { key: "createdAt", label: "생성일" },
         { key: "updateBtn", label: "수정" },
+        { key: "deleteBtn", label: "삭제" },
       ],
     };
   },
@@ -59,19 +70,83 @@ export default {
     insertedResult() {
       return this.$store.getters.DepartmentInsertedResult;
     },
+    updatedResult() {
+      return this.$store.getters.DepartmentUpdatedResult;
+    },
+    deletedResult() {
+      return this.$store.getters.DepartmentDeletedResult;
+    },
   },
   watch: {
     insertedResult(value) {
+      // 등록 후 처리
+
       if (value !== null) {
         if (value > 0) {
-          this.$bvToast.toast("등록 되었습니다", {
+          // 등록이 성공한 경우
+
+          // 1. 메세지 출력
+          this.$bvToast.toast("등록 되었습니다.", {
             title: "SUCCESS",
             variant: "success",
             solid: true,
           });
+
+          // 2. 리스트 재 검색
           this.searchDepartmentList();
         } else {
-          this.$bvToast.toast("등록이 실패했습니다.", {
+          // 등록이 실패한 경우
+          this.$bvToast.toast("등록이 실패하였습니다.", {
+            title: "ERROR",
+            variant: "danger",
+            solid: true,
+          });
+        }
+      }
+    },
+    updatedResult(value) {
+      // 수정 후 처리
+      if (value !== null) {
+        if (value > 0) {
+          // 수정이 성공한 경우
+
+          // 1. 메세지 출력
+          this.$bvToast.toast("수정 되었습니다.", {
+            title: "SUCCESS",
+            variant: "success",
+            solid: true,
+          });
+
+          // 2. 리스트 재 검색
+          this.searchDepartmentList();
+        } else {
+          // 수정이 실패한 경우
+          this.$bvToast.toast("수정이 실패하였습니다.", {
+            title: "ERROR",
+            variant: "danger",
+            solid: true,
+          });
+        }
+      }
+    },
+    deletedResult(value) {
+      // 수정 후 처리
+      if (value !== null) {
+        if (value > 0) {
+          // 수정이 성공한 경우
+
+          // 1. 메세지 출력
+          this.$bvToast.toast("삭제 되었습니다.", {
+            title: "SUCCESS",
+            variant: "success",
+            solid: true,
+          });
+
+          // 2. 리스트 재 검색
+          this.searchDepartmentList();
+        } else {
+          // 수정이 실패한 경우
+          this.$bvToast.toast("삭제가 실패하였습니다.", {
             title: "ERROR",
             variant: "danger",
             solid: true,
@@ -88,11 +163,19 @@ export default {
       this.$store.dispatch("actDepartmentList");
     },
     onClickAddNew() {
+      // 신규등록
+
+      // 1. 입력모드 설정
+      this.$store.dispatch("actDepartmentInputMode", "insert");
+
+      // 2. 상세정보 초기화
+      this.$store.dispatch("actDepartmentInit");
+
+      // 3. 모달 출력
       this.$bvModal.show("modal-department-inform");
     },
     onClickEdit(id) {
       // (수정을 위한)상세정보
-      console.log("onClickEdit", id);
 
       // 1. 입력모드 설정
       this.$store.dispatch("actDepartmentInputMode", "update");
@@ -103,8 +186,13 @@ export default {
       // 3. 모달 출력
       this.$bvModal.show("modal-department-inform");
     },
+    onClickDelete(id) {
+      // 삭제
+      console.log("onClickDelete", id);
+      this.$bvModal.msgBoxConfirm("삭제 하시겠습니까?").then((value) => {
+        if (value) this.$store.dispatch("actDepartmentDelete", id);
+      });
+    },
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

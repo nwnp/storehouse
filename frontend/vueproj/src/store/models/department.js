@@ -1,4 +1,5 @@
-const stateInt = {
+// 초기값 선언
+const stateInit = {
   Department: {
     id: null,
     name: null,
@@ -12,19 +13,19 @@ const stateInt = {
 export default {
   state: {
     DepartmentList: [],
-    Department: { ...stateInt.Department },
-    // 전역으로 초기화한 stateInt 객체의 property를 각각 풀어서 값만 할당
-    // 값을 한 번 할당 받으면 그 후에 새롭게 stateInt의 프로퍼티 값이 바뀌어도 이 값은 첫 번째 값만을 가지고 있음
-    InsertedResult: null, // 입력 처리 후 결과
-    UpdatedResult: null,
-    InputMode: null,
+    Department: { ...stateInit.Department },
+    InsertedResult: null, // 입력처리 후 결과
+    UpdatedResult: null, // 수정처리 후 결과
+    DeletedResult: null, // 삭제처리 후 결과
+    InputMode: null, // 입력모드(등록: insert, 수정: update)
   },
   getters: {
     DepartmentList: (state) => state.DepartmentList,
     Department: (state) => state.Department,
     DepartmentInsertedResult: (state) => state.InsertedResult,
-    UpdatedResult: (state) => state.UpdatedResult,
-    InputMode: (state) => state.InputMode,
+    DepartmentUpdatedResult: (state) => state.UpdatedResult,
+    DepartmentDeleteResult: (state) => state.DeletedResult,
+    DepartmentInputMode: (state) => state.InputMode,
   },
   mutations: {
     setDepartmentList(state, data) {
@@ -39,6 +40,9 @@ export default {
     setUpdatedResult(state, data) {
       state.UpdatedResult = data;
     },
+    setDeletedResult(state, data) {
+      state.DeletedResult = data;
+    },
     setInputMode(state, data) {
       state.InputMode = data;
     },
@@ -46,8 +50,7 @@ export default {
   actions: {
     // 부서 리스트 조회
     actDepartmentList(context) {
-      console.log("actDepartmentList", departmentList);
-
+      /* 테스트 데이터 세팅 */
       const departmentList = [
         {
           id: 1,
@@ -72,31 +75,37 @@ export default {
       })
       */
     },
-    actDepartmentInsert(context, payload) {
-      console.log(payload);
-
+    // 부서 입력
+    actDepartmentInsert(context) {
       // 상태값 초기화
       context.commit("setInsertedResult", null);
 
+      /* 테스트 데이터 세팅 */
       setTimeout(() => {
         const insertedResult = 1;
         context.commit("setInsertedResult", insertedResult);
-      }, 300);
-    },
+      }, 300); // state값의 변화를 감지하기 위하여 일부러 지연 시켰다.
 
+      /* RestAPI 호출 */
+      /*
+      api.post('/serverApi/departments').then(response => {
+        const insertedResult = response && response.insertedId
+        context.commit('setInsertedResult', insertedResult)
+      })
+      */
+    },
     // 부서정보 초기화
     actDepartmentInit(context) {
-      context.commit("setDepartment", { ...stateInt.Department });
+      context.commit("setDepartment", { ...stateInit.Department });
     },
-
     // 입력모드 설정
-    actDepartmentInputMode(context) {
-      context.commit("setInputMode", { ...stateInt.InputMode });
+    actDepartmentInputMode(context, payload) {
+      context.commit("setInputMode", payload);
     },
-
     // 부서 상세정보 조회
     actDepartmentInfo(context, payload) {
-      context.commit("setDepartment", { ...stateInt.Department });
+      // 상태값 초기화
+      context.commit("setDepartment", { ...stateInit.Department });
 
       /* 테스트 데이터 세팅 */
       setTimeout(() => {
@@ -117,7 +126,7 @@ export default {
           },
         ];
 
-        let department = { ...stateInt.department };
+        let department = { ...stateInit.department };
         for (let i = 0; i < departmentList.length; i += 1) {
           if (payload === departmentList[i].id) {
             department = { ...departmentList[i] };
@@ -134,24 +143,32 @@ export default {
       })
       */
     },
-
     // 부서 수정
     actDepartmentUpdate(context) {
+      // 상태값 초기화
       context.commit("setUpdatedResult", null);
 
+      /* 테스트 데이터 세팅 */
       setTimeout(() => {
         const updatedResult = 1;
         context.commit("setUpdatedResult", updatedResult);
-      }, 300);
+      }, 300); // state값의 변화를 감지하기 위하여 일부러 지연 시켰다.
 
       /* RestAPI 호출 */
       /*
-      // payload에 backend에서 받아온 데이터를 변수로 들어감
       api.put('/serverApi/departments/${payload}').then(response => {
         const updatedResult = response && response.updatedCount
         context.commit('setUpdatedResult', updatedResult)
       })
       */
+    },
+    actDepartmentDelete(context) {
+      context.commit("setDeletedResult", null);
+
+      setTimeout(() => {
+        const deletedResult = 1;
+        context.commit("setDeletedResult", deletedResult);
+      }, 300);
     },
   },
 };
