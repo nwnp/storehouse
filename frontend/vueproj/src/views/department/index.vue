@@ -37,6 +37,7 @@
           >
         </template>
       </b-table>
+      deletedResult: {{ deletedResult }}
     </div>
 
     <!-- inform 영역 -->

@@ -144,9 +144,10 @@ export default {
       */
     },
     // 부서 수정
-    actDepartmentUpdate(context) {
+    actDepartmentUpdate(context, payload) {
       // 상태값 초기화
-      context.commit("setUpdatedResult", null);
+      // console.log(payload);
+      context.commit("setUpdatedResult", payload);
 
       /* 테스트 데이터 세팅 */
       setTimeout(() => {
@@ -162,9 +163,9 @@ export default {
       })
       */
     },
-    actDepartmentDelete(context) {
-      context.commit("setDeletedResult", null);
-
+    actDepartmentDelete(context, payload) {
+      context.commit("setDeletedResult", payload);
+      console.log(payload);
       setTimeout(() => {
         const deletedResult = 1;
         context.commit("setDeletedResult", deletedResult);
