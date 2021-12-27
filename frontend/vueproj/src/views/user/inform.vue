@@ -108,16 +108,18 @@ export default {
     infoData(value) {
       // watch는 변화된 값을 감지를 함
       // value: 감지된 변화된 값을 받아옴
-      console.log("watch.infoData()", value); // 잘 감지했는지 체크하기 위함
+      // console.log("watch.infoData()", value); // 잘 감지했는지 체크하기 위함
 
       // this.user.id = value.id
       // this.user.name = value.name
       // ...
       // 같은 의미의 코드
       this.user = { ...value };
+      this.setDefaultValues();
     },
   },
   created() {
+    this.user = { ...this.infoData };
     this.setDefaultValues();
     this.$store.dispatch("actDepartmentList"); // 부서리스트 조회
   },

@@ -147,7 +147,9 @@ export default {
     actDepartmentUpdate(context, payload) {
       // 상태값 초기화
       // console.log(payload);
-      context.commit("setUpdatedResult", payload);
+      context.commit("setUpdatedResult", null);
+
+      console.log(payload);
 
       /* 테스트 데이터 세팅 */
       setTimeout(() => {

@@ -82,24 +82,22 @@ export default {
     updatedResult() {
       return this.$store.getters.UserUpdatedResult;
     },
+    deletedResult() {
+      return this.$store.getters.UserDeletedResult;
+    },
   },
   watch: {
     insertedResult(value) {
       if (value !== null) {
         if (value > 0) {
-          // 등록이 성공한 경우
-
-          // 1. 메세지 출력
           this.$bvToast.toast("등록 되었습니다.", {
             title: "SUCCESS",
             variant: "success",
             solid: true,
           });
 
-          // 2. 리스트 재 검색
           this.searchUserList();
         } else {
-          // 등록이 실패한 경우
           this.$bvToast.toast("등록이 실패하였습니다.", {
             title: "ERROR",
             variant: "danger",
@@ -111,20 +109,34 @@ export default {
     updatedResult(value) {
       if (value !== null) {
         if (value > 0) {
-          // 등록이 성공한 경우
-
-          // 1. 메세지 출력
           this.$bvToast.toast("수정 되었습니다.", {
             title: "SUCCESS",
             variant: "success",
             solid: true,
           });
 
-          // 2. 리스트 재 검색
           this.searchUserList();
         } else {
-          // 등록이 실패한 경우
-          this.$bvToast.toast("수정이 실패하였습니다.", {
+          this.$bvToast.toast("수정 실패하였습니다.", {
+            title: "ERROR",
+            variant: "danger",
+            solid: true,
+          });
+        }
+      }
+    },
+    deletedResult(value) {
+      if (value !== null) {
+        if (value > 0) {
+          this.$bvToast.toast("삭제 되었습니다.", {
+            title: "SUCCESS",
+            variant: "success",
+            solid: true,
+          });
+
+          this.searchUserList();
+        } else {
+          this.$bvToast.toast("삭제가 실패하였습니다.", {
             title: "ERROR",
             variant: "danger",
             solid: true,
@@ -167,6 +179,11 @@ export default {
     },
     onClickDelete(id) {
       console.log("onClickDelete", id);
+      this.$bvModal.msgBoxConfirm("삭제 하시겠습니까?").then((value) => {
+        if (value) {
+          this.$store.dispatch("actUserDelete", id);
+        }
+      });
     },
   },
 };

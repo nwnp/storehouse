@@ -24,6 +24,7 @@ export default {
     InsertedResult: null,
     InputMode: null, // 입력모드(등록: insert, 수정: update)
     UpdatedResult: null,
+    DeleteResult: null,
   },
   getters: {
     UserList: (state) => state.UserList,
@@ -31,6 +32,7 @@ export default {
     UserInputMode: (state) => state.InputMode,
     UserInsertedResult: (state) => state.InsertedResult,
     UserUpdatedResult: (state) => state.UpdatedResult,
+    UserDeletedResult: (state) => state.DeleteResult,
   },
   mutations: {
     setUserList(state, data) {
@@ -46,7 +48,10 @@ export default {
       state.InsertedResult = data;
     },
     setUpdatedResult(state, data) {
-      state.UpdatedResult = data;
+      state.UserUpdatedResult = data;
+    },
+    setDeletedResult(state, data) {
+      state.DeleteResult = data;
     },
   },
   actions: {
@@ -177,9 +182,18 @@ export default {
     actUserUpdate(context, payload) {
       context.commit("setUpdatedResult", payload);
 
+      // console.log(payload);
       setTimeout(() => {
         const updatedResult = 1;
         context.commit("setUpdatedResult", updatedResult);
+      }, 300);
+    },
+    actUserDelete(context, payload) {
+      context.commit("setDeletedResult", payload);
+
+      setTimeout(() => {
+        const deletedResult = 1;
+        context.commit("setDeletedResult", deletedResult);
       }, 300);
     },
   },
