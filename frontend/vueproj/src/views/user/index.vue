@@ -1,17 +1,18 @@
 <template>
   <div>
     <h1>사용자 관리</h1>
-    <div style="margn-bottom: 5px">
+    <div style="margin-bottom: 5px">
       <b-row>
-        <b-col>
-          <b-input-group>
+        <b-col style="text-align: left">
+          <b-input-group style="width: 250px">
             <b-form-input
               v-model="searchParams"
               placeholder="검색"
-              @keyup.enter="searchUserList"
+              size="sm"
+              @keyup.ctrl.enter="searchUserList"
             ></b-form-input>
             <b-input-group-append>
-              <b-button variant="outline-success" @click="searchUserList()"
+              <b-button variant="primary" size="sm" @click="searchUserList"
                 >검색</b-button
               >
             </b-input-group-append>
@@ -24,36 +25,36 @@
         </b-col>
       </b-row>
     </div>
-    <div>
-      <!-- data -> items(userList) => item(Department) -> (name) ->  -->
-      <b-table striped hover :items="userList" :fields="fields">
-        <template #cell(Department)="data">
-          {{ data.item.Department.name }}
-        </template>
-        <template #cell(updateBtn)="data">
-          <b-button variant="success" @click="onClickEdit(data.item.id)"
-            >수정</b-button
-          >
-          {{ data.item.update }}
-        </template>
-        <template #cell(deleteBtn)="data">
-          <b-button variant="danger" @click="onClickDelete(data.item.id)"
-            >삭제</b-button
-          >
-          {{ data.item.delete }}
-        </template>
-      </b-table>
-    </div>
+    <b-table striped hover :items="userList" :fields="fields">
+      <template #cell(Department)="data">
+        {{ data.item.Department.name }}
+      </template>
+      <template #cell(updateBtn)="data">
+        <b-button variant="success" size="sm" @click="onClickEdit(data.item.id)"
+          >수정</b-button
+        >
+      </template>
+      <template #cell(deleteBtn)="data">
+        <b-button
+          variant="danger"
+          size="sm"
+          @click="onClickDelete(data.item.id)"
+          >삭제</b-button
+        >
+      </template>
+    </b-table>
+
     <!-- 입력 폼 -->
     <inform />
   </div>
 </template>
 
 <script>
-import inform from "./inform.vue";
+import Inform from "./inform.vue";
+
 export default {
   components: {
-    inform: inform,
+    inform: Inform,
   },
   data() {
     return {
@@ -61,7 +62,7 @@ export default {
       fields: [
         { key: "id", label: "id" },
         { key: "name", label: "이름" },
-        { key: "Department", label: "부서Id" },
+        { key: "Department", label: "부서" },
         { key: "userid", label: "아이디" },
         { key: "role", label: "권한" },
         { key: "email", label: "이메일" },
@@ -69,57 +70,103 @@ export default {
         { key: "updateBtn", label: "수정" },
         { key: "deleteBtn", label: "삭제" },
       ],
-
-      userList: [
-        {
-          id: 1,
-          departmentId: 1,
-          name: "홍길동",
-          userid: "hong",
-          role: "leader",
-          email: "hong@email.com",
-          phone: "010-1234-5678",
-          createdAt: "2021-12-01T00:00:00.000Z".substring(0, 10),
-          Department: {
-            id: 1,
-            name: "개발팀",
-            code: "dev",
-            createdAt: "2021-12-01T00:00:00.000Z",
-          },
-        },
-
-        {
-          id: 2,
-          departmentId: 2,
-          name: "김길동",
-          userid: "kim",
-          role: "member",
-          email: "kim@email.com",
-          phone: "010-9876-5432",
-          createdAt: "2021-12-01T00:00:00.000Z".substring(0, 10),
-          Department: {
-            id: 2,
-            name: "영업팀",
-            code: "sales",
-            createdAt: "2021-12-01T00:00:00.000Z",
-          },
-        },
-      ],
     };
+  },
+  computed: {
+    userList() {
+      return this.$store.getters.UserList;
+    },
+    insertedResult() {
+      return this.$store.getters.UserInsertedResult;
+    },
+    updatedResult() {
+      return this.$store.getters.UserUpdatedResult;
+    },
+  },
+  watch: {
+    insertedResult(value) {
+      if (value !== null) {
+        if (value > 0) {
+          // 등록이 성공한 경우
+
+          // 1. 메세지 출력
+          this.$bvToast.toast("등록 되었습니다.", {
+            title: "SUCCESS",
+            variant: "success",
+            solid: true,
+          });
+
+          // 2. 리스트 재 검색
+          this.searchUserList();
+        } else {
+          // 등록이 실패한 경우
+          this.$bvToast.toast("등록이 실패하였습니다.", {
+            title: "ERROR",
+            variant: "danger",
+            solid: true,
+          });
+        }
+      }
+    },
+    updatedResult(value) {
+      if (value !== null) {
+        if (value > 0) {
+          // 등록이 성공한 경우
+
+          // 1. 메세지 출력
+          this.$bvToast.toast("수정 되었습니다.", {
+            title: "SUCCESS",
+            variant: "success",
+            solid: true,
+          });
+
+          // 2. 리스트 재 검색
+          this.searchUserList();
+        } else {
+          // 등록이 실패한 경우
+          this.$bvToast.toast("수정이 실패하였습니다.", {
+            title: "ERROR",
+            variant: "danger",
+            solid: true,
+          });
+        }
+      }
+    },
+  },
+  created() {
+    this.searchUserList();
+    // this.$store.dispatch("actDepartmentList");
   },
   methods: {
     searchUserList() {
-      console.log("searchUserList");
+      this.$store.dispatch("actUserList", this.searchParams);
     },
     onClickAddNew() {
-      console.log("onClickAddNew", this.searchParams);
+      // 1. 입력모드 설정
+      this.$store.dispatch("actUserInputMode", "insert");
+
+      // 초기화 설정
+      this.$store.dispatch("actUserInit");
+
+      // this.$store.dispatch("actUserInsert");
+
+      // 입력 모달 띄우기
       this.$bvModal.show("modal-user-inform");
     },
     onClickEdit(id) {
-      console.log(id);
+      // 1. 입력모드 설정
+      this.$store.dispatch("actUserInputMode", "update");
+
+      // 2. 사용자 정보 조회
+      this.$store.dispatch("actUserInfo", id);
+
+      // this.$store.dispatch("actUserInit", id);
+
+      // 입력 모달 띄우기
+      this.$bvModal.show("modal-user-inform");
     },
     onClickDelete(id) {
-      console.log(id);
+      console.log("onClickDelete", id);
     },
   },
 };
