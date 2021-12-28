@@ -50,49 +50,21 @@ export default {
   actions: {
     // 부서 리스트 조회
     actDepartmentList(context) {
-      /* 테스트 데이터 세팅 */
-      const departmentList = [
-        {
-          id: 1,
-          name: "개발팀",
-          code: "dev",
-          createdAt: "2021-12-01T00:00:00.000Z",
-        },
-        {
-          id: 2,
-          name: "영업팀",
-          code: "sales",
-          createdAt: "2021-12-01T00:00:00.000Z",
-        },
-      ];
-      context.commit("setDepartmentList", departmentList);
-
       /* RestAPI 호출 */
-      /*
-      api.get('/serverApi/departments').then(response => {
-        const departmentList = response && response.data
-        context.commit('setDepartmentList', departmentList)
-      })
-      */
+
+      api.get("/serverApi/departments").then((response) => {
+        const departmentList = response && response.data;
+        context.commit("setDepartmentList", departmentList);
+      });
     },
     // 부서 입력
     actDepartmentInsert(context) {
-      // 상태값 초기화
-      context.commit("setInsertedResult", null);
-
-      /* 테스트 데이터 세팅 */
-      setTimeout(() => {
-        const insertedResult = 1;
-        context.commit("setInsertedResult", insertedResult);
-      }, 300); // state값의 변화를 감지하기 위하여 일부러 지연 시켰다.
-
       /* RestAPI 호출 */
-      /*
-      api.post('/serverApi/departments').then(response => {
-        const insertedResult = response && response.insertedId
-        context.commit('setInsertedResult', insertedResult)
-      })
-      */
+
+      api.post("/serverApi/departments").then((response) => {
+        const insertedResult = response && response.insertedId;
+        context.commit("setInsertedResult", insertedResult);
+      });
     },
     // 부서정보 초기화
     actDepartmentInit(context) {
@@ -104,74 +76,27 @@ export default {
     },
     // 부서 상세정보 조회
     actDepartmentInfo(context, payload) {
-      // 상태값 초기화
-      context.commit("setDepartment", { ...stateInit.Department });
-
-      /* 테스트 데이터 세팅 */
-      setTimeout(() => {
-        const departmentList = [
-          {
-            id: 1,
-            name: "개발팀",
-            code: "dev",
-            description: "개발팀 테스트",
-            createdAt: "2021-12-01T00:00:00.000Z",
-          },
-          {
-            id: 2,
-            name: "영업팀",
-            code: "sales",
-            description: "영업팀 테스트",
-            createdAt: "2021-12-01T00:00:00.000Z",
-          },
-        ];
-
-        let department = { ...stateInit.department };
-        for (let i = 0; i < departmentList.length; i += 1) {
-          if (payload === departmentList[i].id) {
-            department = { ...departmentList[i] };
-          }
-        }
-        context.commit("setDepartment", department);
-      }, 300);
-
       /* RestAPI 호출 */
-      /*
-      api.get('/serverApi/departments/${payload}').then(response => {
-        const department = response && response.department
-        context.commit('setDepartment', department)
-      })
-      */
+
+      api.get("/serverApi/departments/${payload}").then((response) => {
+        const department = response && response.department;
+        context.commit("setDepartment", department);
+      });
     },
     // 부서 수정
     actDepartmentUpdate(context, payload) {
-      // 상태값 초기화
-      // console.log(payload);
-      context.commit("setUpdatedResult", null);
-
-      console.log(payload);
-
-      /* 테스트 데이터 세팅 */
-      setTimeout(() => {
-        const updatedResult = 1;
-        context.commit("setUpdatedResult", updatedResult);
-      }, 300); // state값의 변화를 감지하기 위하여 일부러 지연 시켰다.
-
       /* RestAPI 호출 */
-      /*
-      api.put('/serverApi/departments/${payload}').then(response => {
-        const updatedResult = response && response.updatedCount
-        context.commit('setUpdatedResult', updatedResult)
-      })
-      */
+
+      api.put("/serverApi/departments/${payload}").then((response) => {
+        const updatedResult = response && response.updatedCount;
+        context.commit("setUpdatedResult", updatedResult);
+      });
     },
     actDepartmentDelete(context, payload) {
-      context.commit("setDeletedResult", payload);
-      console.log(payload);
-      setTimeout(() => {
-        const deletedResult = 1;
+      api.delete(`/serverApi/deparments/${payload}`).then((response) => {
+        const deletedResult = response && response.deletedCount;
         context.commit("setDeletedResult", deletedResult);
-      }, 300);
+      });
     },
   },
 };
