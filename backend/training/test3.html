@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>TEST3</h1>
+    <script>
+      const arr = [1, 2, 3, 6, 7, 2, 3];
+      arr.push(34);
+      console.log(arr);
+
+      // 배열 안에 json 구조로 할당
+      const data = [
+        { id: 0, name: "jin" },
+        { id: 1, name: "kim" },
+        { id: 2, name: "name" },
+      ];
+      console.log(data[0].name);
+      console.log(data[1].id);
+
+      let str = "";
+      for (let i = 0; i < 9; i++) {
+        str += i;
+        console.log(`${i}번째 반복`, str);
+      }
+    </script>
+  </body>
+</html>

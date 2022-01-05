@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>TEST2</h1>
+    <script>
+      function Func1() {
+        console.log("함수입니다.");
+      }
+
+      function add(param1, param2) {
+        console.log(`${param1} + ${param2} =`, param1 + param2);
+      }
+
+      const returnAddResult = (param1, param2) =>
+        `${param1} + ${param2} = ${param1 + param2}`;
+
+      Func1();
+      add(1, 2);
+      add(341, 254325236);
+      console.log(returnAddResult(3421, 5421));
+    </script>
+  </body>
+</html>
