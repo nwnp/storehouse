@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Callback & Promise</h1>
+  </body>
+</html>
+<script>
+  const callback = (cb1, cb2, number) => {
+    return cb1(number) + cb2(number);
+  };
+
+  const callback2 = (number) => {
+    return number ** 2;
+  };
+
+  const callback3 = (number) => {
+    return number * 10;
+  };
+  console.log(callback(callback2, callback3, 432, 12));
+
+  const data = new Promise((resolve, reject) => {
+    // pending: 대기상태
+    // resolve: 완료상태
+    // reject: 에러상태
+
+    // throw new Error("임시적 에러");
+
+    resolve("\nfirst data");
+  })
+    .then((res) => {
+      console.log("----------first----------", res);
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          // return res + 1; // 비동기 특성이 있어서 기다려주지 않음 -> promise 객체를 반환
+          resolve(res + "\nfirst promise");
+        }, 1000);
+      });
+      // return res + 1; // 다음 then에 res를 넘겨줄 때는 return문 사용
+    })
+    .then((res) => {
+      console.log("----------second----------", res);
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(res + "\nsecond promise");
+        }, 1000);
+      });
+    })
+    .then((res) => {
+      console.log("\n----------third----------", res);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  console.log(data);
+
+  const data2 = (num) => {
+    return new Promise((resolve, reject) => {
+      if (typeof num === "number") resolve(num);
+      else reject({ code: 500, message: "숫자가 아님" });
+    });
+  };
+
+  data2("2")
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  const data3 = async () => {
+    try {
+      const res1 = await data(2);
+      const res2 = res + 1;
+      console.log("res: ", res);
+      console.log("res1: ", res1);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+</script>

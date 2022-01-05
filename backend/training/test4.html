@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>TEST4</h1>
+    <h2>배열 순회</h2>
+    <li>forEach</li>
+    <li>
+      map
+      <ul>
+        <li>map은 값을 재설정해서 새로운 배열에 할당할 수 있음</li>
+      </ul>
+    </li>
+    <script>
+      const data = [1, 22, 378, 44, 5432, 623, 73, 48, 954, 1240];
+      let result = 0;
+      data.forEach((item, index) => {
+        // forEach는 return 기능이 없음
+        console.log(index, item);
+        result += item;
+      });
+      console.log(result);
+      console.log("==============================================");
+      let dataCopy = [];
+      dataCopy = data.map((item, index) => {
+        // console.log(index, item);
+        return item + 1; // 고정된 값을 return하면 data의 개수만큼 1만 할당됨
+      });
+      console.log(dataCopy);
+      console.log("==============================================");
+      const numbers = [1, 22, 3, 41, 2, 6, 33, 10, 9, 14];
+      const mapResult = numbers.map((item) => item ** 2);
+      console.log(mapResult);
+      console.log("==============================================");
+      const numbers2 = [2, 6, 1, 2, 6, 7, 2, 3];
+      const mapResult2 = numbers2.map((item, index) => item * index);
+      console.log(mapResult2);
+      console.log("==============================================");
+      const movie = [
+        { name: "titanic2" },
+        { name: "titanic23" },
+        { name: "titanic" },
+      ];
+      const movieName = { ...movie };
+      console.log(movieName);
+    </script>
+  </body>
+</html>
