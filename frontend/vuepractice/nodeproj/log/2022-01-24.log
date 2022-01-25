@@ -90,3 +90,50 @@
 2022-01-24 16:39:01.565[info] app start
 2022-01-24 16:39:25.968[info] app start
 2022-01-24 16:39:34.513[info] app start
+2022-01-24 16:53:11.757[info] app start
+2022-01-24 16:53:16.682[info] app start
+2022-01-24 17:00:51.844[info] app start
+2022-01-24 17:00:51.892[info] DB connection success
+2022-01-24 17:02:16.973[info] app start
+2022-01-24 17:02:17.004[info] DB connection success
+2022-01-24 17:02:17.020[info] Sequelize sync success
+2022-01-24 17:02:54.881[info] app start
+2022-01-24 17:02:54.910[info] DB connection success
+2022-01-24 17:02:54.919[info] Sequelize sync success
+2022-01-24 17:13:40.079[info] app start
+2022-01-24 17:13:40.096[error] DB connection fail database "metacamp_dev-" does not exist
+2022-01-24 17:13:51.801[info] app start
+2022-01-24 17:13:51.834[info] DB connection success
+2022-01-24 17:13:51.841[info] Sequelize sync success2022-01-24 17:16:38.915[info] app start
+2022-01-24 17:16:38.950[info] DB connection success
+2022-01-24 17:16:38.959[info] Sequelize sync success
+2022-01-24 17:24:27.825[info] app start
+2022-01-24 17:24:27.858[info] DB connection success
+2022-01-24 17:24:27.865[info] Sequelize sync success
+2022-01-24 17:24:51.161[info] app start
+2022-01-24 17:24:51.193[info] DB connection success
+2022-01-24 17:24:51.200[info] Sequelize sync success
+2022-01-24 17:24:57.588[info] app start
+2022-01-24 17:24:57.621[info] DB connection success
+2022-01-24 17:24:57.629[info] Sequelize sync success
+2022-01-24 17:25:15.119[info] app start
+2022-01-24 17:25:15.149[info] DB connection success
+2022-01-24 17:25:15.160[info] Sequelize sync success
+2022-01-24 17:25:48.362[info] app start
+2022-01-24 17:25:48.412[info] DB connection success
+2022-01-24 17:25:48.420[info] Sequelize sync success
+2022-01-24 17:26:27.984[info] app start
+2022-01-24 17:26:28.022[info] DB connection success
+2022-01-24 17:26:28.048[info] Sequelize sync success
+2022-01-24 17:27:34.125[info] app start
+2022-01-24 17:27:34.155[info] DB connection success
+2022-01-24 17:27:34.165[info] Sequelize sync success
+2022-01-24 17:30:33.102[info] app start
+2022-01-24 17:30:33.138[info] DB connection success
+2022-01-24 17:30:33.147[info] Sequelize sync success
+2022-01-24 17:32:16.646[info] app start
+2022-01-24 17:32:16.689[info] DB connection success
+2022-01-24 17:32:16.697[info] Sequelize sync success
+2022-01-24 17:33:01.168[info] app start
+2022-01-24 17:33:01.198[info] DB connection success
+2022-01-24 17:33:01.205[info] Sequelize sync success

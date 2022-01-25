@@ -9,6 +9,7 @@ const cors = require("cors");
 const corsConfig = require("./config/corsConfig.json");
 // const logger = require("morgan");
 const logger = require("./lib/logger");
+const models = require("./models/index");
 const bodyParser = require("body-parser");
 
 const indexRouter = require("./routes/index");
@@ -19,6 +20,26 @@ const app = express();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+
+// db 연결 확인 및 table 생성
+models.sequelize
+  .authenticate()
+  .then(() => {
+    logger.info("DB connection success");
+
+    // sequelize sync - table 생성
+    models.sequelize
+      .sync()
+      .then(() => {
+        logger.info("Sequelize sync success");
+      })
+      .catch((err) => {
+        logger.error("Sequelize sync error", err);
+      });
+  })
+  .catch((err) => {
+    logger.error("DB connection fail", err);
+  });
 
 // app.use(logger("dev"));
 logger.info("app start");

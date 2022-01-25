@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 const Sequelize = require("sequelize");
 
 module.exports = class Department extends Sequelize.Model {

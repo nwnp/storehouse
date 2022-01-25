@@ -2,6 +2,7 @@
 
 const express = require("express");
 const logger = require("../lib/logger");
+const departmentRouter = require("./department");
 
 const router = express.Router();
 
@@ -21,5 +22,8 @@ router.get("/log-test", (req, res, next) => {
   logger.debug(process.env.LOGGER_LEVEL);
   res.send("log test page");
 });
+
+// department
+router.use("/departments", departmentRouter);
 
 module.exports = router;

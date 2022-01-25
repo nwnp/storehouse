@@ -1,0 +1,85 @@
+2022-01-25 09:30:48.025[info] app start
+2022-01-25 09:30:48.173[info] DB connection success
+2022-01-25 09:30:48.187[info] Sequelize sync success
+2022-01-25 09:33:58.620[info] app start
+2022-01-25 09:33:58.685[info] DB connection success
+2022-01-25 09:33:58.693[info] Sequelize sync success
+2022-01-25 09:39:10.908[info] app start
+2022-01-25 09:39:10.951[info] DB connection success
+2022-01-25 09:39:10.960[info] Sequelize sync success
+2022-01-25 09:39:21.843[info] app start
+2022-01-25 09:39:21.875[info] DB connection success
+2022-01-25 09:39:21.882[info] Sequelize sync success
+2022-01-25 09:44:33.103[info] app start
+2022-01-25 09:44:33.137[info] DB connection success
+2022-01-25 09:44:33.145[info] Sequelize sync success
+2022-01-25 09:45:39.775[info] app start
+2022-01-25 09:45:39.806[info] DB connection success
+2022-01-25 09:45:39.817[info] Sequelize sync success
+2022-01-25 09:46:09.510[info] app start
+2022-01-25 09:46:09.543[info] DB connection success
+2022-01-25 09:46:09.551[info] Sequelize sync success
+2022-01-25 09:46:11.791[info] app start
+2022-01-25 09:46:11.822[info] DB connection success
+2022-01-25 09:46:11.832[info] Sequelize sync success
+2022-01-25 10:06:18.908[info] app start
+2022-01-25 10:06:18.943[info] DB connection success
+2022-01-25 10:06:18.952[info] Sequelize sync success
+2022-01-25 10:06:46.805[info] app start
+2022-01-25 10:06:46.843[info] DB connection success
+2022-01-25 10:06:46.850[info] Sequelize sync success
+2022-01-25 10:07:07.518[info] app start
+2022-01-25 10:07:07.553[info] DB connection success
+2022-01-25 10:07:07.561[info] Sequelize sync success
+2022-01-25 10:07:32.908[info] app start
+2022-01-25 10:07:32.942[info] DB connection success
+2022-01-25 10:07:32.953[info] Sequelize sync success
+2022-01-25 10:10:38.519[info] app start
+2022-01-25 10:10:38.551[info] DB connection success
+2022-01-25 10:10:38.565[info] Sequelize sync success
+2022-01-25 10:23:08.331[info] app start
+2022-01-25 10:23:08.370[info] DB connection success
+2022-01-25 10:23:08.381[info] Sequelize sync success
+2022-01-25 10:23:52.390[info] app start
+2022-01-25 10:23:52.426[info] DB connection success
+2022-01-25 10:23:52.435[info] Sequelize sync success
+2022-01-25 10:24:15.865[info] app start
+2022-01-25 10:24:15.905[info] DB connection success
+2022-01-25 10:24:15.915[info] Sequelize sync success
+2022-01-25 10:24:44.761[info] app start
+2022-01-25 10:24:44.795[info] DB connection success
+2022-01-25 10:24:44.805[info] Sequelize sync success
+2022-01-25 10:25:10.558[info] app start
+2022-01-25 10:25:10.593[info] DB connection success
+2022-01-25 10:25:10.604[info] Sequelize sync success
+2022-01-25 10:25:52.287[info] app start
+2022-01-25 10:25:52.324[info] DB connection success
+2022-01-25 10:25:52.338[info] Sequelize sync success
+2022-01-25 10:26:35.121[info] app start
+2022-01-25 10:26:35.153[info] DB connection success
+2022-01-25 10:26:35.165[info] Sequelize sync success
+2022-01-25 10:26:48.049[info] app start
+2022-01-25 10:26:48.082[info] DB connection success
+2022-01-25 10:26:48.093[info] Sequelize sync success
+2022-01-25 10:27:03.162[info] app start
+2022-01-25 10:27:03.196[info] DB connection success
+2022-01-25 10:27:03.205[info] Sequelize sync success
+2022-01-25 10:27:14.058[info] app start
+2022-01-25 10:27:14.089[info] DB connection success
+2022-01-25 10:27:14.096[info] Sequelize sync success
+2022-01-25 10:49:34.191[info] app start
+2022-01-25 10:49:34.226[info] DB connection success
+2022-01-25 10:49:34.237[info] Sequelize sync success
+2022-01-25 10:51:22.684[info] (department.reg.params) {}
+2022-01-25 10:53:46.211[info] app start
+2022-01-25 10:53:46.243[info] DB connection success
+2022-01-25 10:53:46.252[info] Sequelize sync success
+2022-01-25 10:53:49.379[info] (department.reg.params) {}
+2022-01-25 10:53:49.387[error] Error: Not allowed (name)
+2022-01-25 10:53:49.440[debug] (departmentService.reg) {"id":1,"name":null,"code":null,"description":null,"updatedAt":"2022-01-25T01:53:49.392Z","createdAt":"2022-01-25T01:53:49.392Z","deletedAt":null}
+2022-01-25 10:55:25.336[info] app start
+2022-01-25 10:55:25.372[info] DB connection success
+2022-01-25 10:55:25.379[info] Sequelize sync success
+2022-01-25 10:55:29.710[info] (department.reg.params) {}
+2022-01-25 10:55:29.711[error] Error: Not allowed (name)
+2022-01-25 10:55:29.731[debug] (departmentService.reg) {"id":2,"name":null,"code":null,"description":null,"updatedAt":"2022-01-25T01:55:29.724Z","createdAt":"2022-01-25T01:55:29.724Z","deletedAt":null}
